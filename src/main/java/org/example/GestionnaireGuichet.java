@@ -12,6 +12,15 @@ public class GestionnaireGuichet {
     private ArrayList<Transaction> transactions;
     private double soldeCompteCourrant;
 
+    public GestionnaireGuichet(Compte banque, ArrayList<Client> clients, ArrayList<CompteCheque> comptesCheque, ArrayList<CompteEpargne> comptesEpargne, ArrayList<MargeDeCredit> comptesMarges, ArrayList<CompteHypothecaire> comptesHypotecaire) {
+        this.banque = banque;
+        this.clients = clients;
+        this.comptesCheque = comptesCheque;
+        this.comptesEpargne = comptesEpargne;
+        this.comptesMarges = comptesMarges;
+        this.comptesHypotecaire = comptesHypotecaire;
+    }
+
     public Client validerUtilisateur(){
         return null;
     }
