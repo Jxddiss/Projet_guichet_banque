@@ -1,33 +1,36 @@
 package org.example;
 
 public class Compte {
-    private final String numeroCompte;
+    private final int numeroCompte;
+    private int numeroNip;
     private final String codeClient;
-    private double solde;
+    private double soldeCompte;
+    private double retraitMaximum;
+    private double montantTransfertMaximum;
 
-    public Compte(String numeroCompte, String codeClient) {
+    public Compte(int numeroCompte, String codeClient) {
         this.numeroCompte = numeroCompte;
         this.codeClient = codeClient;
-        this.solde = 0.0;
+        this.soldeCompte = 0.0;
     }
 
     public void deposer(double montant) {
         if (montant > 0) {
-            solde += montant;
+            soldeCompte += montant;
         }
     }
 
     public void retirer(double montant) {
-        if (montant > 0 && montant <= solde) {
-            solde -= montant;
+        if (montant > 0 && montant <= soldeCompte) {
+            soldeCompte -= montant;
         }
     }
 
     public void afficherSolde() {
-        System.out.println("Solde du compte " + numeroCompte + ": " + solde);
+        System.out.println("Solde du compte " + numeroCompte + ": " + soldeCompte);
     }
 
-    public String getNumeroCompte() {
+    public int getNumeroCompte() {
         return numeroCompte;
     }
 
@@ -35,11 +38,11 @@ public class Compte {
         return codeClient;
     }
 
-    public double getSolde() {
-        return solde;
+    public double getSoldeCompte() {
+        return soldeCompte;
     }
 
-    public void setSolde(double solde) {
-        this.solde = solde;
+    public void setSoldeCompte(double soldeCompte) {
+        this.soldeCompte = soldeCompte;
     }
 }

@@ -7,10 +7,10 @@ class MargeDeCredit extends Compte {
 
     @Override
     public void retirer(double montant) {
-        double nvxSolde = getSolde();
+        double nvxSolde = getSoldeCompte();
         if (montant > 0 && montant <= nvxSolde) {
             nvxSolde -= montant;
-            setSolde(nvxSolde);
+            setSoldeCompte(nvxSolde);
         }
     }
 }

@@ -2,7 +2,7 @@ package org.example;
 
 class CompteCheque extends Compte {
 
-    public CompteCheque(String numeroCompte, String codeClient) {
+    public CompteCheque(int numeroCompte, String codeClient) {
         super(numeroCompte, codeClient);
     }
 

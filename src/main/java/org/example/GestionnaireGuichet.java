@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class GestionnaireGuichet {
     private Compte banque;
+    private int codeClient;
     private ArrayList<Client> clients;
     private ArrayList<CompteCheque> comptesCheque;
     private ArrayList<CompteEpargne> comptesEpargne;
@@ -21,12 +22,26 @@ public class GestionnaireGuichet {
         this.comptesHypotecaire = comptesHypotecaire;
     }
 
-    public Client validerUtilisateur(){
+    public Client validerUtilisateur(String nom, int nip){
+        for (Client client:
+                this.clients) {
+            if (client.getPrenom().equals(nom) && client.getNip() == nip){
+                this.codeClient = client.getCodeClient();
+                return client;
+            }
+        }
         return null;
     }
 
-    public void retraitCheque(){
+    public double retraitCheque(int nip, double montant){
+        CompteCheque compteCourrant;
+        for (Compte compteCheque:
+             this.comptesCheque) {
+            if (compteCheque.getCodeClient() == this.codeClient){
+                compteCourrant = compteCheque;
+            }
 
+        }
     }
 
     public void retraitEpargne(){
