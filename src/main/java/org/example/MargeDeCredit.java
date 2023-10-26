@@ -1,7 +1,7 @@
 package org.example;
 
 class MargeDeCredit extends Compte {
-    public MargeDeCredit(String numeroCompte, String codeClient) {
+    public MargeDeCredit(int numeroCompte, int codeClient) {
         super(numeroCompte, codeClient);
     }
 
