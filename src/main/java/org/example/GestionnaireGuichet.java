@@ -34,14 +34,15 @@ public class GestionnaireGuichet {
     }
 
     public double retraitCheque(int nip, double montant){
-        CompteCheque compteCourrant;
+        Compte compteCourrant =null;
         for (Compte compteCheque:
              this.comptesCheque) {
             if (compteCheque.getCodeClient() == this.codeClient){
                 compteCourrant = compteCheque;
             }
-
         }
+        compteCourrant.retirer(montant);
+        return compteCourrant.getSoldeCompte();
     }
 
     public void retraitEpargne(){

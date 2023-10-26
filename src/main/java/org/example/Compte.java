@@ -3,12 +3,12 @@ package org.example;
 public class Compte {
     private final int numeroCompte;
     private int numeroNip;
-    private final String codeClient;
+    private final int codeClient;
     private double soldeCompte;
     private double retraitMaximum;
     private double montantTransfertMaximum;
 
-    public Compte(int numeroCompte, String codeClient) {
+    public Compte(int numeroCompte, int codeClient) {
         this.numeroCompte = numeroCompte;
         this.codeClient = codeClient;
         this.soldeCompte = 0.0;
@@ -34,7 +34,7 @@ public class Compte {
         return numeroCompte;
     }
 
-    public String getCodeClient() {
+    public int getCodeClient() {
         return codeClient;
     }
 
