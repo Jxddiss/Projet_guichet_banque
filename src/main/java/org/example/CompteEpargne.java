@@ -1,8 +1,9 @@
 package org.example;
 
 class CompteEpargne extends Compte {
-
-    public CompteEpargne(int numeroCompte, int codeClient) {
+    private double tauxInteret;
+    public CompteEpargne(int numeroCompte, int codeClient, double tauxInteret) {
         super(numeroCompte, codeClient);
+        this.tauxInteret = tauxInteret;
     }
 }

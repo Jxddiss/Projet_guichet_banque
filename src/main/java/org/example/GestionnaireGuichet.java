@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class GestionnaireGuichet {
-    private Compte banque;
+    private Banque banque;
     private int codeClient;
     private ArrayList<Client> clients;
     private ArrayList<CompteCheque> comptesCheque;
@@ -13,13 +13,8 @@ public class GestionnaireGuichet {
     private ArrayList<Transaction> transactions;
     private double soldeCompteCourrant;
 
-    public GestionnaireGuichet(Compte banque, ArrayList<Client> clients, ArrayList<CompteCheque> comptesCheque, ArrayList<CompteEpargne> comptesEpargne, ArrayList<MargeDeCredit> comptesMarges, ArrayList<CompteHypothecaire> comptesHypotecaire) {
+    public GestionnaireGuichet(Banque banque) {
         this.banque = banque;
-        this.clients = clients;
-        this.comptesCheque = comptesCheque;
-        this.comptesEpargne = comptesEpargne;
-        this.comptesMarges = comptesMarges;
-        this.comptesHypotecaire = comptesHypotecaire;
     }
 
     public Client validerUtilisateur(String nom, int nip){
@@ -73,7 +68,7 @@ public class GestionnaireGuichet {
 
     }
 
-    public void creerCompte(){
+    public void creerCompte(String type){
 
     }
 }

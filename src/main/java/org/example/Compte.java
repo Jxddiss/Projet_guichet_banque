@@ -1,12 +1,12 @@
 package org.example;
 
 public class Compte {
-    private final int numeroCompte;
-    private int numeroNip;
-    private final int codeClient;
-    private double soldeCompte;
-    private double retraitMaximum;
-    private double montantTransfertMaximum;
+    protected final int numeroCompte;
+    protected int numeroNip;
+    protected final int codeClient;
+    protected double soldeCompte;
+    protected double retraitMaximum;
+    protected double montantTransfertMaximum;
 
     public Compte(int numeroCompte, int codeClient) {
         this.numeroCompte = numeroCompte;
