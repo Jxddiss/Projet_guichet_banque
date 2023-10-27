@@ -1,12 +1,11 @@
 package org.example;
 
 public class Banque extends Compte{
-    private final double montantMaximum;
+    private final double montantMaximum = 20000;
     private final double montantRemplissage;
 
-    public Banque(int numeroCompte, int codeClient, double montantMaximum, double montantRemplissage) {
-        super(numeroCompte, codeClient);
-        this.montantMaximum = montantMaximum;
+    public Banque(int numeroCompte, int codeClient, double montantRemplissage) {
+        super(numeroCompte);
         this.montantRemplissage = montantRemplissage;
     }
 

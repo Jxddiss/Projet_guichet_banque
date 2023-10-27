@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Client {
 
     private int codeClient;
@@ -8,6 +10,7 @@ public class Client {
     private String telephone;
     private String couriel;
     private int nip;
+    private ArrayList<Compte> comptes;
 
     public Client(int codeClient, String prenom, String nom, String telephone, String couriel, int nip) {
         this.codeClient = codeClient;
@@ -16,6 +19,7 @@ public class Client {
         this.telephone = telephone;
         this.couriel = couriel;
         this.nip = nip;
+        this.comptes = new ArrayList<>();
     }
 
     public int getCodeClient(){
@@ -30,4 +34,7 @@ public class Client {
         return nip;
     }
 
+    public ArrayList<Compte> getComptes() {
+        return comptes;
+    }
 }

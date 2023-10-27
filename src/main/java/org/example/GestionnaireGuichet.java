@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GestionnaireGuichet {
     private Banque banque;
-    private int codeClient;
+    private Client client;
     private ArrayList<Client> clients;
     private ArrayList<CompteCheque> comptesCheque;
     private ArrayList<CompteEpargne> comptesEpargne;
@@ -21,7 +21,7 @@ public class GestionnaireGuichet {
         for (Client client:
                 this.clients) {
             if (client.getPrenom().equals(nom) && client.getNip() == nip){
-                this.codeClient = client.getCodeClient();
+                this.client = client;
                 return client;
             }
         }
@@ -30,30 +30,62 @@ public class GestionnaireGuichet {
 
     public double retraitCheque(int nip, double montant){
         Compte compteCourrant =null;
-        for (Compte compteCheque:
-             this.comptesCheque) {
-            if (compteCheque.getCodeClient() == this.codeClient){
-                compteCourrant = compteCheque;
-            }
+        for (Compte compte:
+             client.getComptes()) {
+            if (compte instanceof CompteCheque)
+                compteCourrant = compte;
         }
-        compteCourrant.retirer(montant);
-        return compteCourrant.getSoldeCompte();
+        if (compteCourrant!= null){
+            compteCourrant.retirer(montant);
+            return compteCourrant.getSoldeCompte();
+        }
+        return -1;
     }
 
-    public void retraitEpargne(){
-
+    public double retraitEpargne(double montant){
+        Compte compteCourrant =null;
+        for (Compte compte:
+                client.getComptes()) {
+            if (compte instanceof CompteEpargne)
+                compteCourrant = compte;
+        }
+        if (compteCourrant!= null){
+            compteCourrant.retirer(montant);
+            return compteCourrant.getSoldeCompte();
+        }
+        return -1;
     }
 
-    public void depotCheque(){
-
+    public double depotCheque(double montant){
+        Compte compteCourrant =null;
+        for (Compte compte:
+                client.getComptes()) {
+            if (compte instanceof CompteCheque)
+                compteCourrant = compte;
+        }
+        if (compteCourrant!= null){
+            compteCourrant.deposer(montant);
+            return compteCourrant.getSoldeCompte();
+        }
+        return -1;
     }
 
-    public void depotEpargne(){
-
+    public double depotEpargne(double montant){
+        Compte compteCourrant =null;
+        for (Compte compte:
+                client.getComptes()) {
+            if (compte instanceof CompteEpargne)
+                compteCourrant = compte;
+        }
+        if (compteCourrant!= null){
+            compteCourrant.deposer(montant);
+            return compteCourrant.getSoldeCompte();
+        }
+        return -1;
     }
 
-    public void paiementFacture(){
-
+    public boolean paiementFacture(){
+        return false;
     }
 
     public void transfertFond(){
