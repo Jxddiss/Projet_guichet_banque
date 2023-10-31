@@ -33,7 +33,12 @@ public class GestionnaireGuichet {
         return false;
     }
 
-    public double retraitCheque(int nip, double montant, int numCompte){
+    /**
+     *
+     * @param montant
+     * @param numCompte
+     * */
+    public double retraitCheque( double montant, int numCompte){
         Compte compteCourrant =null;
         double soldeAvant;
         for (Compte compte:
@@ -58,6 +63,11 @@ public class GestionnaireGuichet {
         return -1;
     }
 
+    /**
+     *
+     * @param montant
+     * @param numCompte
+     * */
     public double retraitEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
         double soldeAvant;
@@ -83,6 +93,11 @@ public class GestionnaireGuichet {
         return -1;
     }
 
+    /**
+     *
+     * @param montant
+     * @param numCompte
+     * */
     public double depotCheque(double montant, int numCompte){
         Compte compteCourrant =null;
         for (Compte compte:
@@ -97,6 +112,11 @@ public class GestionnaireGuichet {
         return -1;
     }
 
+    /**
+     *
+     * @param montant
+     * @param numCompte
+     * */
     public double depotEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
         for (Compte compte:
@@ -111,6 +131,11 @@ public class GestionnaireGuichet {
         return -1;
     }
 
+    /**
+     *
+     * @param montant
+     * @param numCompte
+     * */
     public boolean paiementFacture(double montant, int numCompte){
         double soldeAvant;
         CompteCheque compteCourrant =null;
@@ -128,6 +153,12 @@ public class GestionnaireGuichet {
         return false;
     }
 
+    /**
+     *
+     * @param numCompteProv
+     * @param numCompteDest
+     * @param montant
+     * */
     public boolean transfertFond(int numCompteProv, int numCompteDest, double montant){
         Compte compteProv = null;
         Compte compteDest = null;
@@ -150,6 +181,10 @@ public class GestionnaireGuichet {
         return false;
     }
 
+    /**
+     *
+     * @param numCompte
+     * */
     public double afficherSoldeCompte(int numCompte){
         for (Compte compte:
              this.client.getComptes()) {
@@ -160,10 +195,27 @@ public class GestionnaireGuichet {
         return -1;
     }
 
+    /**
+     *
+     * @param codeClient
+     * @param prenom
+     * @param nom
+     * @param telephone
+     * @param couriel
+     * @param nip
+     * */
     public void creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
         this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
     }
 
+    /**
+     *
+     * @param type
+     * @param numeroCompte
+     * @param montantTransfertMaximum
+     * @param montantFactureMaximum
+     * @param tauxInteret
+     * */
     public void creerCompte(String type, int numeroCompte, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
         switch (type){
             case "cheque":
