@@ -28,39 +28,51 @@ public class GestionnaireGuichet {
         return false;
     }
 
-    public double retraitCheque(int nip, double montant){
+    public double retraitCheque(int nip, double montant, int numCompte){
         Compte compteCourrant =null;
+        double soldeAvant;
         for (Compte compte:
              client.getComptes()) {
-            if (compte instanceof CompteCheque)
+            if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
+            soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant);
-            return compteCourrant.getSoldeCompte();
+            if (soldeAvant != compteCourrant.getSoldeCompte()){
+                return compteCourrant.getSoldeCompte();
+            }else {
+                return -1;
+            }
         }
         return -1;
     }
 
-    public double retraitEpargne(double montant){
+    public double retraitEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
+        double soldeAvant;
         for (Compte compte:
                 client.getComptes()) {
-            if (compte instanceof CompteEpargne)
+            if (compte.getNumeroCompte() == numCompte && compte.getType().equals("epargne"))
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
+            soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant);
-            return compteCourrant.getSoldeCompte();
+            if (soldeAvant != compteCourrant.getSoldeCompte()){
+                return compteCourrant.getSoldeCompte();
+            }else {
+                return -1;
+            }
         }
         return -1;
     }
 
-    public double depotCheque(double montant){
+    public double depotCheque(double montant, int numCompte){
         Compte compteCourrant =null;
         for (Compte compte:
                 client.getComptes()) {
-            if (compte instanceof CompteCheque)
+            if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
@@ -70,11 +82,11 @@ public class GestionnaireGuichet {
         return -1;
     }
 
-    public double depotEpargne(double montant){
+    public double depotEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
         for (Compte compte:
                 client.getComptes()) {
-            if (compte instanceof CompteEpargne)
+            if (compte.getNumeroCompte() == numCompte && compte.getType().equals("epargne"))
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
@@ -84,20 +96,32 @@ public class GestionnaireGuichet {
         return -1;
     }
 
-    public boolean paiementFacture(){
+    public boolean paiementFacture(double montant, int numCompte){
+        double soldeAvant;
+        Compte compteCourrant =null;
+        for (Compte compte:
+                client.getComptes()) {
+            if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
+                compteCourrant = compte;
+        }
+        if (compteCourrant!= null){
+            soldeAvant = compteCourrant.getSoldeCompte();
+            compteCourrant.retirer(montant);
+            return soldeAvant != compteCourrant.getSoldeCompte();
+        }
         return false;
     }
 
-    public void transfertFond(){
+    public void transfertFond(int numCompteProv, int numCompteDest){
 
     }
 
-    public double afficherSoldeCompte(){
+    public double afficherSoldeCompte(int numCompte){
         return this.soldeCompteCourrant;
     }
 
-    public void creerClient(){
-
+    public void creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
+        this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
     }
 
     public void creerCompte(String type){

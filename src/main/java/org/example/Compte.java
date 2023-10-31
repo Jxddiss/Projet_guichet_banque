@@ -8,9 +8,12 @@ public class Compte {
     protected double montantTransfertMaximum;
     protected String type;
 
-    public Compte(int numeroCompte) {
+    public Compte(int numeroCompte, int nip, double retraitMaximum, double montantTransfertMaximum) {
         this.numeroCompte = numeroCompte;
         this.soldeCompte = 0.0;
+        this.numeroNip = nip;
+        this.retraitMaximum = retraitMaximum;
+        this.montantTransfertMaximum = montantTransfertMaximum;
     }
 
     public void deposer(double montant) {
@@ -39,5 +42,9 @@ public class Compte {
 
     public void setSoldeCompte(double soldeCompte) {
         this.soldeCompte = soldeCompte;
+    }
+
+    public String getType() {
+        return type;
     }
 }

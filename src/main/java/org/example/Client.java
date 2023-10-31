@@ -37,4 +37,8 @@ public class Client {
     public ArrayList<Compte> getComptes() {
         return comptes;
     }
+
+    public void ajouterCompte(){
+
+    }
 }
