@@ -47,4 +47,16 @@ public class Compte {
     public String getType() {
         return type;
     }
+
+    public int getNumeroNip() {
+        return numeroNip;
+    }
+
+    public double getRetraitMaximum() {
+        return retraitMaximum;
+    }
+
+    public double getMontantTransfertMaximum() {
+        return montantTransfertMaximum;
+    }
 }

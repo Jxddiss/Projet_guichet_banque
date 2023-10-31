@@ -37,8 +37,13 @@ public class GestionnaireGuichet {
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
+            if (montant > compteCourrant.retraitMaximum){
+                return -1;
+            }
+
             soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant);
+
             if (soldeAvant != compteCourrant.getSoldeCompte()){
                 return compteCourrant.getSoldeCompte();
             }else {
@@ -57,8 +62,13 @@ public class GestionnaireGuichet {
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
+            if (montant > compteCourrant.retraitMaximum){
+                return -1;
+            }
+
             soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant);
+
             if (soldeAvant != compteCourrant.getSoldeCompte()){
                 return compteCourrant.getSoldeCompte();
             }else {
@@ -98,15 +108,16 @@ public class GestionnaireGuichet {
 
     public boolean paiementFacture(double montant, int numCompte){
         double soldeAvant;
-        Compte compteCourrant =null;
+        CompteCheque compteCourrant =null;
         for (Compte compte:
                 client.getComptes()) {
             if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
-                compteCourrant = compte;
+                compteCourrant = (CompteCheque) compte;
         }
         if (compteCourrant!= null){
             soldeAvant = compteCourrant.getSoldeCompte();
-            compteCourrant.retirer(montant);
+            compteCourrant.retirer(montant + compteCourrant.getFraisPaiementFacture());
+
             return soldeAvant != compteCourrant.getSoldeCompte();
         }
         return false;
@@ -124,7 +135,17 @@ public class GestionnaireGuichet {
         this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
     }
 
-    public void creerCompte(String type){
+    public void creerCompte(String type, int numeroCompte, int nip, double retraitMaximum, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
+        switch (type){
+            case "cheque":
+                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                this.comptesCheque.add(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+            case "epargne":
 
+            case "marge":
+
+            case "banque":
+
+        }
     }
 }

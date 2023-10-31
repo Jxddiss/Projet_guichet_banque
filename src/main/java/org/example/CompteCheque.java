@@ -11,4 +11,11 @@ class CompteCheque extends Compte {
         super.type = "cheque";
     }
 
+    public double getFraisPaiementFacture() {
+        return fraisPaiementFacture;
+    }
+
+    public double getMontantFactureMaximum() {
+        return montantFactureMaximum;
+    }
 }

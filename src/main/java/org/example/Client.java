@@ -38,7 +38,7 @@ public class Client {
         return comptes;
     }
 
-    public void ajouterCompte(){
+    public void ajouterCompte(Compte compte){
 
     }
 }
