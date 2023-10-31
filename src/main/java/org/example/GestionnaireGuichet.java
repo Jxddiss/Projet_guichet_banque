@@ -6,10 +6,6 @@ public class GestionnaireGuichet {
     private Banque banque;
     private Client client;
     private ArrayList<Client> clients;
-    private ArrayList<CompteCheque> comptesCheque;
-    private ArrayList<CompteEpargne> comptesEpargne;
-    private ArrayList<MargeDeCredit> comptesMarges;
-    private ArrayList<CompteHypothecaire> comptesHypotecaire;
     private ArrayList<Transaction> transactions;
     private double soldeCompteCourrant;
 
@@ -163,15 +159,12 @@ public class GestionnaireGuichet {
         switch (type){
             case "cheque":
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
-                this.comptesCheque.add(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "epargne":
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
-                this.comptesEpargne.add(new CompteEpargne(numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "marge":
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
-                this.comptesMarges.add(new MargeDeCredit( numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "Hypothécaire":
                 break;
