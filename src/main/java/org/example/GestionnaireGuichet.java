@@ -18,13 +18,13 @@ public class GestionnaireGuichet {
 
     /**
      *
-     * @param nom
+     * @param codeClient
      * @param nip
      * */
-    public boolean validerUtilisateur(String nom, int nip){
+    public boolean validerUtilisateur(int codeClient, int nip){
         for (Client client:
                 this.clients) {
-            if (client.getPrenom().equals(nom) && client.getNip() == nip){
+            if (client.getCodeClient() == codeClient && client.getNip() == nip){
                 this.client = client;
                 return true;
             }
