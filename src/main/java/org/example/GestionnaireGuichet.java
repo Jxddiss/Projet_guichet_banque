@@ -7,9 +7,8 @@ public class GestionnaireGuichet {
     private Client client;
     private ArrayList<Client> clients;
     private ArrayList<Transaction> transactions;
-    private double soldeCompteCourrant;
 
-    public GestionnaireGuichet(Banque banque) {
+    public GestionnaireGuichet(Banque banque, Client admin) {
         this.banque = banque;
     }
 
@@ -161,12 +160,13 @@ public class GestionnaireGuichet {
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "epargne":
-                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                this.client.ajouterCompte(new CompteEpargne(numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "marge":
-                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                this.client.ajouterCompte(new MargeDeCredit(numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             case "Hypothécaire":
+                this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, nip, retraitMaximum, montantTransfertMaximum));
                 break;
             default:
                 System.out.println("Type de compte non existant");

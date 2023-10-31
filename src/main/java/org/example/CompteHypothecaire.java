@@ -2,7 +2,7 @@ package org.example;
 
 class CompteHypothecaire extends Compte {
 
-    public CompteHypothecaire(String numeroCompte, String codeClient) {
-        super(numeroCompte, codeClient);
+    public CompteHypothecaire(int numeroCompte, int nip, double retraitMaximum, double montantTransfertMaximum) {
+        super(numeroCompte, nip, retraitMaximum, montantTransfertMaximum);
     }
 }
