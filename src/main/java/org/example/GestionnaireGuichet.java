@@ -123,8 +123,26 @@ public class GestionnaireGuichet {
         return false;
     }
 
-    public void transfertFond(int numCompteProv, int numCompteDest, double montant){
+    public boolean transfertFond(int numCompteProv, int numCompteDest, double montant){
+        Compte compteProv = null;
+        Compte compteDest = null;
+        for (Compte compte:
+             this.client.getComptes()) {
+            if (compte.getNumeroCompte() == numCompteProv){
+                compteProv = compte;
+            }
 
+            if (compte.getNumeroCompte() == numCompteDest){
+                compteDest = compte;
+            }
+        }
+
+        if (compteDest != null && compteProv != null){
+            compteProv.retirer(montant);
+            compteDest.deposer(montant);
+            return true;
+        }
+        return false;
     }
 
     public double afficherSoldeCompte(int numCompte){
