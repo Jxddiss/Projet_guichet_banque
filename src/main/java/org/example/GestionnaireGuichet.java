@@ -123,7 +123,7 @@ public class GestionnaireGuichet {
         return false;
     }
 
-    public void transfertFond(int numCompteProv, int numCompteDest){
+    public void transfertFond(int numCompteProv, int numCompteDest, double montant){
 
     }
 
@@ -140,12 +140,18 @@ public class GestionnaireGuichet {
             case "cheque":
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
                 this.comptesCheque.add(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                break;
             case "epargne":
-
+                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                this.comptesEpargne.add(new CompteEpargne(numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
+                break;
             case "marge":
-
-            case "banque":
-
+                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
+                this.comptesMarges.add(new MargeDeCredit( numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
+                break;
+            default:
+                System.out.println("Type de compte non existant");
+                break;
         }
     }
 }
