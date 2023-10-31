@@ -14,6 +14,8 @@ public class GestionnaireGuichet {
      * */
     public GestionnaireGuichet(Banque banque) {
         this.banque = banque;
+        this.clients = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     /**
@@ -203,8 +205,8 @@ public class GestionnaireGuichet {
      * @param couriel
      * @param nip
      * */
-    public void creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
-        this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
+    public boolean creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
+        return this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
     }
 
     /**
@@ -226,7 +228,7 @@ public class GestionnaireGuichet {
             case "marge":
                 this.client.ajouterCompte(new MargeDeCredit(numeroCompte, tauxInteret, montantTransfertMaximum));
                 break;
-            case "Hypothécaire":
+            case "Hypotheque":
                 this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, montantTransfertMaximum));
                 break;
             default:

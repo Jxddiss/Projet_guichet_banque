@@ -39,6 +39,6 @@ public class Client {
     }
 
     public void ajouterCompte(Compte compte){
-
+        this.comptes.add(compte);
     }
 }
