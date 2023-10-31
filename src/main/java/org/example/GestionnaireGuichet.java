@@ -8,10 +8,20 @@ public class GestionnaireGuichet {
     private ArrayList<Client> clients;
     private ArrayList<Transaction> transactions;
 
+    /**
+     *
+     * @param banque
+     * @param admin
+     * */
     public GestionnaireGuichet(Banque banque, Client admin) {
         this.banque = banque;
     }
 
+    /**
+     *
+     * @param nom
+     * @param nip
+     * */
     public boolean validerUtilisateur(String nom, int nip){
         for (Client client:
                 this.clients) {
@@ -154,19 +164,19 @@ public class GestionnaireGuichet {
         this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
     }
 
-    public void creerCompte(String type, int numeroCompte, int nip, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
+    public void creerCompte(String type, int numeroCompte, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
         switch (type){
             case "cheque":
-                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, montantTransfertMaximum));
+                this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, montantTransfertMaximum));
                 break;
             case "epargne":
-                this.client.ajouterCompte(new CompteEpargne(numeroCompte, tauxInteret, nip, montantTransfertMaximum));
+                this.client.ajouterCompte(new CompteEpargne(numeroCompte, tauxInteret, montantTransfertMaximum));
                 break;
             case "marge":
-                this.client.ajouterCompte(new MargeDeCredit(numeroCompte, tauxInteret, nip, montantTransfertMaximum));
+                this.client.ajouterCompte(new MargeDeCredit(numeroCompte, tauxInteret, montantTransfertMaximum));
                 break;
             case "Hypothécaire":
-                this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, nip, montantTransfertMaximum));
+                this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, montantTransfertMaximum));
                 break;
             default:
                 System.out.println("Type de compte non existant");

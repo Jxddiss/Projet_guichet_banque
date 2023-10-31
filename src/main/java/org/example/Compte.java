@@ -2,16 +2,14 @@ package org.example;
 
 public class Compte {
     protected final int numeroCompte;
-    protected int numeroNip;
     protected double soldeCompte;
     protected final double retraitMaximum = 1000;
     protected double montantTransfertMaximum;
     protected String type;
 
-    public Compte(int numeroCompte, int nip, double montantTransfertMaximum) {
+    public Compte(int numeroCompte, double montantTransfertMaximum) {
         this.numeroCompte = numeroCompte;
         this.soldeCompte = 0.0;
-        this.numeroNip = nip;
         this.montantTransfertMaximum = montantTransfertMaximum;
     }
 
@@ -45,10 +43,6 @@ public class Compte {
 
     public String getType() {
         return type;
-    }
-
-    public int getNumeroNip() {
-        return numeroNip;
     }
 
     public double getRetraitMaximum() {

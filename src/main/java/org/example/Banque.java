@@ -4,8 +4,8 @@ public class Banque extends Compte{
     private final double montantMaximum = 20000;
     private final double montantRemplissage;
 
-    public Banque(int numeroCompte, double montantRemplissage, int nip,double montantTransfertMaximum) {
-        super(numeroCompte, nip, montantTransfertMaximum);
+    public Banque(int numeroCompte, double montantRemplissage, double montantTransfertMaximum) {
+        super(numeroCompte, montantTransfertMaximum);
         this.montantRemplissage = montantRemplissage;
         super.type = "banque";
     }
