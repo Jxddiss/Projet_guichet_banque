@@ -11,9 +11,8 @@ public class GestionnaireGuichet {
     /**
      *
      * @param banque
-     * @param admin
      * */
-    public GestionnaireGuichet(Banque banque, Client admin) {
+    public GestionnaireGuichet(Banque banque) {
         this.banque = banque;
     }
 

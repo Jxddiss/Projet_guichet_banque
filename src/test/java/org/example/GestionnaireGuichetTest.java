@@ -8,12 +8,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GestionnaireGuichetTest {
 
+    private GestionnaireGuichet gestionnaireGuichet;
+    private Banque banque;
+
     @BeforeEach
     void setUp() {
+        banque = new Banque(1,10000,100000);
+        gestionnaireGuichet = new GestionnaireGuichet(banque);
     }
 
     @AfterEach
     void tearDown() {
+        banque = null;
+        gestionnaireGuichet = null;
     }
 
     @Test
