@@ -7,6 +7,7 @@ public class Banque extends Compte{
     public Banque(int numeroCompte, int codeClient, double montantRemplissage) {
         super(numeroCompte);
         this.montantRemplissage = montantRemplissage;
+        super.type = "banque";
     }
 
     public void remplirGuichet(){

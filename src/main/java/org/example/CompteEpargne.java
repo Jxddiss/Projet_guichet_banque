@@ -5,5 +5,6 @@ class CompteEpargne extends Compte {
     public CompteEpargne(int numeroCompte, int codeClient, double tauxInteret) {
         super(numeroCompte);
         this.tauxInteret = tauxInteret;
+        super.type = "epargne";
     }
 }

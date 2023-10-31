@@ -17,15 +17,15 @@ public class GestionnaireGuichet {
         this.banque = banque;
     }
 
-    public Client validerUtilisateur(String nom, int nip){
+    public boolean validerUtilisateur(String nom, int nip){
         for (Client client:
                 this.clients) {
             if (client.getPrenom().equals(nom) && client.getNip() == nip){
                 this.client = client;
-                return client;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
     public double retraitCheque(int nip, double montant){

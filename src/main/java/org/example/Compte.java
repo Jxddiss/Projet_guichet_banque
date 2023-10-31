@@ -6,6 +6,7 @@ public class Compte {
     protected double soldeCompte;
     protected double retraitMaximum;
     protected double montantTransfertMaximum;
+    protected String type;
 
     public Compte(int numeroCompte) {
         this.numeroCompte = numeroCompte;
