@@ -146,7 +146,13 @@ public class GestionnaireGuichet {
     }
 
     public double afficherSoldeCompte(int numCompte){
-        return this.soldeCompteCourrant;
+        for (Compte compte:
+             this.client.getComptes()) {
+            if (compte.getNumeroCompte() == numCompte){
+                return compte.soldeCompte;
+            }
+        }
+        return -1;
     }
 
     public void creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
@@ -166,6 +172,8 @@ public class GestionnaireGuichet {
             case "marge":
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, montantFactureMaximum, nip, retraitMaximum, montantTransfertMaximum));
                 this.comptesMarges.add(new MargeDeCredit( numeroCompte, tauxInteret, nip, retraitMaximum, montantTransfertMaximum));
+                break;
+            case "Hypothécaire":
                 break;
             default:
                 System.out.println("Type de compte non existant");
