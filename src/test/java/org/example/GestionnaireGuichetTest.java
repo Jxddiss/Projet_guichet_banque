@@ -82,6 +82,7 @@ class GestionnaireGuichetTest {
         gestionnaireGuichet.creerCompte("epargne",2,1000,1000,0.03);
         gestionnaireGuichet.creerCompte("marge",3,10000,2000,0);
         gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000,0.3);
+
     }
 
     @Test
@@ -90,7 +91,10 @@ class GestionnaireGuichetTest {
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
         gestionnaireGuichet.creerCompte("epargne",2,1000,1000,0.03);
         gestionnaireGuichet.creerCompte("marge",3,10000,2000,0);
-        gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000,0.3);
+        gestionnaireGuichet.creerCompte("hypotheque",4,1000,1000,0.3);
+        gestionnaireGuichet.depotCheque(1000, 1);
+        assertTrue(gestionnaireGuichet.transfertFond(1, 2, 300));
+
     }
 
     @Test
