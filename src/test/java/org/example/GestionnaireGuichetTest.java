@@ -108,6 +108,9 @@ class GestionnaireGuichetTest {
 
     @Test
     void creerCompte() {
+        gestionnaireGuichet.validerUtilisateur(101,1222);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
+        assertEquals(1, gestionnaireGuichet.getClient().getComptes().size());
     }
 
     static Stream<Arguments> compteClients(){
