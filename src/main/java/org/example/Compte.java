@@ -2,13 +2,15 @@ package org.example;
 
 public class Compte {
     protected final int numeroCompte;
+    protected int codeClient;
     protected double soldeCompte;
     protected final double retraitMaximum = 1000;
     protected double montantTransfertMaximum;
     protected String type;
 
-    public Compte(int numeroCompte, double montantTransfertMaximum) {
+    public Compte(int numeroCompte, int codeClient,  double montantTransfertMaximum) {
         this.numeroCompte = numeroCompte;
+        this.codeClient = codeClient;
         this.soldeCompte = 0.0;
         this.montantTransfertMaximum = montantTransfertMaximum;
     }

@@ -5,8 +5,8 @@ class CompteCheque extends Compte {
     private final double montantFactureMaximum;
 
 
-    public CompteCheque(int numeroCompte, double montantFactureMaximum,   double montantTransfertMaximum) {
-        super(numeroCompte, montantTransfertMaximum);
+    public CompteCheque(int numeroCompte,int codeClient, double montantFactureMaximum,   double montantTransfertMaximum) {
+        super(numeroCompte,codeClient, montantTransfertMaximum);
         this.montantFactureMaximum = montantFactureMaximum;
         super.type = "cheque";
     }

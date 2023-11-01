@@ -2,8 +2,8 @@ package org.example;
 
 class MargeDeCredit extends Compte {
     private final double tauxInteret;
-    public MargeDeCredit(int numeroCompte, double tauxInteret,  double montantTransfertMaximum) {
-        super(numeroCompte, montantTransfertMaximum);
+    public MargeDeCredit(int numeroCompte,int codeClient, double tauxInteret,  double montantTransfertMaximum) {
+        super(numeroCompte,codeClient, montantTransfertMaximum);
         this.tauxInteret = tauxInteret;
         super.type = "marge";
     }
