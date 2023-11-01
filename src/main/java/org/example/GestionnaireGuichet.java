@@ -19,6 +19,10 @@ public class GestionnaireGuichet {
         this.transactions = new ArrayList<>();
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     /**
      *
      * @param codeClient
