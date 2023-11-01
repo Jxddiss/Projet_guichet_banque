@@ -82,6 +82,8 @@ class GestionnaireGuichetTest {
         gestionnaireGuichet.creerCompte("epargne",2,1000,1000,0.03);
         gestionnaireGuichet.creerCompte("marge",3,10000,2000,0);
         gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000,0.3);
+        gestionnaireGuichet.depotCheque(100, 1);
+        assertTrue(gestionnaireGuichet.paiementFacture(55, 1));
 
     }
 
