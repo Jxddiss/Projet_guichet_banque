@@ -63,7 +63,7 @@ public class GestionnaireGuichet {
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
-            if (montant > compteCourrant.retraitMaximum){
+            if (montant > compteCourrant.retraitMaximum && montant % 10 != 0){
                 return -1;
             }
 
@@ -94,7 +94,7 @@ public class GestionnaireGuichet {
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
-            if (montant > compteCourrant.retraitMaximum){
+            if (montant > compteCourrant.retraitMaximum  && montant % 10 != 0){
                 return -1;
             }
 
