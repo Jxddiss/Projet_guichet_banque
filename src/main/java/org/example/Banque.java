@@ -5,7 +5,7 @@ public class Banque extends Compte{
     private final double montantRemplissage;
 
     public Banque(int numeroCompte, double montantRemplissage, double montantTransfertMaximum) {
-        super(numeroCompte, montantTransfertMaximum);
+        super(numeroCompte,0, montantTransfertMaximum);
         this.montantRemplissage = montantRemplissage;
         super.type = "banque";
     }
