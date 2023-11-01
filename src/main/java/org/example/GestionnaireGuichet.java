@@ -187,6 +187,7 @@ public class GestionnaireGuichet {
     public boolean transfertFond(int numCompteProv, int numCompteDest, double montant){
         Compte compteProv = null;
         Compte compteDest = null;
+        double soldeAvant;
         for (Compte compte:
              this.client.getComptes()) {
             if (compte.getNumeroCompte() == numCompteProv){
@@ -199,9 +200,10 @@ public class GestionnaireGuichet {
         }
 
         if (compteDest != null && compteProv != null && compteProv.getType().equals("cheque")){
+            soldeAvant = compteProv.getSoldeCompte();
             compteProv.retirer(montant);
             compteDest.deposer(montant);
-            return true;
+            return soldeAvant != compteProv.getSoldeCompte();
         }
         return false;
     }
@@ -254,6 +256,10 @@ public class GestionnaireGuichet {
                 this.client.ajouterCompte(new MargeDeCredit(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
                 break;
             case "Hypotheque":
+                for (Compte compte:
+                     this.client.getComptes()) {
+                    if (compte.getType(""));
+                }
                 this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, this.client.getCodeClient(), montantTransfertMaximum));
                 break;
             default:
