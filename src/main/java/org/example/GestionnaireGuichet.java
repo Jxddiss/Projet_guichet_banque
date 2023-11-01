@@ -8,6 +8,7 @@ public class GestionnaireGuichet {
     private ArrayList<Client> clients;
     private ArrayList<Transaction> transactions;
     private int nbEssaie = 0;
+    private int numClient = 0;
 
     /**
      *
@@ -221,15 +222,16 @@ public class GestionnaireGuichet {
 
     /**
      *
-     * @param codeClient
+     * @param
      * @param prenom
      * @param nom
      * @param telephone
      * @param couriel
      * @param nip
      * */
-    public boolean creerClient(int codeClient, String prenom, String nom, String telephone, String couriel, int nip){
-        return this.clients.add(new Client(codeClient, prenom, nom, telephone, couriel, nip));
+    public boolean creerClient(String prenom, String nom, String telephone, String couriel, int nip){
+        this.numClient += 1;
+        return this.clients.add(new Client(this.numClient, prenom, nom, telephone, couriel, nip));
     }
 
     /**

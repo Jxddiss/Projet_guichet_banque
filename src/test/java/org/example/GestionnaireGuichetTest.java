@@ -20,9 +20,9 @@ class GestionnaireGuichetTest {
     void setUp() {
         banque = new Banque(1,10000,100000);
         gestionnaireGuichet = new GestionnaireGuichet(banque);
-        gestionnaireGuichet.creerClient(101,"Marc", "Jacques", "438-676-6483", "marc@test.com", 1222);
-        gestionnaireGuichet.creerClient(102,"Michel", "Turcot", "514-997-9089", "michel@test.com", 1222);
-        gestionnaireGuichet.creerClient(103,"Bob", "Jean", "514-567-7789", "bob@test.com", 1222);
+        gestionnaireGuichet.creerClient("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222);
+        gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222);
+        gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", 1222);
 
     }
 
@@ -102,8 +102,8 @@ class GestionnaireGuichetTest {
 
     @ParameterizedTest
     @MethodSource("compteClients")
-    void creerClient(int n1, String n2, String n3, String n4, String n5, int n6) {
-        assertTrue(gestionnaireGuichet.creerClient(n1, n2, n3, n4, n5, n6));
+    void creerClient(String n1, String n2, String n3, String n4, int n5) {
+        assertTrue(gestionnaireGuichet.creerClient(n1, n2, n3, n4, n5));
     }
 
     @Test
@@ -115,9 +115,9 @@ class GestionnaireGuichetTest {
 
     static Stream<Arguments> compteClients(){
         return Stream.of(
-                Arguments.of(101,"Marc", "Jacques", "438-676-6483", "marc@test.com", 1222),
-                Arguments.of(102,"Michel", "Turcot", "514-997-9089", "michel@test.com", 1222),
-                Arguments.of(103,"Bob", "Jean", "514-567-7789", "bob@test.com", 1222)
+                Arguments.of("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222),
+                Arguments.of("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222),
+                Arguments.of("Bob", "Jean", "514-567-7789", "bob@test.com", 1222)
         );
     }
 }
