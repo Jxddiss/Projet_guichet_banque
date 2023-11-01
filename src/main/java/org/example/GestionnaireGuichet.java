@@ -197,7 +197,7 @@ public class GestionnaireGuichet {
             }
         }
 
-        if (compteDest != null && compteProv != null){
+        if (compteDest != null && compteProv != null && compteProv.getType().equals("cheque")){
             compteProv.retirer(montant);
             compteDest.deposer(montant);
             return true;
