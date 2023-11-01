@@ -11,6 +11,7 @@ public class Client {
     private String couriel;
     private int nip;
     private ArrayList<Compte> comptes;
+    private String statut;
 
     public Client(int codeClient, String prenom, String nom, String telephone, String couriel, int nip) {
         this.codeClient = codeClient;
@@ -40,5 +41,13 @@ public class Client {
 
     public void ajouterCompte(Compte compte){
         this.comptes.add(compte);
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 }

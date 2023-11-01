@@ -1,14 +1,14 @@
 package org.example;
 
 public class Transaction {
-    private int numeroTransaction;
+    private int numeroTransaction = 0;
     private double montant;
     private Compte compte;
     private Compte compteTransfert;
     private String type;
 
-    public Transaction(int numeroTransaction, double montant, Compte compte, Compte compteTransfert, String type) {
-        this.numeroTransaction = numeroTransaction;
+    public Transaction( double montant, Compte compte, Compte compteTransfert, String type) {
+        this.numeroTransaction += 1;
         this.montant = montant;
         this.compte = compte;
         this.compteTransfert = compteTransfert;

@@ -7,6 +7,7 @@ public class GestionnaireGuichet {
     private Client client;
     private ArrayList<Client> clients;
     private ArrayList<Transaction> transactions;
+    private int nbEssaie = 0;
 
     /**
      *
@@ -24,13 +25,22 @@ public class GestionnaireGuichet {
      * @param nip
      * */
     public boolean validerUtilisateur(int codeClient, int nip){
+
         for (Client client:
                 this.clients) {
             if (client.getCodeClient() == codeClient && client.getNip() == nip){
                 this.client = client;
+                this.nbEssaie = 0;
                 return true;
+            } else if (client.getCodeClient() == codeClient && client.getNip() != nip) {
+                this.nbEssaie += 1;
+                if (this.nbEssaie == 3){
+                    client.setStatut("Bloque");
+                }
+                return false;
             }
         }
+
         return false;
     }
 
@@ -42,6 +52,7 @@ public class GestionnaireGuichet {
     public double retraitCheque( double montant, int numCompte){
         Compte compteCourrant =null;
         double soldeAvant;
+
         for (Compte compte:
              client.getComptes()) {
             if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
@@ -56,6 +67,7 @@ public class GestionnaireGuichet {
             compteCourrant.retirer(montant);
 
             if (soldeAvant != compteCourrant.getSoldeCompte()){
+                this.transactions.add(new Transaction(montant,compteCourrant,this.banque, "cheque"));
                 return compteCourrant.getSoldeCompte();
             }else {
                 return -1;
@@ -85,7 +97,9 @@ public class GestionnaireGuichet {
             soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant);
 
+
             if (soldeAvant != compteCourrant.getSoldeCompte()){
+                this.transactions.add(new Transaction(montant,compteCourrant,this.banque, "cheque"));
                 return compteCourrant.getSoldeCompte();
             }else {
                 return -1;
@@ -108,6 +122,7 @@ public class GestionnaireGuichet {
         }
         if (compteCourrant!= null){
             compteCourrant.deposer(montant);
+            this.transactions.add(new Transaction(montant,this.banque,compteCourrant, "cheque"));
             return compteCourrant.getSoldeCompte();
         }
         return -1;
@@ -127,6 +142,7 @@ public class GestionnaireGuichet {
         }
         if (compteCourrant!= null){
             compteCourrant.deposer(montant);
+            this.transactions.add(new Transaction(montant,this.banque,compteCourrant, "cheque"));
             return compteCourrant.getSoldeCompte();
         }
         return -1;
@@ -149,7 +165,10 @@ public class GestionnaireGuichet {
             soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant + compteCourrant.getFraisPaiementFacture());
 
-            return soldeAvant != compteCourrant.getSoldeCompte();
+            if (soldeAvant != compteCourrant.getSoldeCompte()){
+                this.transactions.add(new Transaction(montant,compteCourrant,this.banque, "cheque"));
+                return true;
+            }
         }
         return false;
     }
