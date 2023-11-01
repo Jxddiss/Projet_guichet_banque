@@ -250,19 +250,30 @@ public class GestionnaireGuichet {
                 this.client.ajouterCompte(new CompteCheque(numeroCompte, this.client.getCodeClient(), montantFactureMaximum, montantTransfertMaximum));
                 break;
             case "epargne":
-                this.client.ajouterCompte(new CompteEpargne(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
+                for (Compte compte:
+                        this.client.getComptes()) {
+                    if (compte.getType().equals("cheque")){
+                        this.client.ajouterCompte(new CompteEpargne(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
+                    }
+                }
                 break;
             case "marge":
-                this.client.ajouterCompte(new MargeDeCredit(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
+                for (Compte compte:
+                        this.client.getComptes()) {
+                    if (compte.getType().equals("cheque")){
+                        this.client.ajouterCompte(new MargeDeCredit(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
+                    }
+                }
                 break;
             case "hypotheque":
                 for (Compte compte:
                      this.client.getComptes()) {
                     if (compte.getType().equals("hypotheque")){
                         break;
+                    }else if (compte.getType().equals("cheque")){
+                        this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, this.client.getCodeClient(), montantTransfertMaximum));
                     }
                 }
-                this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, this.client.getCodeClient(), montantTransfertMaximum));
                 break;
             default:
                 System.out.println("Type de compte non existant");
