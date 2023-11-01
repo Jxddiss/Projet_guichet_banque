@@ -255,10 +255,12 @@ public class GestionnaireGuichet {
             case "marge":
                 this.client.ajouterCompte(new MargeDeCredit(numeroCompte, this.client.getCodeClient(), tauxInteret, montantTransfertMaximum));
                 break;
-            case "Hypotheque":
+            case "hypotheque":
                 for (Compte compte:
                      this.client.getComptes()) {
-                    if (compte.getType(""));
+                    if (compte.getType().equals("hypotheque")){
+                        break;
+                    }
                 }
                 this.client.ajouterCompte(new CompteHypothecaire(numeroCompte, this.client.getCodeClient(), montantTransfertMaximum));
                 break;
