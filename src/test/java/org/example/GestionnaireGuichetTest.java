@@ -20,6 +20,7 @@ class GestionnaireGuichetTest {
     void setUp() {
         banque = new Banque(1,10000);
         gestionnaireGuichet = new GestionnaireGuichet(banque);
+        gestionnaireGuichet.validerUtilisateur(0,1111);
         gestionnaireGuichet.creerClient("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222);
         gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222);
         gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", 1222);
