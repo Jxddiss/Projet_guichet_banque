@@ -50,4 +50,6 @@ public class Client {
     public void setStatut(String statut) {
         this.statut = statut;
     }
+
+
 }
