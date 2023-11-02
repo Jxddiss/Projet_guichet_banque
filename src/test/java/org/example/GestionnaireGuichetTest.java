@@ -43,6 +43,7 @@ class GestionnaireGuichetTest {
         gestionnaireGuichet.creerCompte("cheque",1,1,1000,1000,0.003);
 
         gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.depotCheque(1000, 1);
 
         assertEquals(500, gestionnaireGuichet.retraitCheque(500, 1));
     }
@@ -127,7 +128,7 @@ class GestionnaireGuichetTest {
     void creerCompte() {
         gestionnaireGuichet.validerUtilisateur(0,1111);
         gestionnaireGuichet.creerCompte("cheque",1,1,1000,1000,0.003);
-        assertEquals(1, gestionnaireGuichet.getClient().getComptes().size());
+        assertEquals(1, gestionnaireGuichet.getClientAvecCode(1).getComptes().size());
     }
 
     static Stream<Arguments> compteClients(){

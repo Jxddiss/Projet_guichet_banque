@@ -253,7 +253,7 @@ public class GestionnaireGuichet {
      * @param nip
      * */
     public boolean creerClient(String prenom, String nom, String telephone, String couriel, int nip){
-        if (this.client == this.admin){
+        if (this.client != this.admin){
             return false;
         }
         this.numClient += 1;
