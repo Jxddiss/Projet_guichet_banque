@@ -69,9 +69,15 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour retirer de l'argent d'un compte cheque identifier par le numero
+     * de compte, confirme la presence du compte cheque dans la liste de compte du client
+     * verifie si le montant demandé est au dessus du retrait maximum et est
+     * un multiple de 10
      *
-     * @param montant
-     * @param numCompte
+     * @param montant (double)
+     * @param numCompte (int) numéro du compte ou retirer l'argent
+     *
+     * @return double nouveau solde du compte ou -1 si la transactin n'est pas effectué
      * */
     public double retraitCheque( double montant, int numCompte){
         Compte compteCourrant =null;
@@ -102,9 +108,15 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour retirer de l'argent d'un compte epargne identifier par le numero
+     * de compte, confirme la presence du compte epargne dans la liste de compte du client
+     * verifie si le montant demandé est au dessus du retrait maximum et est
+     * un multiple de 10 et crée une nouvelle transaction
      *
-     * @param montant
-     * @param numCompte
+     * @param montant (double)
+     * @param numCompte (int) numéro du compte ou retirer l'argent
+     *
+     * @return double nouveau solde du compte ou -1 si la transactin n'est pas effectué
      * */
     public double retraitEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
@@ -135,9 +147,14 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour déposer de l'argent dans un compte cheque identifier par le numero
+     * de compte, confirme la presence du compte cheque dans la liste de compte du client
+     * et crée une nouvelle transaction
      *
-     * @param montant
-     * @param numCompte
+     * @param montant (double)
+     * @param numCompte (int) numéro du compte ou retirer l'argent
+     *
+     * @return double nouveau solde du compte ou -1 si la transactin n'est pas effectué
      * */
     public double depotCheque(double montant, int numCompte){
         Compte compteCourrant =null;
@@ -155,9 +172,14 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour déposer de l'argent dans un compte épargne identifier par le numero
+     * de compte, confirme la presence du compte épargne dans la liste de compte du client
+     * et crée une nouvelle transaction
      *
-     * @param montant
-     * @param numCompte
+     * @param montant (double)
+     * @param numCompte (int) numéro du compte ou retirer l'argent
+     *
+     * @return double nouveau solde du compte ou -1 si la transactin n'est pas effectué
      * */
     public double depotEpargne(double montant, int numCompte){
         Compte compteCourrant =null;
@@ -175,9 +197,14 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour payer une facture, retire l'argent du compte et applique les frais de
+     * paiement de facture, ajoute une transaction, verifie aussi que le compte est un compte
+     * chèque
      *
      * @param montant
      * @param numCompte
+     *
+     * @return boolean Confirme si le paiement à été fait
      * */
     public boolean paiementFacture(double montant, int numCompte){
         double soldeAvant;
@@ -200,10 +227,13 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour transférer de l'argent entre deux comptes
      *
      * @param numCompteProv
      * @param numCompteDest
      * @param montant
+     *
+     * @return boolean comfirme si le transfert à été effectué
      * */
     public boolean transfertFond(int numCompteProv, int numCompteDest, double montant){
         Compte compteProv = null;
@@ -230,8 +260,12 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode pour afficher le solde d'un compte identifié par le numéro de
+     * compte
      *
      * @param numCompte
+     *
+     * @return double solde du compte
      * */
     public double afficherSoldeCompte(int numCompte){
         for (Compte compte:
@@ -244,13 +278,16 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode qui permet à l'administrateur de créer un client et l'ajoute à
+     * la liste du gestionnaire
      *
-     * @param
      * @param prenom
      * @param nom
      * @param telephone
      * @param couriel
      * @param nip
+     *
+     * @return boolean Confirme si le client à été crée
      * */
     public boolean creerClient(String prenom, String nom, String telephone, String couriel, int nip){
         if (this.client != this.admin){
@@ -261,6 +298,9 @@ public class GestionnaireGuichet {
     }
 
     /**
+     * Méthode qui permet à l'admin de créer un compte pour un utilisateur donnée
+     * vérifie si un compte chèque existe déjà dans le client avant d'ajouter un
+     * compte d'un autre type
      *
      * @param type
      * @param numeroCompte
