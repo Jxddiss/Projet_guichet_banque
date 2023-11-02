@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Client {
-
+    // ========== Attributs =========
     private int codeClient;
     private String prenom;
     private String nom;
@@ -13,6 +13,15 @@ public class Client {
     private ArrayList<Compte> comptes;
     private String statut;
 
+    /**
+     * Constructeur pour créer un client
+     *
+     * @param prenom (String) prénom du client
+     * @param nom (String) nom du client
+     * @param telephone (String) numéro de téléphone du client
+     * @param couriel (String) courriel du client
+     * @param nip (int) nip du client
+     * */
     public Client(int codeClient, String prenom, String nom, String telephone, String couriel, int nip) {
         this.codeClient = codeClient;
         this.prenom = prenom;
@@ -23,6 +32,7 @@ public class Client {
         this.comptes = new ArrayList<>();
     }
 
+    // ============ Accesseurs et Mutateurs ============
     public int getCodeClient(){
         return codeClient;
     }

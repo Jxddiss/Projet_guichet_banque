@@ -31,7 +31,18 @@ public class GestionnaireGuichet {
         return client;
     }
 
+    /**
+     * Méthode qui permet à l'admin
+     * de retrouver un client seulement avec son codeClient
+     * dans la liste de client
+     *
+     * @param codeClient (int) code du client recherché
+     * */
     public Client getClientAvecCode(int codeClient){
+        if (this.client != this.admin){
+            return null;
+        }
+
         for (Client client:
              this.clients) {
             if (client.getCodeClient() == codeClient){
@@ -45,8 +56,8 @@ public class GestionnaireGuichet {
      * Méthode pour valider l'utilisateur du guichet
      * avec son codeClient et son nip
      *
-     * @param codeClient
-     * @param nip
+     * @param codeClient (int) code du client
+     * @param nip (int) nip du client
      * */
     public boolean validerUtilisateur(int codeClient, int nip){
 
@@ -199,10 +210,10 @@ public class GestionnaireGuichet {
     /**
      * Méthode pour payer une facture, retire l'argent du compte et applique les frais de
      * paiement de facture, ajoute une transaction, verifie aussi que le compte est un compte
-     * chèque
+     * chèque et que le montant ne dépasse pas la limite de facture
      *
-     * @param montant
-     * @param numCompte
+     * @param montant (double) montant de la facture
+     * @param numCompte (int) numero du compte
      *
      * @return boolean Confirme si le paiement à été fait
      * */
@@ -214,7 +225,7 @@ public class GestionnaireGuichet {
             if (compte.getNumeroCompte() == numCompte && compte.getType().equals("cheque"))
                 compteCourrant = (CompteCheque) compte;
         }
-        if (compteCourrant!= null){
+        if (compteCourrant!= null && montant < compteCourrant.getMontantFactureMaximum()){
             soldeAvant = compteCourrant.getSoldeCompte();
             compteCourrant.retirer(montant + compteCourrant.getFraisPaiementFacture());
 
@@ -227,11 +238,13 @@ public class GestionnaireGuichet {
     }
 
     /**
-     * Méthode pour transférer de l'argent entre deux comptes
+     * Méthode pour transférer de l'argent entre deux comptes et vérifie que
+     * le compte chèque est un compte chèque que le montant ne dépasse pas
+     * la limite de facture
      *
-     * @param numCompteProv
-     * @param numCompteDest
-     * @param montant
+     * @param numCompteProv (int) numéro du compte de provenance
+     * @param numCompteDest (int) numéro du compte de destination
+     * @param montant (double) montant du transfert
      *
      * @return boolean comfirme si le transfert à été effectué
      * */
@@ -239,6 +252,7 @@ public class GestionnaireGuichet {
         Compte compteProv = null;
         Compte compteDest = null;
         double soldeAvant;
+
         for (Compte compte:
              this.client.getComptes()) {
             if (compte.getNumeroCompte() == numCompteProv){
@@ -250,7 +264,7 @@ public class GestionnaireGuichet {
             }
         }
 
-        if (compteDest != null && compteProv != null && compteProv.getType().equals("cheque")){
+        if (compteDest != null && compteProv != null && compteProv.getType().equals("cheque") && montant < compteProv.getMontantTransfertMaximum()){
             soldeAvant = compteProv.getSoldeCompte();
             compteProv.retirer(montant);
             compteDest.deposer(montant);
@@ -263,7 +277,7 @@ public class GestionnaireGuichet {
      * Méthode pour afficher le solde d'un compte identifié par le numéro de
      * compte
      *
-     * @param numCompte
+     * @param numCompte (int) numéro du compte dont le solde à été affiché
      *
      * @return double solde du compte
      * */
@@ -281,11 +295,11 @@ public class GestionnaireGuichet {
      * Méthode qui permet à l'administrateur de créer un client et l'ajoute à
      * la liste du gestionnaire
      *
-     * @param prenom
-     * @param nom
-     * @param telephone
-     * @param couriel
-     * @param nip
+     * @param prenom (String) prénom du client
+     * @param nom (String) nom du client
+     * @param telephone (String) numéro de téléphone du client
+     * @param couriel (String) courriel du client
+     * @param nip (int) nip du client
      *
      * @return boolean Confirme si le client à été crée
      * */
@@ -302,11 +316,11 @@ public class GestionnaireGuichet {
      * vérifie si un compte chèque existe déjà dans le client avant d'ajouter un
      * compte d'un autre type
      *
-     * @param type
-     * @param numeroCompte
-     * @param montantTransfertMaximum
-     * @param montantFactureMaximum
-     * @param tauxInteret
+     * @param type (String) type du compte à créer
+     * @param numeroCompte (int) numéro du compte crée
+     * @param montantTransfertMaximum (double) montant maximum pour les transfert
+     * @param montantFactureMaximum (double) montant maximum pour le paiement de facture
+     * @param tauxInteret (double) taux d'intéret pour les compte épargne ou marge
      * */
     public void creerCompte(String type, int numeroCompte,int codeClient, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
 

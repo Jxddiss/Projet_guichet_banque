@@ -8,6 +8,13 @@ public class Compte {
     protected double montantTransfertMaximum;
     protected String type;
 
+    /**
+     * Constructeur pour créer un compte
+     *
+     * @param numeroCompte (int) numéro du compte
+     * @param codeClient (codeClient) code du client a qui appartient le compte
+     * @param montantTransfertMaximum (double) montant transfert maximum
+     * */
     public Compte(int numeroCompte, int codeClient,  double montantTransfertMaximum) {
         this.numeroCompte = numeroCompte;
         this.codeClient = codeClient;
@@ -15,22 +22,36 @@ public class Compte {
         this.montantTransfertMaximum = montantTransfertMaximum;
     }
 
+    /**
+     * Méthode pour déposer de l'argent sur le compte
+     *
+     * @param montant
+     * */
     public void deposer(double montant) {
         if (montant > 0) {
             soldeCompte += montant;
         }
     }
 
+    /**
+     * Méthode pour retire de l'argent sur le compte
+     *
+     * @param montant
+     * */
     public void retirer(double montant) {
         if (montant > 0 && montant <= soldeCompte) {
             soldeCompte -= montant;
         }
     }
 
+    /**
+     * Methode pour afficher le solde du compte
+     * */
     public void afficherSolde() {
         System.out.println("Solde du compte " + numeroCompte + ": " + soldeCompte);
     }
 
+    // ======== Accesseurs et Mutateurs ===========
     public int getNumeroCompte() {
         return numeroCompte;
     }
