@@ -1,4 +1,4 @@
-package org.example.projet_guichet_banque;
+package org.example.projet_guichet_banque.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
