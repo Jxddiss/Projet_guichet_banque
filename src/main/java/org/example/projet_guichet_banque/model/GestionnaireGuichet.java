@@ -1,9 +1,10 @@
 package org.example.projet_guichet_banque.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 // Paiement intérêt et prélever montant a faire dans les classes ToString dans toutes les classes
-public class GestionnaireGuichet {
+public class GestionnaireGuichet implements Serializable {
     //========== Attributs ========
     private final Banque banque;
     private Client client;

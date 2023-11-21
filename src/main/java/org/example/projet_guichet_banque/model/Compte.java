@@ -1,6 +1,8 @@
 package org.example.projet_guichet_banque.model;
 
-public class Compte {
+import java.io.Serializable;
+
+public class Compte implements Serializable {
     // attributs a mettre privé
     protected final int numeroCompte;
     protected int codeClient;
