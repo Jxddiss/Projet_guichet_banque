@@ -62,7 +62,7 @@ public class GestionnaireGuichet implements Serializable {
      * @param nip (int) nip du client
      * */
     public boolean validerUtilisateur(int codeClient, int nip){
-
+        this.client = null;
         for (Client client:
                 this.clients) {
             if (client.getCodeClient() == codeClient && client.getNip() == nip){

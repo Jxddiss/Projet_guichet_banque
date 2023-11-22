@@ -18,13 +18,15 @@ public class LoginController {
 
     @FXML
     public void initialize(){
+
     }
 
     public void connecterClick(){
         int codeClient = Integer.parseInt(codeClientTxtField.getText());
         int nip = Integer.parseInt(nipTxtField.getText());
-        gestionnaireGuichet.validerUtilisateur(codeClient,nip);
 
+        gestionnaireGuichet.validerUtilisateur(codeClient,nip);
+        System.out.println(gestionnaireGuichet.getClient().toString());
         System.out.println("Connecter en tant que "+ gestionnaireGuichet.getClient().getPrenom());
     }
 

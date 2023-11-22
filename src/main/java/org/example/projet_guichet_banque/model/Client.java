@@ -62,5 +62,17 @@ public class Client implements Serializable {
         this.statut = statut;
     }
 
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "codeClient=" + codeClient +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", couriel='" + couriel + '\'' +
+                ", nip=" + nip +
+                ", comptes=" + comptes +
+                ", statut='" + statut + '\'' +
+                '}';
+    }
 }
