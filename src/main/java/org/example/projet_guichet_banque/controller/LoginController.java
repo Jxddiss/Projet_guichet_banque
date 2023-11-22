@@ -31,8 +31,8 @@ public class LoginController {
     }
 
     public void connecterClick(ActionEvent actionEvent) throws IOException {
-        Scene scene = null;
-        Parent root = null;
+        Scene scene;
+        Parent root;
         try{
             int codeClient = Integer.parseInt(codeClientTxtField.getText());
             int nip = Integer.parseInt(nipTxtField.getText());
