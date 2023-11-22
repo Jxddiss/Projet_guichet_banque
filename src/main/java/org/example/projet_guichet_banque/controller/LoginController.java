@@ -43,7 +43,7 @@ public class LoginController {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                 scene = connecterBtn.getScene();
                 scene.setRoot(root);
-                ((Stage)scene.getWindow()).setTitle("Fenetre 2");
+                ((Stage)scene.getWindow()).setTitle("Comptes");
             }
         }
 
