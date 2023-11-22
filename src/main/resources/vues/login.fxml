@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1 " fx:controller="org.example.projet_guichet_banque.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="176.0" />
@@ -28,18 +29,19 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="298.4" minHeight="10.0" prefHeight="298.4" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="78.00003662109378" minHeight="10.0" prefHeight="16.400000000000034" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="78.00003662109378" minHeight="10.0" prefHeight="16.400000000000034" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="3">
-         <image>
-            <Image url="@../OneDrive/Desktop/appBackground.jpg" />
-         </image>
+      <ImageView fitHeight="400.0" fitWidth="600.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3">
          <viewport>
             <Rectangle2D />
          </viewport>
          <GridPane.margin>
-            <Insets right="225.0" />
+            <Insets bottom="30.0" left="180.0" />
          </GridPane.margin>
+         <image>
+            <Image url="@../images/appBackground.jpg" />
+         </image>
       </ImageView>
       <Label text="Code" GridPane.rowIndex="1">
          <font>
@@ -65,14 +67,6 @@
             <Insets left="45.0" top="35.0" />
          </GridPane.margin>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="45.0" top="95.0" />
-         </GridPane.margin>
-         <effect>
-            <InnerShadow height="5.0" radius="2.0" width="5.0" />
-         </effect>
-      </TextField>
       <Hyperlink text="Oublié le mot de passe?" textFill="#919191" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="42.0" top="150.0" />
@@ -100,7 +94,7 @@
             <InnerShadow height="5.0" radius="2.0" width="5.0" />
          </effect>
          <GridPane.margin>
-            <Insets left="45.0" />
+            <Insets left="45.0" top="45.0" />
          </GridPane.margin>
       </Button>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="250.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="280.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
@@ -126,7 +120,7 @@
             </LinearGradient>
          </fill>
          <GridPane.margin>
-            <Insets left="45.0" />
+            <Insets left="45.0" top="60.0" />
          </GridPane.margin>
       </Rectangle>
       <Label text="Bienvenue à " textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
@@ -134,7 +128,7 @@
             <Font name="Garamond" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="100.0" left="115.0" />
+            <Insets bottom="100.0" left="115.0" top="60.0" />
          </GridPane.margin>
       </Label>
       <Label text="UniBank" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
@@ -142,7 +136,7 @@
             <Font name="Garamond Bold" size="30.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="25.0" left="129.0" />
+            <Insets bottom="25.0" left="129.0" top="45.0" />
          </GridPane.margin>
       </Label>
       <Label text="Connectez-vous pour accéder à votre compte" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
@@ -150,16 +144,24 @@
             <Font name="Garamond Italic" size="14.0" />
          </font>
          <GridPane.margin>
-            <Insets left="89.0" top="20.0" />
+            <Insets left="89.0" top="80.0" />
          </GridPane.margin>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Downloads/B-transformed.png" />
+            <Image url="@../images/B-transformed.png" />
          </image>
          <GridPane.margin>
-            <Insets left="15.0" top="10.0" />
+            <Insets left="15.0" top="45.0" />
          </GridPane.margin>
       </ImageView>
+      <PasswordField prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="45.0" top="95.0" />
+         </GridPane.margin>
+         <effect>
+            <InnerShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </PasswordField>
    </children>
 </GridPane>
