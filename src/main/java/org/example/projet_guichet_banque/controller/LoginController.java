@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -36,15 +37,16 @@ public class LoginController {
         int nip = Integer.parseInt(nipTxtField.getText());
 
         if (gestionnaireGuichet.validerUtilisateur(codeClient,nip)){
-            System.out.println(gestionnaireGuichet.getClient().toString());
-            System.out.println("Connecter en tant que "+ gestionnaireGuichet.getClient().getPrenom());
-
             if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                 scene = connecterBtn.getScene();
                 scene.setRoot(root);
                 ((Stage)scene.getWindow()).setTitle("Comptes");
             }
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Utilisateur ou nip Erronée, veuilliez contacter l'administrateur si votre compte est bloqué");
+            alert.show();
         }
 
     }
