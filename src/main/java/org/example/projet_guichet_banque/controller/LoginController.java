@@ -49,7 +49,7 @@ public class LoginController {
                 alert.setContentText("Utilisateur ou nip Erronée, veuilliez contacter l'administrateur si votre compte est bloqué");
                 alert.show();
             }
-        }catch(Exception e){
+        }catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Valeur entrée non prise en charge veuillez entrer des nombre entier");
             alert.show();
