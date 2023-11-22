@@ -36,6 +36,17 @@ public class GestionnaireGuichet implements Serializable {
         this.client = client;
     }
 
+    public ArrayList<Transaction> getTransactions(int numCompte){
+        ArrayList<Transaction> transactionsCompte = new ArrayList<>();
+        for (Transaction transaction:
+             this.transactions) {
+            if (transaction.getCompte().getNumeroCompte() == numCompte || transaction.getCompteTransfert().getNumeroCompte() == numCompte){
+                transactionsCompte.add(transaction);
+            }
+        }
+        
+        return transactionsCompte;
+    }
     /**
      * Méthode qui permet à l'admin
      * de retrouver un client seulement avec son codeClient

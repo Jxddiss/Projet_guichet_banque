@@ -25,6 +25,17 @@ public class Transaction implements Serializable {
         this.compteTransfert = null;
     }
 
+    public Compte getCompte() {
+        return compte;
+    }
+
+
+
+    public Compte getCompteTransfert() {
+        return compteTransfert;
+    }
+
+
     @Override
     public String toString() {
         String transStr = "";
@@ -41,4 +52,6 @@ public class Transaction implements Serializable {
 
         return transStr;
     }
+
+
 }
