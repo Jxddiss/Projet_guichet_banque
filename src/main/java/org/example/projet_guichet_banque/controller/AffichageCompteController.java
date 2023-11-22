@@ -29,8 +29,8 @@ public class AffichageCompteController {
 
     @FXML
     public void deconnecterClick(ActionEvent actionEvent) throws IOException {
-        GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
         LoginController.gestionnaireGuichet.setClient(null);
+        GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
         Scene scene = null;
         Parent root = null;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/login.fxml")));

@@ -356,7 +356,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Button fx:id="deconnecterBtn" alignment="CENTER" mnemonicParsing="false" onAction="#deconnecterClick" prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Se déconnecter" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+      <Button fx:id="deconnecterBtn" alignment="CENTER" mnemonicParsing="false" onAction="#deconnecterClick" prefHeight="38.0" prefWidth="151.0" style="-fx-background-radius: 15;" text="Se déconnecter" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="20.0" top="60.0" />
          </GridPane.margin>
