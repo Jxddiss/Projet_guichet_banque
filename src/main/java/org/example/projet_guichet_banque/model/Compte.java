@@ -3,7 +3,7 @@ package org.example.projet_guichet_banque.model;
 import java.io.Serializable;
 
 public class Compte implements Serializable{
-    // attributs a mettre privé
+    // attributs a mettre privé , compte favoris (attribut) et static pour limiter a 4
     protected final int numeroCompte;
     protected int codeClient;
     protected double soldeCompte;
