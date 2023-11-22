@@ -47,6 +47,15 @@ public class GestionnaireGuichet implements Serializable {
         
         return transactionsCompte;
     }
+
+    public ArrayList<Transaction> getTransactionsAdmin(){
+        if (this.client != this.admin){
+            return null;
+        }
+
+        return this.transactions;
+    }
+
     /**
      * Méthode qui permet à l'admin
      * de retrouver un client seulement avec son codeClient
