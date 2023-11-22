@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.GestionnaireGuichet;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
+import org.example.projet_guichet_banque.model.Setup;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -27,7 +28,7 @@ public class LoginController {
 
     @FXML
     public void initialize(){
-
+        Setup.setup();
     }
 
     public void connecterClick(ActionEvent actionEvent) throws IOException {

@@ -25,12 +25,13 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'org.example.projet_guichet_banque'
-    mainClass = 'org.example.projet_guichet_banque.HelloApplication'
+    mainClass = 'org.example.projet_guichet_banque.MainApp'
 }
 
 javafx {
     version = '19.0.2'
     modules = ['javafx.controls', 'javafx.fxml']
+
 }
 
 dependencies {
@@ -50,6 +51,35 @@ jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'gestion_banque'
+    }
+
+    jpackage {
+        installerOptions = [
+                '--name', 'Guichet-setup', // installer name
+                '--description', 'Guichet de banque',
+                '--copyright', 'Copyrigth 2023 Nicholson et Jamil',
+                '--vendor', 'Nicholson et Jamil'
+        ]
+
+        if (installerType == 'exe') {
+            installerOptions += [
+                    // '--win-per-user-install', // Install only for current user
+                    // '--win-console', // Shows what Java outputs to the console
+                    '--win-dir-chooser',
+                    '--win-menu', '--win-shortcut',
+                    '--icon', 'src/main/resources/icon.ico'
+            ]
+        }
+
+        if (installerType == 'msi') {
+            imageOptions += ['--icon', 'src/main/resources/icon.ico']
+            installerOptions += [
+                    // '--win-per-user-install', // Install only for current user
+                    // '--win-console', // Shows what Java outputs to the console
+                    '--win-dir-chooser',
+                    '--win-menu', '--win-shortcut'
+            ]
+        }
     }
 }
 
