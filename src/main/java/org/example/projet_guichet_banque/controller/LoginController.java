@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
-    public static GestionnaireGuichet gestionnaireGuichet = GestionnaireGuichetDAO.get();
+    static GestionnaireGuichet gestionnaireGuichet = GestionnaireGuichetDAO.get();
     @FXML
     private TextField codeClientTxtField;
     @FXML
