@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
-    static GestionnaireGuichet gestionnaireGuichet = GestionnaireGuichetDAO.get();
+    static GestionnaireGuichet gestionnaireGuichet;
     @FXML
     private TextField codeClientTxtField;
     @FXML
@@ -29,6 +29,7 @@ public class LoginController {
     @FXML
     public void initialize(){
         Setup.setup();
+        gestionnaireGuichet = GestionnaireGuichetDAO.get();
     }
 
     public void connecterClick(ActionEvent actionEvent) throws IOException {
@@ -56,5 +57,4 @@ public class LoginController {
             alert.show();
         }
     }
-
 }
