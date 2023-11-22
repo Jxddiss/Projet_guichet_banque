@@ -61,13 +61,14 @@ jlink {
                 '--vendor', 'Nicholson et Jamil'
         ]
 
+        installerType = 'exe'
         if (installerType == 'exe') {
+            imageOptions += ['--icon', 'src/main/resources/images/icon.ico']
             installerOptions += [
                     // '--win-per-user-install', // Install only for current user
                     // '--win-console', // Shows what Java outputs to the console
                     '--win-dir-chooser',
                     '--win-menu', '--win-shortcut',
-                    '--icon', 'src/main/resources/icon.ico'
             ]
         }
 
