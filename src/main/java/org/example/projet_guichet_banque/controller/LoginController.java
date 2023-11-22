@@ -35,16 +35,18 @@ public class LoginController {
         int codeClient = Integer.parseInt(codeClientTxtField.getText());
         int nip = Integer.parseInt(nipTxtField.getText());
 
-        gestionnaireGuichet.validerUtilisateur(codeClient,nip);
-        System.out.println(gestionnaireGuichet.getClient().toString());
-        System.out.println("Connecter en tant que "+ gestionnaireGuichet.getClient().getPrenom());
+        if (gestionnaireGuichet.validerUtilisateur(codeClient,nip)){
+            System.out.println(gestionnaireGuichet.getClient().toString());
+            System.out.println("Connecter en tant que "+ gestionnaireGuichet.getClient().getPrenom());
 
-        if (actionEvent.getSource() == connecterBtn){
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
-            scene = connecterBtn.getScene();
-            scene.setRoot(root);
-            ((Stage)scene.getWindow()).setTitle("Fenetre 2");
+            if (actionEvent.getSource() == connecterBtn){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+                scene = connecterBtn.getScene();
+                scene.setRoot(root);
+                ((Stage)scene.getWindow()).setTitle("Fenetre 2");
+            }
         }
+
     }
 
 }
