@@ -1,6 +1,5 @@
 package org.example.projet_guichet_banque.controller;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,10 +32,13 @@ public class AffichageCompteController {
         GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
         Scene scene;
         Parent root;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/login.fxml")));
-        scene = deconnecterBtn.getScene();
-        scene.setRoot(root);
-        ((Stage)scene.getWindow()).setTitle("Login");
+
+        if (actionEvent.getSource() == deconnecterBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/login.fxml")));
+            scene = deconnecterBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Login");
+        }
     }
 }
 
