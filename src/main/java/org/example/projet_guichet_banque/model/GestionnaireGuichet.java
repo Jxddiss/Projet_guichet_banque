@@ -32,6 +32,9 @@ public class GestionnaireGuichet implements Serializable {
     public Client getClient() {
         return client;
     }
+    public void setClient(Client client){
+        this.client = client;
+    }
 
     /**
      * Méthode qui permet à l'admin
