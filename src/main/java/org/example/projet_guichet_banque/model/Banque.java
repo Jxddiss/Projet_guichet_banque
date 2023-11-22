@@ -2,7 +2,7 @@ package org.example.projet_guichet_banque.model;
 
 import java.io.Serializable;
 
-public class Banque extends Compte implements Serializable {
+public class Banque extends Compte {
     // ======= Attributs ==========
     private final double montantMaximum = 20000;
     private final double montantRemplissage;

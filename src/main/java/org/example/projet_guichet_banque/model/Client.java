@@ -1,8 +1,9 @@
 package org.example.projet_guichet_banque.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Client {
+public class Client implements Serializable {
     // ========== Attributs =========
     private int codeClient;
     private String prenom;

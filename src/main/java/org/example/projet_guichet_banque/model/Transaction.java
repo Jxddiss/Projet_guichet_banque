@@ -1,6 +1,8 @@
 package org.example.projet_guichet_banque.model;
 
-public class Transaction {
+import java.io.Serializable;
+
+public class Transaction implements Serializable {
     private int numeroTransaction = 0;
     private double montant;
     private Compte compte;
