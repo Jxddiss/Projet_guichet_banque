@@ -10,7 +10,7 @@ import org.example.projet_guichet_banque.model.GestionnaireGuichet;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
 public class LoginController {
-    private GestionnaireGuichet gestionnaireGuichet = GestionnaireGuichetDAO.get();
+    public static GestionnaireGuichet gestionnaireGuichet = GestionnaireGuichetDAO.get();
     @FXML
     private TextField codeClientTxtField;
     @FXML
