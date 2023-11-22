@@ -33,22 +33,27 @@ public class LoginController {
     public void connecterClick(ActionEvent actionEvent) throws IOException {
         Scene scene = null;
         Parent root = null;
-        int codeClient = Integer.parseInt(codeClientTxtField.getText());
-        int nip = Integer.parseInt(nipTxtField.getText());
+        try{
+            int codeClient = Integer.parseInt(codeClientTxtField.getText());
+            int nip = Integer.parseInt(nipTxtField.getText());
 
-        if (gestionnaireGuichet.validerUtilisateur(codeClient,nip)){
-            if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
-                scene = connecterBtn.getScene();
-                scene.setRoot(root);
-                ((Stage)scene.getWindow()).setTitle("Comptes");
+            if (gestionnaireGuichet.validerUtilisateur(codeClient,nip)){
+                if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+                    scene = connecterBtn.getScene();
+                    scene.setRoot(root);
+                    ((Stage)scene.getWindow()).setTitle("Comptes");
+                }
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Utilisateur ou nip Erronée, veuilliez contacter l'administrateur si votre compte est bloqué");
+                alert.show();
             }
-        }else {
+        }catch(Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Utilisateur ou nip Erronée, veuilliez contacter l'administrateur si votre compte est bloqué");
+            alert.setContentText("Valeur entrée non prise en charge veuillez entrer des nombre entier");
             alert.show();
         }
-
     }
 
 }
