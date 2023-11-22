@@ -3,6 +3,7 @@ package org.example.projet_guichet_banque;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Banque;
 import org.example.projet_guichet_banque.model.Client;
@@ -12,13 +13,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/vues/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Login");
+        stage.getIcons().add(new Image(Objects.requireNonNull(MainApp.class.getResourceAsStream("/images/B-transformed.png"))));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
