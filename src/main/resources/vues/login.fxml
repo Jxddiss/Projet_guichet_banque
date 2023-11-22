@@ -51,7 +51,7 @@
             <Insets bottom="100.0" left="45.0" />
          </GridPane.margin>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
+      <TextField fx:id="codeClientTxtField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="45.0" left="45.0" />
          </GridPane.margin>
@@ -75,7 +75,7 @@
             <Font size="10.0" />
          </font>
       </Hyperlink>
-      <Button mnemonicParsing="false" text="Se connecter" textAlignment="CENTER" GridPane.rowIndex="1">
+      <Button fx:id="connecterBtn" mnemonicParsing="false" onAction="#connecterClick" text="Se connecter" textAlignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Garamond Bold" size="14.0" />
          </font>
@@ -155,7 +155,7 @@
             <Insets left="15.0" top="45.0" />
          </GridPane.margin>
       </ImageView>
-      <PasswordField prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
+      <PasswordField fx:id="nipTxtField" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="45.0" top="95.0" />
          </GridPane.margin>

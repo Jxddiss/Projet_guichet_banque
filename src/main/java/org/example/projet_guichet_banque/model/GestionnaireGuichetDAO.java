@@ -14,21 +14,13 @@ public class GestionnaireGuichetDAO {
             System.out.println("==> Erreur lors de l'ouverture du fichier " + ioe.getMessage());
             ;
         }catch(ClassNotFoundException cnfe){
-            System.out.println("L,obet n'est pas une liste de compte "+ cnfe.getMessage());
+            System.out.println("L'objet n'est pas un gestionnaire de guichet "+ cnfe.getMessage());
         }
 
         return gestionnaireGuichet;
     }
 
-    public static void save(){
-        Banque banque = new Banque(1,10000);
-        GestionnaireGuichet gestionnaireGuichet = new GestionnaireGuichet(banque);
-        gestionnaireGuichet.validerUtilisateur(0,1111);
-        gestionnaireGuichet.creerClient("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222);
-        gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222);
-        gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", 1222);
-
-        ;
+    public static void save(GestionnaireGuichet gestionnaireGuichet){
         try {
             ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("gestionnaire.dat"));
             output.writeObject(gestionnaireGuichet);
