@@ -1,21 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.AffichageCompteController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="176.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="120.79999008178712" minHeight="10.0" prefHeight="80.80000228881836" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="340.6" minHeight="0.0" prefHeight="185.00000915527343" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="340.6" minHeight="0.0" prefHeight="62.59999084472656" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="78.00003662109378" minHeight="10.0" prefHeight="48.40003662109376" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <GridPane.margin>
+            <Insets bottom="30.0" left="180.0" />
+         </GridPane.margin>
          <image>
             <Image url="@../images/appBackground.jpg" />
          </image>
       </ImageView>
-      <ImageView fitWidth="35.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/B-transformed.png" />
          </image>
+         <GridPane.margin>
+            <Insets left="15.0" top="5.0" />
+         </GridPane.margin>
       </ImageView>
+      <Label text="Bonjour, Jamil" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Label text="Comptes Bancaires - Accès Rapide " GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="60.0" top="30.0" />
+         </GridPane.margin>
+      </Label>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="125.0" prefWidth="540.0" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <children>
+            <Pane maxHeight="70.0" maxWidth="130.0" prefHeight="70.0" prefWidth="130.0">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <children>
+                  <Rectangle arcHeight="30.0" arcWidth="30.0" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="130.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006729475100942127">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" opacity="0.5288754105567932" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color opacity="0.5349543690681458" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Label layoutX="14.0" layoutY="7.0" text="Cheque">
+                     <font>
+                        <Font name="Bell MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="65.0" layoutY="7.0" text="1875" textFill="#5e5e5e">
+                     <font>
+                        <Font name="Book Antiqua" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane alignment="BOTTOM_RIGHT" layoutX="30.0" layoutY="35.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="00000.00$" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
+                           <font>
+                              <Font name="Book Antiqua Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Label text="Besoin d'un nouveu compte?" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="40.0" left="60.0" />
+         </GridPane.margin>
+      </Label>
+      <Pane maxHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+         <GridPane.margin>
+            <Insets left="60.0" top="20.0" />
+         </GridPane.margin>
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="45.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="220.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.5288754105567932" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="0.5099999904632568" green="0.5099999904632568" blue="0.5099999904632568" opacity="0.38145896792411804" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.37254902720451355" green="0.6666666865348816" blue="0.7254902124404907" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label layoutX="14.0" layoutY="22.0" text="Ouvrir un nouveaux compte en ligne " textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: white; -fx-background-radius: 15;" text="Se déconnecter" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="20.0" top="60.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="Garamond Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </Button>
    </children>
-</Pane>
+   <padding>
+      <Insets bottom="45.0" />
+   </padding>
+</GridPane>
