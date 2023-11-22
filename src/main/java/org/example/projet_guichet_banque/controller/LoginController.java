@@ -39,7 +39,7 @@ public class LoginController {
             System.out.println(gestionnaireGuichet.getClient().toString());
             System.out.println("Connecter en tant que "+ gestionnaireGuichet.getClient().getPrenom());
 
-            if (actionEvent.getSource() == connecterBtn){
+            if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                 scene = connecterBtn.getScene();
                 scene.setRoot(root);

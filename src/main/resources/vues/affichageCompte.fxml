@@ -33,7 +33,7 @@
       <RowConstraints maxHeight="340.6" minHeight="0.0" prefHeight="62.59999084472656" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fitHeight="440.0" fitWidth="640.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3">
+      <ImageView fitHeight="462.0" fitWidth="672.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3">
          <viewport>
             <Rectangle2D />
          </viewport>
@@ -78,7 +78,7 @@
          <children>
             <Pane maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="136.0">
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </HBox.margin>
                <children>
                   <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
@@ -192,7 +192,7 @@
                   </GridPane>
                </children>
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -253,7 +253,7 @@
                   </GridPane>
                </children>
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -294,7 +294,7 @@
                   </Label>
                </children>
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -302,7 +302,7 @@
             </Pane>
          </children>
          <padding>
-            <Insets left="20.0" right="20.0" top="10.0" />
+            <Insets left="30.0" right="30.0" top="10.0" />
          </padding>
       </HBox>
       <Label text="Besoin d'un nouveu compte?" GridPane.columnSpan="2" GridPane.rowIndex="2">
