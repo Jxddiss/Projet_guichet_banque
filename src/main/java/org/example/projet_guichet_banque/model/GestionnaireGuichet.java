@@ -13,6 +13,7 @@ public class GestionnaireGuichet implements Serializable {
     private ArrayList<Transaction> transactions;
     private int nbEssaie = 0;
     private int numClient = 0;
+    private String statut = "ouvert";
 
     /**
      * Constructeur qui initialise le programme de gestion du guichet
@@ -34,6 +35,10 @@ public class GestionnaireGuichet implements Serializable {
     }
     public void setClient(Client client){
         this.client = client;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 
     public ArrayList<Transaction> getTransactions(int numCompte){
