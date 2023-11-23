@@ -26,7 +26,7 @@
             <Image url="@../images/B-transformed.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER_RIGHT" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+      <Label fx:id="prenomUtilisateurLbl" alignment="CENTER_RIGHT" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
          <font>
             <Font name="Garamond Bold" size="18.0" />
          </font>
@@ -179,7 +179,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
+      <Button fx:id="quitterBtn" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
          <font>
             <Font name="Garamond Bold" size="16.0" />
          </font>
