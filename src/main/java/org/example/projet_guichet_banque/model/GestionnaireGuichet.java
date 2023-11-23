@@ -9,10 +9,12 @@ public class GestionnaireGuichet implements Serializable {
     private final Banque banque;
     private Client client;
     private Client admin;
+    private ArrayList<Demande> demandesComptes;
     private ArrayList<Client> clients;
     private ArrayList<Transaction> transactions;
     private int nbEssaie = 0;
     private int numClient = 0;
+    private int numCompte = 0;
     private String statut = "ouvert";
 
     /**
@@ -59,6 +61,14 @@ public class GestionnaireGuichet implements Serializable {
         }
 
         return this.transactions;
+    }
+
+    public ArrayList<Demande> getDemandesComptes() {
+        return demandesComptes;
+    }
+
+    public void envoyerDemande(Demande demande){
+        this.demandesComptes.add(demande);
     }
 
     /**
@@ -347,19 +357,19 @@ public class GestionnaireGuichet implements Serializable {
      * compte d'un autre type
      *
      * @param type (String) type du compte à créer
-     * @param numeroCompte (int) numéro du compte crée
      * @param montantTransfertMaximum (double) montant maximum pour les transfert
      * @param montantFactureMaximum (double) montant maximum pour le paiement de facture
      * @param tauxInteret (double) taux d'intéret pour les compte épargne ou marge
      * */
-    public void creerCompte(String type, int numeroCompte,int codeClient, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
+    public void creerCompte(String type, int codeClient, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
 
         boolean compteChequePresent = false;
         if (this.client == this.admin){
             Client client = this.getClientAvecCode(codeClient);
             switch (type){
                 case "cheque":
-                    client.ajouterCompte(new CompteCheque(numeroCompte, codeClient, montantFactureMaximum, montantTransfertMaximum));
+                    this.numCompte += 1;
+                    client.ajouterCompte(new CompteCheque(this.numCompte, codeClient, montantFactureMaximum, montantTransfertMaximum));
                     break;
                 case "epargne":
                     for (Compte compte:
@@ -370,7 +380,8 @@ public class GestionnaireGuichet implements Serializable {
                     }
 
                     if (compteChequePresent){
-                        client.ajouterCompte(new CompteEpargne(numeroCompte, codeClient, tauxInteret, montantTransfertMaximum));
+                        this.numCompte += 1;
+                        client.ajouterCompte(new CompteEpargne(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum));
                     }
                     break;
                 case "marge":
@@ -382,7 +393,8 @@ public class GestionnaireGuichet implements Serializable {
                     }
 
                     if (compteChequePresent){
-                        client.ajouterCompte(new MargeDeCredit(numeroCompte, codeClient, tauxInteret, montantTransfertMaximum));
+                        this.numCompte += 1;
+                        client.ajouterCompte(new MargeDeCredit(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum));
                     }
                     break;
                 case "hypotheque":
@@ -396,7 +408,8 @@ public class GestionnaireGuichet implements Serializable {
                     }
 
                     if (compteChequePresent){
-                        client.ajouterCompte(new CompteHypothecaire(numeroCompte, codeClient, montantTransfertMaximum));
+                        this.numCompte += 1;
+                        client.ajouterCompte(new CompteHypothecaire(this.numCompte, codeClient, montantTransfertMaximum));
                     }
                     break;
                 default:
