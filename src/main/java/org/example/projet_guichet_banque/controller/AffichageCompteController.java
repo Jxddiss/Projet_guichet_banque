@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
@@ -39,6 +40,11 @@ public class AffichageCompteController {
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Login");
         }
+    }
+
+    @FXML
+    public void creerButtonClick(MouseEvent event){
+
     }
 }
 
