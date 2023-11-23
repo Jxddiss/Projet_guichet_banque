@@ -90,20 +90,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button mnemonicParsing="false" text="Créer un compte" GridPane.columnIndex="2">
-         <font>
-            <Font name="Garamond Bold" size="14.0" />
-         </font>
-         <effect>
-            <InnerShadow height="5.0" radius="2.0" width="5.0" />
-         </effect>
-         <GridPane.margin>
-            <Insets left="45.0" top="45.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="250.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="280.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
          <fill>
             <LinearGradient endX="1.0" endY="1.0" startX="1.0">
