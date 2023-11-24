@@ -65,8 +65,6 @@ jlink {
         if (installerType == 'exe') {
             imageOptions += ['--icon', 'src/main/resources/images/icon.ico']
             installerOptions += [
-                    // '--win-per-user-install', // Install only for current user
-                    // '--win-console', // Shows what Java outputs to the console
                     '--win-dir-chooser',
                     '--win-menu', '--win-shortcut',
             ]
@@ -75,8 +73,6 @@ jlink {
         if (installerType == 'msi') {
             imageOptions += ['--icon', 'src/main/resources/icon.ico']
             installerOptions += [
-                    // '--win-per-user-install', // Install only for current user
-                    // '--win-console', // Shows what Java outputs to the console
                     '--win-dir-chooser',
                     '--win-menu', '--win-shortcut'
             ]
