@@ -5,5 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class CompteChequeController {
+public class CompteEpargneController {
+
 }
