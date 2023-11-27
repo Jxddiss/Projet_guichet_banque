@@ -49,7 +49,7 @@ public class AffichageCompteController {
     @FXML
     public void creerButtonClick(MouseEvent event) throws IOException{
         if(event.getSource() == creerComptePaneButton){
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/CreationCompte.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/creationCompte.fxml")));
             scene = deconnecterBtn.getScene();
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Création de compte");
