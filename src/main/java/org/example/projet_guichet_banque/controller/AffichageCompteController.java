@@ -60,7 +60,7 @@ public class AffichageCompteController {
 
     @FXML
     public void toutCompteClick(MouseEvent event) throws IOException{
-        if(event.getSource() == creerComptePaneButton){
+        if(event.getSource() == voirToutComptePaneBtn){
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/listeDesCompte.fxml")));
             scene = voirToutComptePaneBtn.getScene();
             scene.setRoot(root);
