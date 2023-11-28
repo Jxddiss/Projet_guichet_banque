@@ -22,6 +22,8 @@ public class AffichageCompteController {
     private Button deconnecterBtn;
     @FXML
     private Pane creerComptePaneButton;
+    @FXML
+    private Pane voirToutComptePaneBtn;
     private Scene scene;
     private Parent root;
 
@@ -53,6 +55,16 @@ public class AffichageCompteController {
             scene = deconnecterBtn.getScene();
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Création de compte");
+        }
+    }
+
+    @FXML
+    public void toutCompteClick(MouseEvent event) throws IOException{
+        if(event.getSource() == creerComptePaneButton){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/listeDesCompte.fxml")));
+            scene = voirToutComptePaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Tout les comptes");
         }
     }
 }

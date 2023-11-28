@@ -331,6 +331,7 @@ public class GestionnaireGuichet implements Serializable {
         return -1;
     }
 
+
     /**
      * Méthode qui permet à l'administrateur de créer un client et l'ajoute à
      * la liste du gestionnaire

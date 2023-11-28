@@ -104,12 +104,12 @@
                                 </LinearGradient>
                             </fill>
                         </Rectangle>
-                        <Label fx:id="typeCompteLbl" layoutX="5.0" layoutY="4.0" text="Cheque">
+                        <Label fx:id="typeCompteLbl" layoutX="5.0" layoutY="4.0">
                             <font>
                                 <Font name="Bell MT Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="numCompteLbl" layoutX="67.0" layoutY="6.0" text="1875" textFill="#5e5e5e">
+                        <Label fx:id="numCompteLbl" layoutX="67.0" layoutY="6.0" textFill="#5e5e5e">
                             <font>
                                 <Font name="Book Antiqua" size="13.0" />
                             </font>
@@ -122,7 +122,7 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label fx:id="soldeCompteLbl" contentDisplay="RIGHT" text="00.00$" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
+                                <Label fx:id="soldeCompteLbl" contentDisplay="RIGHT" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
                                     <font>
                                         <Font name="Book Antiqua Bold" size="14.0" />
                                     </font>
@@ -223,12 +223,12 @@
                                 </LinearGradient>
                             </fill>
                         </Rectangle>
-                        <Label fx:id="typeCompteLbl11" layoutX="13.0" layoutY="4.0">
+                        <Label fx:id="typeCompteLbl2" layoutX="13.0" layoutY="4.0">
                             <font>
                                 <Font name="Bell MT Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="numCompteLbl11" layoutX="102.0" layoutY="6.0" textFill="#5e5e5e">
+                        <Label fx:id="numCompteLbl2" layoutX="102.0" layoutY="6.0" textFill="#5e5e5e">
                             <font>
                                 <Font name="Book Antiqua" size="13.0" />
                             </font>
@@ -241,7 +241,7 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label fx:id="soldeCompteLbl11" contentDisplay="RIGHT" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
+                                <Label fx:id="soldeCompteLbl2" contentDisplay="RIGHT" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="RIGHT">
                                     <font>
                                         <Font name="Book Antiqua Bold" size="14.0" />
                                     </font>
@@ -259,7 +259,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Pane>
-                <Pane maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="78.0">
+                <Pane fx:id="voirToutComptePaneBtn" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#toutCompteClick" prefHeight="70.0" prefWidth="78.0">
                     <children>
                         <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="1.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="77.0">
                             <fill>
@@ -284,7 +284,7 @@
                                 </LinearGradient>
                             </fill>
                         </Rectangle>
-                        <Label fx:id="typeCompteLbl111" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="-7.0" prefHeight="75.0" prefWidth="35.0" text="+" textFill="#ece8e8">
+                        <Label fx:id="plusLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="-7.0" prefHeight="75.0" prefWidth="35.0" text="+" textFill="#ece8e8">
                             <font>
                                 <Font name="Bell MT Bold" size="45.0" />
                             </font>
