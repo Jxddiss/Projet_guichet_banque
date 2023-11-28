@@ -348,7 +348,10 @@ public class GestionnaireGuichet implements Serializable {
             return false;
         }
         this.numClient += 1;
-        return this.clients.add(new Client(this.numClient, prenom, nom, telephone, couriel, nip));
+        this.clients.add(new Client(this.numClient, prenom, nom, telephone, couriel, nip));
+        creerCompte("cheque", this.numClient, 1000, 2000, 0);
+        return true;
+
     }
 
     /**
