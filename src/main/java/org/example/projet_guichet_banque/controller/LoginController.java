@@ -45,6 +45,11 @@ public class LoginController {
                     scene = connecterBtn.getScene();
                     scene.setRoot(root);
                     ((Stage)scene.getWindow()).setTitle("Comptes");
+                }else{
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageAdmin.fxml")));
+                    scene = connecterBtn.getScene();
+                    scene.setRoot(root);
+                    ((Stage)scene.getWindow()).setTitle("Admin");
                 }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
