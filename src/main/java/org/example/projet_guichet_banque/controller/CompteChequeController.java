@@ -1,6 +1,8 @@
 package org.example.projet_guichet_banque.controller;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +10,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Compte;
+import org.example.projet_guichet_banque.model.Transaction;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -23,7 +31,18 @@ public class CompteChequeController {
     @FXML
     private Label soldeLbl;
     @FXML
+    private Button depotBtn;
+    @FXML
     private Button quitterBtn;
+    @FXML
+    private TableView<Transaction> transactionTable;
+    @FXML
+    private TableColumn<Transaction, Double> montantColonne;
+    @FXML
+    private TableColumn<Transaction, Compte> destinationColonne;
+    @FXML
+    private TableColumn<Transaction, String> typeColonne;
+    private ObservableList<Transaction> transactions;
     private Scene scene;
     private Parent root;
 
@@ -35,6 +54,22 @@ public class CompteChequeController {
         numCompteLbl.setText(String.format("%04d",AffichageCompteController.compteChoisi.getNumeroCompte()));
         soldeLbl.setText(String.format("%.2f $",AffichageCompteController.compteChoisi.getSoldeCompte()));
 
+
+        transactions = FXCollections.observableArrayList(LoginController.gestionnaireGuichet.getTransactions(AffichageCompteController.compteChoisi.getNumeroCompte()));
+        montantColonne.setCellValueFactory(new PropertyValueFactory<>("montant"));
+        destinationColonne.setCellValueFactory(new PropertyValueFactory<>("compteTransfert"));
+        typeColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
+        transactionTable.setItems(transactions);
+    }
+
+    @FXML
+    public void deposerClick(ActionEvent actionEvent) throws IOException{
+        if (actionEvent.getSource() == depotBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/deposer.fxml")));
+            scene = quitterBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Comptes");
+        }
     }
 
     @FXML

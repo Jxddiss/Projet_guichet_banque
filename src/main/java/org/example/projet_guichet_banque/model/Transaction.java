@@ -5,11 +5,31 @@ import java.io.Serializable;
 public class Transaction implements Serializable {
     private int numeroTransaction = 0;
     private double montant;
-    private Compte compte;
-    private Compte compteTransfert;
+    private int compte;
+    private int compteTransfert;
     private String type;
 
-    public Transaction( double montant, Compte compte, Compte compteTransfert, String type) {
+    public double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
+
+    public void setCompteTransfert(int compteTransfert) {
+        this.compteTransfert = compteTransfert;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Transaction(double montant, int compte, int compteTransfert, String type) {
         this.numeroTransaction += 1;
         this.montant = montant;
         this.compte = compte;
@@ -17,21 +37,21 @@ public class Transaction implements Serializable {
         this.type = type;
     }
 
-    public Transaction(int numeroTransaction, double montant, Compte compte, String type) {
+    public Transaction(int numeroTransaction, double montant, int compte, String type) {
         this.numeroTransaction = numeroTransaction;
         this.montant = montant;
         this.compte = compte;
         this.type = type;
-        this.compteTransfert = null;
+        this.compteTransfert = 0;
     }
 
-    public Compte getCompte() {
+    public int getCompte() {
         return compte;
     }
 
 
 
-    public Compte getCompteTransfert() {
+    public int getCompteTransfert() {
         return compteTransfert;
     }
 
@@ -46,7 +66,7 @@ public class Transaction implements Serializable {
                 ", type='" + type + '\'' +
                 '}';
 
-        if (this.compteTransfert != null){
+        if (this.compteTransfert != 0){
             transStr += ", compteTransfert=" + compteTransfert;
         }
 

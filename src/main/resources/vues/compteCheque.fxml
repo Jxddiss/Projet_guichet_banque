@@ -89,7 +89,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="depotBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Dépot">
+            <Button fx:id="depotBtn" mnemonicParsing="false" onAction="#deposerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Dépot">
                <font>
                   <Font name="Garamond Bold" size="15.0" />
                </font>
@@ -124,11 +124,11 @@
             </Button>
          </children>
       </HBox>
-      <TableView prefHeight="150.0" prefWidth="520.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
+      <TableView fx:id="transactionTable" prefHeight="150.0" prefWidth="520.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Montant" />
-          <TableColumn prefWidth="75.0" text="Compte de déstination" />
-            <TableColumn prefWidth="75.0" text="Type de transaction" />
+          <TableColumn fx:id="montantColonne" prefWidth="75.0" text="Montant" />
+          <TableColumn fx:id="destinationColonne" prefWidth="75.0" text="Compte de déstination" />
+            <TableColumn fx:id="typeColonne" prefWidth="75.0" text="Type de transaction" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
