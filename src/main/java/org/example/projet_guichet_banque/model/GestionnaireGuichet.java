@@ -43,6 +43,10 @@ public class GestionnaireGuichet implements Serializable {
         this.statut = statut;
     }
 
+    public String getStatut() {
+        return statut;
+    }
+
     public ArrayList<Transaction> getTransactions(int numCompte){
         ArrayList<Transaction> transactionsCompte = new ArrayList<>();
         for (Transaction transaction:
