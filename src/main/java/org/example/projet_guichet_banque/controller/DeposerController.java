@@ -63,13 +63,29 @@ public class DeposerController {
     @FXML
     public void confirmerClick(ActionEvent actionEvent) throws IOException{
         if (actionEvent.getSource() == confirmerBtn){
-            double montant = Double.parseDouble(montantTxtField.getText());
-            LoginController.gestionnaireGuichet.depotCheque(montant,AffichageCompteController.compteChoisi.getNumeroCompte());
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
-            scene = confirmerBtn.getScene();
-            scene.setRoot(root);
-            ((Stage)scene.getWindow()).setTitle("Comptes");
-
+            try{
+                double montant = Double.parseDouble(montantTxtField.getText());
+                double solde = LoginController.gestionnaireGuichet.depotCheque(montant,AffichageCompteController.compteChoisi.getNumeroCompte());
+                if (solde != -1){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("Dépot confirmé "+
+                            "\nVotre nouveau solde est de : "+
+                            String.format("%.2f $", solde));
+                    alert.show();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+                    scene = confirmerBtn.getScene();
+                    scene.setRoot(root);
+                    ((Stage)scene.getWindow()).setTitle("Comptes");
+                }else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Erreur lors du dépot");
+                    alert.show();
+                }
+            }catch (NumberFormatException nf){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("FORMAT NON ACCEPTÉ : Veuillez entré un nombre");
+                alert.show();
+            }
         }
     }
 

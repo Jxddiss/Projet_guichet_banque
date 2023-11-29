@@ -108,7 +108,6 @@ public class AffichageCompteController {
         LoginController.gestionnaireGuichet.setClient(null);
         GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
 
-
         if (actionEvent.getSource() == deconnecterBtn){
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/login.fxml")));
             scene = deconnecterBtn.getScene();
