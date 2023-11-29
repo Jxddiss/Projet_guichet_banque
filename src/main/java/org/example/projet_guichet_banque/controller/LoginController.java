@@ -56,7 +56,7 @@ public class LoginController {
                 alert.setContentText("Utilisateur ou nip Erronée");
                 alert.show();
             }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("Votre compte est bloqué, veuillez contacter l'administrateur");
                 alert.show();
             }
