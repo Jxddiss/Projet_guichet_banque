@@ -62,7 +62,6 @@ public class AffichageCompteController {
     private String num2 = "";
     private String solde2 = "";
     static Compte compteChoisi;
-    static int numChoisi;
 
     @FXML
     public void initialize(){
@@ -158,7 +157,6 @@ public class AffichageCompteController {
                         compteChoisi = compte;
                     }
                 }
-                numChoisi = Integer.parseInt(num1);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type1+".fxml")));
                 scene = compte1PaneBtn.getScene();
                 scene.setRoot(root);
@@ -174,7 +172,6 @@ public class AffichageCompteController {
                         compteChoisi = compte;
                     }
                 }
-                numChoisi = Integer.parseInt(num2);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type2+".fxml")));
                 scene = compte1PaneBtn.getScene();
                 scene.setRoot(root);

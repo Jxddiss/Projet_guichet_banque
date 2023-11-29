@@ -62,10 +62,16 @@ public class DeposerController {
 
     @FXML
     public void confirmerClick(ActionEvent actionEvent) throws IOException{
+        double solde = 0;
         if (actionEvent.getSource() == confirmerBtn){
             try{
                 double montant = Double.parseDouble(montantTxtField.getText());
-                double solde = LoginController.gestionnaireGuichet.depotCheque(montant,AffichageCompteController.compteChoisi.getNumeroCompte());
+                if (AffichageCompteController.compteChoisi.getType().equals("cheque")){
+                    solde = LoginController.gestionnaireGuichet.depotCheque(montant,AffichageCompteController.compteChoisi.getNumeroCompte());
+                } else if (AffichageCompteController.compteChoisi.getType().equals("epargne")) {
+                    solde = LoginController.gestionnaireGuichet.depotEpargne(montant,AffichageCompteController.compteChoisi.getNumeroCompte());
+                }
+
                 if (solde != -1){
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setContentText("Dépot confirmé "+
