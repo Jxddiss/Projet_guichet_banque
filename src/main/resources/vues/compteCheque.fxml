@@ -124,7 +124,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="transactionTable" prefHeight="150.0" prefWidth="520.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
+      <TableView fx:id="transactionTable" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
         <columns>
           <TableColumn fx:id="montantColonne" prefWidth="75.0" text="Montant" />
           <TableColumn fx:id="destinationColonne" prefWidth="75.0" text="Compte de déstination" />
