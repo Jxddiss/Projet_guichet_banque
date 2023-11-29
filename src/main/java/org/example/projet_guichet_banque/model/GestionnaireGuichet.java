@@ -119,13 +119,12 @@ public class GestionnaireGuichet implements Serializable {
                 if (this.nbEssaie == 3){
                     client.setStatut("Bloque");
                     this.nbEssaie = 0;
+                    return 1;
                 }
                 this.nbEssaie += 1;
-
                 return 2;
             }
         }
-
         return 2;
     }
 

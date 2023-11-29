@@ -38,8 +38,9 @@ public class LoginController {
         try{
             int codeClient = Integer.parseInt(codeClientTxtField.getText());
             int nip = Integer.parseInt(nipTxtField.getText());
+            int verification = gestionnaireGuichet.validerUtilisateur(codeClient,nip);
 
-            if (gestionnaireGuichet.validerUtilisateur(codeClient,nip) == 0){
+            if ( verification == 0){
                 if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                     scene = connecterBtn.getScene();
@@ -51,7 +52,7 @@ public class LoginController {
                     scene.setRoot(root);
                     ((Stage)scene.getWindow()).setTitle("Admin");
                 }
-            }else if (gestionnaireGuichet.validerUtilisateur(codeClient,nip) == 2){
+            }else if (verification == 2){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Utilisateur ou nip Erronée");
                 alert.show();
