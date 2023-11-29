@@ -1,6 +1,7 @@
 package org.example.projet_guichet_banque.controller;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,9 +38,9 @@ public class CompteChequeController {
     @FXML
     private TableView<Transaction> transactionTable;
     @FXML
-    private TableColumn<Transaction, Double> montantColonne;
+    private TableColumn<Transaction, String> montantColonne;
     @FXML
-    private TableColumn<Transaction, Compte> destinationColonne;
+    private TableColumn<Transaction, String> destinationColonne;
     @FXML
     private TableColumn<Transaction, String> typeColonne;
     private ObservableList<Transaction> transactions;
@@ -56,8 +57,14 @@ public class CompteChequeController {
 
 
         transactions = FXCollections.observableArrayList(LoginController.gestionnaireGuichet.getTransactions(AffichageCompteController.compteChoisi.getNumeroCompte()));
-        montantColonne.setCellValueFactory(new PropertyValueFactory<>("montant"));
-        destinationColonne.setCellValueFactory(new PropertyValueFactory<>("compteTransfert"));
+        montantColonne.setCellValueFactory(cellData -> {
+            String montantFormater = String.format("%.2f $",cellData.getValue().getMontant());
+            return new SimpleStringProperty(montantFormater);
+        });
+        destinationColonne.setCellValueFactory(cellData -> {
+            String compteFormater = "Compte : "+ cellData.getValue().getCompte();
+            return new SimpleStringProperty(compteFormater);
+        });
         typeColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
         transactionTable.setItems(transactions);
     }
