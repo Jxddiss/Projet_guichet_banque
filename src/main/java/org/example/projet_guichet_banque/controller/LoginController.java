@@ -39,7 +39,7 @@ public class LoginController {
             int codeClient = Integer.parseInt(codeClientTxtField.getText());
             int nip = Integer.parseInt(nipTxtField.getText());
 
-            if (gestionnaireGuichet.validerUtilisateur(codeClient,nip)){
+            if (gestionnaireGuichet.validerUtilisateur(codeClient,nip) == 0){
                 if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                     scene = connecterBtn.getScene();
@@ -51,11 +51,17 @@ public class LoginController {
                     scene.setRoot(root);
                     ((Stage)scene.getWindow()).setTitle("Admin");
                 }
-            }else {
+            }else if (gestionnaireGuichet.validerUtilisateur(codeClient,nip) == 2){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Utilisateur ou nip Erronée, veuilliez contacter l'administrateur si votre compte est bloqué");
+                alert.setContentText("Utilisateur ou nip Erronée");
+                alert.show();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Votre compte est bloqué, veuillez contacter l'administrateur");
                 alert.show();
             }
+
+            GestionnaireGuichetDAO.save(gestionnaireGuichet);
         }catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Valeur entrée non prise en charge veuillez entrer des nombre entier");

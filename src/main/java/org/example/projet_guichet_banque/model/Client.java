@@ -31,6 +31,7 @@ public class Client implements Serializable {
         this.couriel = couriel;
         this.nip = nip;
         this.comptes = new ArrayList<>();
+        this.statut = "Ok";
     }
 
     // ============ Accesseurs et Mutateurs ============

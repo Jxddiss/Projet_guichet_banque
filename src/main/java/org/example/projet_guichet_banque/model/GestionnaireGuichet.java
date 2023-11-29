@@ -99,24 +99,30 @@ public class GestionnaireGuichet implements Serializable {
      * @param codeClient (int) code du client
      * @param nip (int) nip du client
      * */
-    public boolean validerUtilisateur(int codeClient, int nip){
+    public int validerUtilisateur(int codeClient, int nip){
         this.client = null;
         for (Client client:
                 this.clients) {
+            if (client.getCodeClient() == codeClient && client.getStatut().equals("Bloque")){
+                return 1;
+            }
+
             if (client.getCodeClient() == codeClient && client.getNip() == nip){
                 this.client = client;
                 this.nbEssaie = 0;
-                return true;
+                return 0;
             } else if (client.getCodeClient() == codeClient && client.getNip() != nip) {
-                this.nbEssaie += 1;
                 if (this.nbEssaie == 3){
                     client.setStatut("Bloque");
+                    this.nbEssaie = 0;
                 }
-                return false;
+                this.nbEssaie += 1;
+
+                return 2;
             }
         }
 
-        return false;
+        return 2;
     }
 
     /**

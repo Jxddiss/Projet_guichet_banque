@@ -35,7 +35,7 @@ class GestionnaireGuichetTest {
 
     @Test
     void validerUtilisateur() {
-        assertTrue(gestionnaireGuichet.validerUtilisateur(2,1222));
+        assertEquals(0,gestionnaireGuichet.validerUtilisateur(2,1222));
     }
 
     @Test
