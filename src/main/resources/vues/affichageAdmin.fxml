@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.AffichageAdminController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.20001220703125" minWidth="10.0" prefWidth="176.0" />
@@ -49,7 +49,7 @@
             <Insets left="15.0" top="5.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="Bonjour, Jamil" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+      <Label fx:id="prenomUtilisateurLbl" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
          <font>
             <Font name="Garamond Bold" size="18.0" />
          </font>
@@ -296,7 +296,7 @@
             <Insets bottom="90.0" left="6.0" />
          </GridPane.margin>
       </Pane>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="151.0" style="-fx-background-radius: 15;" text="Se déconnecter" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Button fx:id="deconnecterBtn" alignment="CENTER" mnemonicParsing="false" onAction="#deconnecterClick" prefHeight="38.0" prefWidth="151.0" style="-fx-background-radius: 15;" text="Se déconnecter" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="20.0" top="100.0" />
          </GridPane.margin>

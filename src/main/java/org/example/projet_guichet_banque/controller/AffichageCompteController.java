@@ -44,8 +44,23 @@ public class AffichageCompteController {
     private Label numCompteLbl2;
     @FXML
     private Label soldeCompteLbl2;
+    @FXML
+    private Pane compte1PaneBtn;
+    @FXML
+    private Pane compte2PaneBtn;
+    @FXML
+    private Pane compte3PaneBtn;
     private Scene scene;
     private Parent root;
+    private String type = "";
+    static String num = "";
+    private String solde = "";
+    private String type1 = "";
+    static String num1 = "";
+    private String solde1 = "";
+    private String type2 = "";
+    static String num2 = "";
+    private String solde2 = "";
 
     @FXML
     public void initialize(){
@@ -55,15 +70,9 @@ public class AffichageCompteController {
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
 
         ArrayList<Compte> comptes = LoginController.gestionnaireGuichet.getClient().getComptes();
-        String type = comptes.get(0).getType().substring(0,1).toUpperCase() + comptes.get(0).getType().substring(1);
-        String num = String.format("%04d",comptes.get(0).getNumeroCompte());
-        String solde = String.format("%.2f $",comptes.get(0).getSoldeCompte());
-        String type1 = "";
-        String num1 = "";
-        String solde1 = "";
-        String type2 = "";
-        String num2 = "";
-        String solde2 = "";
+        type = comptes.get(0).getType().substring(0,1).toUpperCase() + comptes.get(0).getType().substring(1);
+        num = String.format("%04d",comptes.get(0).getNumeroCompte());
+        solde = String.format("%.2f $",comptes.get(0).getSoldeCompte());
 
         if(comptes.size() >= 3){
             type1 = comptes.get(1).getType().substring(0,1).toUpperCase() + comptes.get(1).getType().substring(1);
@@ -123,6 +132,33 @@ public class AffichageCompteController {
             scene = voirToutComptePaneBtn.getScene();
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Tout les comptes");
+        }
+    }
+    @FXML
+    public void ouvrirCompteClick(MouseEvent event) throws IOException{
+        if(event.getSource() == compte1PaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type+".fxml")));
+            scene = compte1PaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Compte "+type);
+        }
+
+        if (!Objects.equals(type1, "")){
+            if(event.getSource() == compte2PaneBtn){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type1+".fxml")));
+                scene = compte1PaneBtn.getScene();
+                scene.setRoot(root);
+                ((Stage)scene.getWindow()).setTitle("Compte "+type1);
+            }
+        }
+
+        if (!Objects.equals(type2, "")){
+            if(event.getSource() == compte3PaneBtn){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type2+".fxml")));
+                scene = compte1PaneBtn.getScene();
+                scene.setRoot(root);
+                ((Stage)scene.getWindow()).setTitle("Compte "+type2);
+            }
         }
     }
 }
