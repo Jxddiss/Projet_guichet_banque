@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -48,7 +49,7 @@
                         <Font name="Garamond Bold" size="18.0" />
                     </font>
                     <graphic>
-                        <Label contentDisplay="RIGHT" text="00.00$">
+                        <Label fx:id="soldeLbl" contentDisplay="RIGHT" text="00.00$">
                             <font>
                                 <Font name="Book Antiqua Bold" size="13.0" />
                             </font>
@@ -63,7 +64,7 @@
                         <Font name="Garamond Bold" size="24.0" />
                     </font>
                     <graphic>
-                        <Label text="1234" textFill="#6e6c6c">
+                        <Label fx:id="numCompteLbl" text="1234" textFill="#6e6c6c">
                             <font>
                                 <Font name="Book Antiqua Bold Italic" size="14.0" />
                             </font>
@@ -84,6 +85,9 @@
                     <HBox.margin>
                         <Insets left="230.2" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <Button fx:id="depotBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Dépot">
                     <font>
@@ -92,6 +96,9 @@
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             </children>
         </HBox>
@@ -109,6 +116,9 @@
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
     </children>
 </AnchorPane>

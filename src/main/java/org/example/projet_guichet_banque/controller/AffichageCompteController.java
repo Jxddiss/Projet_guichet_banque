@@ -53,14 +53,15 @@ public class AffichageCompteController {
     private Scene scene;
     private Parent root;
     private String type = "";
-    static String num = "";
+    private String num = "";
     private String solde = "";
     private String type1 = "";
-    static String num1 = "";
+    private String num1 = "";
     private String solde1 = "";
     private String type2 = "";
-    static String num2 = "";
+    private String num2 = "";
     private String solde2 = "";
+    static int numChoisi;
 
     @FXML
     public void initialize(){
@@ -137,6 +138,7 @@ public class AffichageCompteController {
     @FXML
     public void ouvrirCompteClick(MouseEvent event) throws IOException{
         if(event.getSource() == compte1PaneBtn){
+            numChoisi = Integer.parseInt(num);
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type+".fxml")));
             scene = compte1PaneBtn.getScene();
             scene.setRoot(root);
@@ -145,6 +147,7 @@ public class AffichageCompteController {
 
         if (!Objects.equals(type1, "")){
             if(event.getSource() == compte2PaneBtn){
+                numChoisi = Integer.parseInt(num1);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type1+".fxml")));
                 scene = compte1PaneBtn.getScene();
                 scene.setRoot(root);
@@ -154,6 +157,7 @@ public class AffichageCompteController {
 
         if (!Objects.equals(type2, "")){
             if(event.getSource() == compte3PaneBtn){
+                numChoisi = Integer.parseInt(num2);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type2+".fxml")));
                 scene = compte1PaneBtn.getScene();
                 scene.setRoot(root);

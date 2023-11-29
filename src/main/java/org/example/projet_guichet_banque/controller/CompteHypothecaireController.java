@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.Compte;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -17,7 +18,12 @@ public class CompteHypothecaireController {
     @FXML
     private Label prenomUtilisateurLbl;
     @FXML
+    private Label numCompteLbl;
+    @FXML
+    private Label soldeLbl;
+    @FXML
     private Button quitterBtn;
+    private Compte compteChoisi;
     private Scene scene;
     private Parent root;
 
@@ -26,6 +32,16 @@ public class CompteHypothecaireController {
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+        for (Compte compte:
+                LoginController.gestionnaireGuichet.getClient().getComptes()) {
+            if (compte.getNumeroCompte() == AffichageCompteController.numChoisi){
+                compteChoisi = compte;
+            }
+        }
+
+        numCompteLbl.setText(String.format("%04d",compteChoisi.getNumeroCompte()));
+        soldeLbl.setText(String.format("%.2f $",compteChoisi.getSoldeCompte()));
+
     }
 
     @FXML
