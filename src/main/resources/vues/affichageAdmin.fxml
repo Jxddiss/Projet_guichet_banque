@@ -68,7 +68,7 @@
             <Insets left="60.0" top="30.0" />
          </GridPane.margin>
       </Label>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Pane fx:id="creerClientPaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -106,7 +106,7 @@
             <Insets left="70.0" top="60.0" />
          </GridPane.margin>
       </Pane>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Pane fx:id="demandeComptePaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -144,7 +144,7 @@
             <Insets top="60.0" />
          </GridPane.margin>
       </Pane>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+      <Pane fx:id="remplirGuichetPaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -182,7 +182,7 @@
             <Insets left="6.0" top="60.0" />
          </GridPane.margin>
       </Pane>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Pane fx:id="listeComptePaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -220,7 +220,7 @@
             <Insets bottom="90.0" left="70.0" />
          </GridPane.margin>
       </Pane>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Pane fx:id="listeClientPaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -258,7 +258,7 @@
             <Insets bottom="90.0" />
          </GridPane.margin>
       </Pane>
-      <Pane maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <Pane fx:id="fermerGuichetPaneBtn" maxHeight="70.0" maxWidth="140.0" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>

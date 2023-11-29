@@ -61,6 +61,7 @@ public class AffichageCompteController {
     private String type2 = "";
     private String num2 = "";
     private String solde2 = "";
+    static Compte compteChoisi;
     static int numChoisi;
 
     @FXML
@@ -138,7 +139,12 @@ public class AffichageCompteController {
     @FXML
     public void ouvrirCompteClick(MouseEvent event) throws IOException{
         if(event.getSource() == compte1PaneBtn){
-            numChoisi = Integer.parseInt(num);
+            for (Compte compte:
+                    LoginController.gestionnaireGuichet.getClient().getComptes()) {
+                if (compte.getNumeroCompte() == Integer.parseInt(num)){
+                    compteChoisi = compte;
+                }
+            }
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type+".fxml")));
             scene = compte1PaneBtn.getScene();
             scene.setRoot(root);
@@ -147,6 +153,12 @@ public class AffichageCompteController {
 
         if (!Objects.equals(type1, "")){
             if(event.getSource() == compte2PaneBtn){
+                for (Compte compte:
+                        LoginController.gestionnaireGuichet.getClient().getComptes()) {
+                    if (compte.getNumeroCompte() == Integer.parseInt(num1)){
+                        compteChoisi = compte;
+                    }
+                }
                 numChoisi = Integer.parseInt(num1);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type1+".fxml")));
                 scene = compte1PaneBtn.getScene();
@@ -157,6 +169,12 @@ public class AffichageCompteController {
 
         if (!Objects.equals(type2, "")){
             if(event.getSource() == compte3PaneBtn){
+                for (Compte compte:
+                        LoginController.gestionnaireGuichet.getClient().getComptes()) {
+                    if (compte.getNumeroCompte() == Integer.parseInt(num2)){
+                        compteChoisi = compte;
+                    }
+                }
                 numChoisi = Integer.parseInt(num2);
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type2+".fxml")));
                 scene = compte1PaneBtn.getScene();

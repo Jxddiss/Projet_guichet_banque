@@ -398,14 +398,17 @@ public class GestionnaireGuichet implements Serializable {
                     }
                     break;
                 case "marge":
+                    Boolean margePresente = false;
                     for (Compte compte:
                             client.getComptes()) {
                         if (compte.getType().equals("cheque")){
                             compteChequePresent = true;
+                        } else if (compte.getType().equals("marge")) {
+                            margePresente = true;
                         }
                     }
 
-                    if (compteChequePresent){
+                    if (compteChequePresent && !margePresente){
                         this.numCompte += 1;
                         client.ajouterCompte(new MargeDeCredit(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum));
                     }

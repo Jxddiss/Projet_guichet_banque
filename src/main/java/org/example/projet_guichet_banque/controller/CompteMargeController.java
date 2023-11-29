@@ -23,7 +23,6 @@ public class CompteMargeController {
     private Label soldeLbl;
     @FXML
     private Button quitterBtn;
-    private Compte compteChoisi;
     private Scene scene;
     private Parent root;
 
@@ -32,16 +31,8 @@ public class CompteMargeController {
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
-        for (Compte compte:
-                LoginController.gestionnaireGuichet.getClient().getComptes()) {
-            if (compte.getNumeroCompte() == AffichageCompteController.numChoisi){
-                compteChoisi = compte;
-            }
-        }
-
-        numCompteLbl.setText(String.format("%04d",compteChoisi.getNumeroCompte()));
-        soldeLbl.setText(String.format("%.2f $",compteChoisi.getSoldeCompte()));
-
+        numCompteLbl.setText(String.format("%04d",AffichageCompteController.compteChoisi.getNumeroCompte()));
+        soldeLbl.setText(String.format("%.2f $",AffichageCompteController.compteChoisi.getSoldeCompte()));
     }
 
     @FXML

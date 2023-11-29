@@ -76,21 +76,7 @@
                 </Label>
             </children>
         </GridPane>
-        <HBox maxHeight="30.0" maxWidth="600.0" minWidth="30.0" prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="138.0">
-            <children>
-                <Button fx:id="depotBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Dépot">
-                    <font>
-                        <Font name="Garamond Bold" size="15.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="269.6" />
-                    </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-                </Button>
-            </children>
-        </HBox>
+        <HBox maxHeight="30.0" maxWidth="600.0" minWidth="30.0" prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="138.0" />
         <TableView prefHeight="150.0" prefWidth="520.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="Montant" />

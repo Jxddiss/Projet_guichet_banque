@@ -40,7 +40,7 @@
                 <Font name="Garamond Bold" size="20.0" />
             </font>
         </Label>
-        <Pane layoutX="10.0" layoutY="10.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0">
+        <Pane fx:id="deposer10PaneBtn" layoutX="10.0" layoutY="10.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0">
             <children>
                 <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
@@ -75,7 +75,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Pane>
-        <Pane layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="150.0">
+        <Pane fx:id="deposer50PaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="150.0">
             <children>
                 <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
@@ -110,7 +110,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Pane>
-        <Pane layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="235.0">
+        <Pane fx:id="deposer100PaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="235.0">
             <children>
                 <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
@@ -145,7 +145,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Pane>
-        <Pane layoutX="30.0" layoutY="30.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="235.0">
+        <Pane fx:id="deposer200PaneBtn" layoutX="30.0" layoutY="30.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="235.0">
             <children>
                 <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
@@ -188,15 +188,15 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Label contentDisplay="RIGHT" graphicTextGap="20.0" layoutX="159.0" layoutY="310.0" text="Autre montant :">
+        <Label contentDisplay="RIGHT" graphicTextGap="20.0" layoutX="129.0" layoutY="312.0" text="Autre montant :">
             <font>
                 <Font name="Garamond Bold" size="18.0" />
             </font>
             <graphic>
-                <TextField style="-fx-background-radius: 15;" />
+                <TextField fx:id="montantTxtField" prefHeight="30.0" prefWidth="119.0" style="-fx-background-radius: 15;" />
             </graphic>
         </Label>
-        <Button fx:id="quitterBtn1" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15; -fx-background-color: rgb(95, 170, 185, 0.4);" text="Confirmer" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="350.0">
+        <Button fx:id="confirmerBtn" layoutX="398.2" layoutY="312.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 15; -fx-background-color: rgb(95, 170, 185, 0.4);" text="Confirmer" AnchorPane.leftAnchor="398.2" AnchorPane.topAnchor="312.0">
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>
