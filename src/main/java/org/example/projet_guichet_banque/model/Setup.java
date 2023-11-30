@@ -16,7 +16,7 @@ public class Setup {
 
             gestionnaireGuichet.creerCompte("epargne",1,2000,3000,0.3);
             gestionnaireGuichet.creerCompte("cheque",1,2000,3000,0);
-
+            gestionnaireGuichet.creerCompte("marge",3,2000,3000,0);
             gestionnaireGuichet.creerCompte("epargne",2,2000,3000,0.3);
             GestionnaireGuichetDAO.save(gestionnaireGuichet);
         }

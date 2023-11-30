@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -91,6 +92,8 @@ public class DeposerController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("FORMAT NON ACCEPTÉ : Veuillez entré un nombre");
                 alert.show();
+            }finally {
+                GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
             }
         }
     }

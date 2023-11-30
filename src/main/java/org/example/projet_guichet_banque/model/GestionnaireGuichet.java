@@ -161,10 +161,22 @@ public class GestionnaireGuichet implements Serializable {
                 this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
                 return compteCourrant.getSoldeCompte();
             }else {
-                return -1;
+                compteCourrant = null;
+                for (Compte compte:
+                     client.getComptes()) {
+                    if (compte.getType().equals("marge")){
+                        compteCourrant = compte;
+                    }
+                }
+                if(compteCourrant != null){
+                    compteCourrant.retirer(montant);
+                    this.banque.retirer(montant);
+                    this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                    return compteCourrant.getSoldeCompte();
+                }
             }
         }
-        return -1;
+        return -2;
     }
 
     /**
@@ -200,10 +212,22 @@ public class GestionnaireGuichet implements Serializable {
                 this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait épargne"));
                 return compteCourrant.getSoldeCompte();
             }else {
-                return -1;
+                compteCourrant = null;
+                for (Compte compte:
+                        client.getComptes()) {
+                    if (compte.getType().equals("marge")){
+                        compteCourrant = compte;
+                    }
+                }
+                if(compteCourrant != null){
+                    compteCourrant.retirer(montant);
+                    this.banque.retirer(montant);
+                    this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                    return compteCourrant.getSoldeCompte();
+                }
             }
         }
-        return -1;
+        return -2;
     }
 
     /**

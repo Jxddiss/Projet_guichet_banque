@@ -32,6 +32,8 @@ public class CompteEpargneController {
     @FXML
     private Button depotBtn;
     @FXML
+    private Button retraitBtn;
+    @FXML
     private Button quitterBtn;
     @FXML
     private TableView<Transaction> transactionTable;
@@ -72,6 +74,16 @@ public class CompteEpargneController {
         if (actionEvent.getSource() == depotBtn){
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/deposer.fxml")));
             scene = quitterBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Comptes");
+        }
+    }
+
+    @FXML
+    public void retirerClick(ActionEvent actionEvent) throws IOException{
+        if (actionEvent.getSource() == retraitBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/retirer.fxml")));
+            scene = retraitBtn.getScene();
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Comptes");
         }

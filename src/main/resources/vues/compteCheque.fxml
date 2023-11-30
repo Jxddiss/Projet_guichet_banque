@@ -78,7 +78,7 @@
       </GridPane>
       <HBox prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="138.0">
          <children>
-            <Button fx:id="retraitBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Retrait" HBox.hgrow="ALWAYS">
+            <Button fx:id="retraitBtn" mnemonicParsing="false" onAction="#retirerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Retrait" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Garamond Bold" size="15.0" />
                </font>
