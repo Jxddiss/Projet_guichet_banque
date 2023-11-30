@@ -87,7 +87,7 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button fx:id="quitterBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
+        <Button fx:id="quitterBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>

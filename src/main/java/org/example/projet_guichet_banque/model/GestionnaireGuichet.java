@@ -149,7 +149,7 @@ public class GestionnaireGuichet implements Serializable {
                 compteCourrant = compte;
         }
         if (compteCourrant!= null){
-            if ((montant > compteCourrant.retraitMaximum && montant % 10 != 0) || this.banque.getSoldeCompte() < montant ){
+            if (montant > compteCourrant.retraitMaximum || montant % 10 != 0 || this.banque.getSoldeCompte() < montant ){
                 return -1;
             }
 
