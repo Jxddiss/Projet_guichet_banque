@@ -69,6 +69,7 @@ public class CompteChequeController {
         });
         typeColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
         transactionTable.setItems(transactions);
+        transactionTable.setSelectionModel(null);
     }
 
     @FXML
