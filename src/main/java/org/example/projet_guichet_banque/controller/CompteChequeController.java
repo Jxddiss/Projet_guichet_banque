@@ -64,7 +64,7 @@ public class CompteChequeController {
             return new SimpleStringProperty(montantFormater);
         });
         destinationColonne.setCellValueFactory(cellData -> {
-            String compteFormater = "Compte : "+ cellData.getValue().getCompte();
+            String compteFormater = "Compte : "+ String.format("%04d",cellData.getValue().getCompte());
             return new SimpleStringProperty(compteFormater);
         });
         typeColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
