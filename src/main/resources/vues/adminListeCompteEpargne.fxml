@@ -31,12 +31,12 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-        <Label text="Liste des comptes épargnes" AnchorPane.leftAnchor="159.2" AnchorPane.topAnchor="75.0">
+        <Label text="Liste des comptes épargnes" AnchorPane.leftAnchor="159.2" AnchorPane.topAnchor="98.0">
             <font>
                 <Font name="Garamond Bold" size="24.0" />
             </font>
         </Label>
-        <TableView editable="true" layoutY="147.2" prefHeight="171.0" prefWidth="490.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="160.0">
+        <TableView editable="true" layoutY="147.2" prefHeight="180.0" prefWidth="490.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="140.0">
             <columns>
                 <TableColumn editable="false" prefWidth="75.0" text="Numéro de compte" />
                 <TableColumn prefWidth="75.0" text="Code client" />
@@ -47,18 +47,18 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
-            <font>
-                <Font name="Garamond Bold" size="16.0" />
-            </font>
-        </Button>
-      <Button layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer intérêts" AnchorPane.leftAnchor="246.0" AnchorPane.topAnchor="120.0">
+      <Button layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Payer intérêts" AnchorPane.leftAnchor="252.8" AnchorPane.topAnchor="328.0">
          <font>
-            <Font name="Garamond Bold" size="15.0" />
+            <Font name="Garamond Bold" size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
+            <font>
+                <Font name="Garamond Bold" size="16.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
