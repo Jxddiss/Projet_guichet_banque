@@ -30,7 +30,7 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-      <Label layoutY="98.0" text="Créer un client" AnchorPane.leftAnchor="224.8">
+      <Label text="Créer un client" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="98.0">
          <font>
             <Font name="Garamond Bold" size="24.0" />
          </font>
