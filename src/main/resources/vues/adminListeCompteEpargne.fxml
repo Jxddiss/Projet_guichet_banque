@@ -52,7 +52,7 @@
                 <Font name="Garamond Bold" size="16.0" />
             </font>
         </Button>
-      <Button fx:id="retraitBtn" layoutY="10.0" mnemonicParsing="false" onAction="#retirerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer intérêts" AnchorPane.leftAnchor="246.0" AnchorPane.topAnchor="120.0">
+      <Button layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer intérêts" AnchorPane.leftAnchor="246.0" AnchorPane.topAnchor="120.0">
          <font>
             <Font name="Garamond Bold" size="15.0" />
          </font>
