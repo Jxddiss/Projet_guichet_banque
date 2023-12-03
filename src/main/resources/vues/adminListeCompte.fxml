@@ -34,7 +34,7 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-        <Label text="Liste de compte" AnchorPane.leftAnchor="218.0" AnchorPane.topAnchor="98.0">
+        <Label text="Liste de comptes" AnchorPane.leftAnchor="213.0" AnchorPane.topAnchor="98.0">
             <font>
                 <Font name="Garamond Bold" size="24.0" />
             </font>
@@ -184,6 +184,11 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Pane>
+      <Button alignment="CENTER" layoutY="332.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Ouvrir" AnchorPane.leftAnchor="265.5">
+         <font>
+            <Font name="Garamond Bold" size="16.0" />
+         </font>
+      </Button>
         <Button mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
             <font>
                 <Font name="Garamond Bold" size="16.0" />
@@ -192,10 +197,5 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Button alignment="CENTER" layoutX="274.0" layoutY="332.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Ouvrir">
-         <font>
-            <Font name="Garamond Bold" size="13.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

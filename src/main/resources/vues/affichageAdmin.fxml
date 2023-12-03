@@ -169,7 +169,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Label layoutX="2.0" layoutY="21.0" text="Ajouter de l'argent">
+            <Label layoutX="2.0" layoutY="21.0" text="Remplir le guichet">
                <font>
                   <Font name="Book Antiqua Bold" size="16.0" />
                </font>
