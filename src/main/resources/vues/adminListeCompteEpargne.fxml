@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -30,15 +31,15 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-        <Label text="Liste des comptes chèques" AnchorPane.leftAnchor="163.6" AnchorPane.topAnchor="98.0">
+        <Label text="Liste des comptes épargnes" AnchorPane.leftAnchor="159.2" AnchorPane.topAnchor="75.0">
             <font>
                 <Font name="Garamond Bold" size="24.0" />
             </font>
         </Label>
-        <TableView editable="true" prefHeight="180.0" prefWidth="490.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="140.0">
+        <TableView editable="true" layoutY="147.2" prefHeight="171.0" prefWidth="490.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="160.0">
             <columns>
                 <TableColumn editable="false" prefWidth="75.0" text="Numéro de compte" />
-                <TableColumn prefWidth="75.0" text="Type de compte" />
+                <TableColumn prefWidth="75.0" text="Code client" />
                 <TableColumn prefWidth="75.0" text="Solde" />
                 <TableColumn prefWidth="75.0" />
             </columns>
@@ -51,5 +52,13 @@
                 <Font name="Garamond Bold" size="16.0" />
             </font>
         </Button>
+      <Button fx:id="retraitBtn" layoutY="10.0" mnemonicParsing="false" onAction="#retirerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer intérêts" AnchorPane.leftAnchor="246.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Garamond Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>
