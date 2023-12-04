@@ -5,14 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.example.projet_guichet_banque.model.Banque;
-import org.example.projet_guichet_banque.model.Client;
-import org.example.projet_guichet_banque.model.GestionnaireGuichet;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainApp extends Application {
