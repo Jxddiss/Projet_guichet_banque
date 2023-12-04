@@ -12,7 +12,6 @@ public class GestionnaireGuichetDAO {
             input.close();
         } catch (IOException ioe) {
             System.out.println("==> Erreur lors de l'ouverture du fichier " + ioe.getMessage());
-            ;
         }catch(ClassNotFoundException cnfe){
             System.out.println("L'objet n'est pas un gestionnaire de guichet "+ cnfe.getMessage());
         }
@@ -27,7 +26,7 @@ public class GestionnaireGuichetDAO {
             output.close();
         } catch (IOException ioe) {
             System.out.println("===> Erreur lors de la sauvegarde " );
-            ioe.printStackTrace();
+            System.out.println(ioe.getMessage());
         }
     }
 }

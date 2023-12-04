@@ -46,7 +46,7 @@ public class RetirerController {
     }
 
     @FXML
-    public void montantChoisiClick(MouseEvent event)throws IOException {
+    public void montantChoisiClick(MouseEvent event) {
         if (event.getSource() == deposer10PaneBtn){
             montantTxtField.setText("10");
         }
