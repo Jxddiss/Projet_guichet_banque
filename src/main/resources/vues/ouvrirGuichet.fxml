@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" style="-fx-opacity: 0.5;">
+            <image>
+                <Image url="@../images/appBackground.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="150.0" arcWidth="150.0" height="320.0" layoutX="46.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 0.65;" width="500.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0" />
+        <ImageView fitWidth="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="280.0">
+            <image>
+                <Image url="@../images/LogoBlanc.png" />
+            </image>
+        </ImageView>
+      <Rectangle arcHeight="65.0" arcWidth="65.0" height="148.0" layoutX="200.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.37439998984336853" green="0.6681600213050842" blue="0.7200000286102295" opacity="0.18541033565998077" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.4993270524899056">
+                     <color>
+                        <Color red="0.37254902720451355" green="0.6666666865348816" blue="0.7215686440467834" opacity="0.8100000023841858" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.37439998984336853" green="0.6681600213050842" blue="0.7200000286102295" opacity="0.1914893537759781" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label text="Ouverture du guichet" textFill="WHITE" AnchorPane.leftAnchor="172.8" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="Garamond Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="BOTTOM" text="Mot de passe" textFill="WHITE" AnchorPane.leftAnchor="222.0" AnchorPane.topAnchor="160.0">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <graphic>
+            <TextField style="-fx-background-radius: 15;" />
+         </graphic>
+      </Label>
+      <Button mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-insets: 1; -fx-border-color: black; -fx-background-color: white; -fx-text-fill: #5faab9;" text="Ouvrir" textFill="WHITE" AnchorPane.leftAnchor="272.8" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font name="Garamond Bold" size="13.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

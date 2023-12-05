@@ -64,7 +64,7 @@
                 <Image url="@../images/LogoBlanc.png" />
             </image>
         </ImageView>
-      <Button mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #5faab9; -fx-border-style: solid; -fx-border-width: 2; -fx-background-color: white;" text="Ouvrir le guichet" AnchorPane.leftAnchor="141.0" AnchorPane.topAnchor="310.0">
+      <Button mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-insets: 1; -fx-border-color: #5faab9; -fx-border-style: solid; -fx-border-width: 2; -fx-background-color: white;" text="Ouvrir le guichet" AnchorPane.leftAnchor="141.0" AnchorPane.topAnchor="310.0">
          <font>
             <Font name="Garamond Bold" size="13.0" />
          </font>
