@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.AdminCreerClientController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
             <image>
@@ -22,7 +22,7 @@
                 <Image url="@../images/B-transformed.png" />
             </image>
         </ImageView>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+        <Label fx:id="prenomUtilisateurLbl" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
             <font>
                 <Font name="Garamond Bold" size="18.0" />
             </font>
@@ -35,17 +35,17 @@
             <Font name="Garamond Bold" size="24.0" />
          </font>
       </Label>
-      <TextField layoutY="134.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="150.0" promptText="Prénom" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="140.0" />
-      <TextField prefHeight="28.0" promptText="Nom" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="173.0" />
-      <TextField prefHeight="28.0" promptText="Téléphone" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="206.0" />
-      <TextField maxHeight="-Infinity" minHeight="-Infinity" prefHeight="28.0" promptText="Couriel" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="239.0" />
-      <TextField maxHeight="-Infinity" minHeight="-Infinity" prefHeight="28.0" promptText="Nip" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="272.0" />
+      <TextField fx:id="prenomTxtField" layoutY="134.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="150.0" promptText="Prénom" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="140.0" />
+      <TextField fx:id="nomTxtField" prefHeight="28.0" promptText="Nom" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="173.0" />
+      <TextField fx:id="telephoneTxtField" prefHeight="28.0" promptText="Téléphone" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="206.0" />
+      <TextField fx:id="courielTxtField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="28.0" promptText="Couriel" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="239.0" />
+      <TextField fx:id="nipTxtField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="28.0" promptText="Nip" style="-fx-background-radius: 20; -fx-border-radius: 20;" AnchorPane.leftAnchor="224.8" AnchorPane.topAnchor="272.0" />
       <Button layoutY="312.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Confirmer" AnchorPane.leftAnchor="262.0">
          <font>
             <Font name="Garamond Bold" size="13.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
+      <Button fx:id="quitterBtn" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
          <font>
             <Font name="Garamond Bold" size="16.0" />
          </font>

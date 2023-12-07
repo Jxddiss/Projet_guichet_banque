@@ -37,10 +37,10 @@
       </Label>
       <TableView fx:id="tabComptes" editable="true" prefHeight="180.0" prefWidth="490.0" style="-fx-border-style: solid;" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="150.0">
         <columns>
-          <TableColumn fx:id="numCompteColonne" editable="false" prefWidth="75.0" text="Numéro de compte" />
-          <TableColumn fx:id="typeCompteColonne" prefWidth="75.0" text="Type de compte" />
-            <TableColumn fx:id="soldeColonne" prefWidth="75.0" text="Solde" />
-            <TableColumn fx:id="ouvrirColonne" prefWidth="75.0" />
+          <TableColumn fx:id="numCompteColonne" editable="false" prefWidth="154.4000382423401" resizable="false" text="Numéro de compte" />
+          <TableColumn fx:id="typeCompteColonne" prefWidth="119.99993896484375" resizable="false" text="Type de compte" />
+            <TableColumn fx:id="soldeColonne" prefWidth="96.0" resizable="false" text="Solde" />
+            <TableColumn fx:id="ouvrirColonne" prefWidth="118.39993286132812" resizable="false" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

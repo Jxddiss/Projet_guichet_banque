@@ -1,6 +1,6 @@
 package org.example.projet_guichet_banque.controller;
 
-import javafx.application.Application;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
@@ -19,6 +21,18 @@ public class AffichageAdminController {
     private Label prenomUtilisateurLbl;
     @FXML
     private Button deconnecterBtn;
+    @FXML
+    private Pane creerClientPaneBtn;
+    @FXML
+    private Pane demandeComptePaneBtn;
+    @FXML
+    private Pane remplirGuichetPaneBtn;
+    @FXML
+    private Pane listeComptePaneBtn;
+    @FXML
+    private Pane listeClientPaneBtn;
+    @FXML
+    private Pane fermerGuichetPaneBtn;
     private Scene scene;
     private Parent root;
 
@@ -40,6 +54,61 @@ public class AffichageAdminController {
             scene = deconnecterBtn.getScene();
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Login");
+        }
+    }
+
+    @FXML
+    public void creerClient(MouseEvent event) throws IOException{
+        if(event.getSource() == creerClientPaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminCreerClient.fxml")));
+            scene = creerClientPaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Création de client");
+        }
+    }
+    @FXML
+    public void ouvrirDemandes(MouseEvent event) throws IOException{
+        if(event.getSource() == demandeComptePaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminListeDemande.fxml")));
+            scene = demandeComptePaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Liste de demandes");
+        }
+    }
+    @FXML
+    public void remplirGuichet(MouseEvent event) throws IOException{
+        if(event.getSource() == remplirGuichetPaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminRemplirGuichet.fxml")));
+            scene = remplirGuichetPaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Remplir Guichet");
+        }
+    }
+    @FXML
+    public void ouvrirComptes(MouseEvent event) throws IOException{
+        if(event.getSource() == listeComptePaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminListeCompte.fxml")));
+            scene = listeComptePaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Liste de comptes");
+        }
+    }
+    @FXML
+    public void ouvrirClients(MouseEvent event) throws IOException{
+        if(event.getSource() == listeClientPaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminListeDesClients.fxml")));
+            scene = listeClientPaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Liste de clients");
+        }
+    }
+    @FXML
+    public void fermerGuichet(MouseEvent event) throws IOException{
+        if(event.getSource() == fermerGuichetPaneBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminFermerGuichet.fxml")));
+            scene = fermerGuichetPaneBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Fermeture du guichet");
         }
     }
 
