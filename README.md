@@ -28,4 +28,15 @@ Jamil Fayad
 
 ## Informations 
 ### Identifiants
-- À déterminer
+- Admin
+  - Code : 0
+  - nip : 1111
+- Marc
+  - code : 1
+  - nip : 1222
+- Michel
+    - code : 2
+    - nip : 1222
+- Bob
+    - code : 3
+    - nip : 1222
