@@ -63,6 +63,8 @@ public class AffichageCompteController {
     private String solde2 = "";
     static Compte compteChoisi;
 
+
+
     @FXML
     public void initialize(){
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
