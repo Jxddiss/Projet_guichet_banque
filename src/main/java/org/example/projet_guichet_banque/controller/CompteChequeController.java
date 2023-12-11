@@ -14,6 +14,8 @@ public class CompteChequeController extends CompteControllerParent{
     // Payer facture juste compte marge et hypothécaires dans la liste
     @FXML
     private Button transfertBtn;
+    @FXML
+    private Button factureBtn;
 
 
     @FXML
@@ -24,6 +26,11 @@ public class CompteChequeController extends CompteControllerParent{
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Transfert");
         }
+    }
+
+    @FXML
+    public void factureClick(){
+
     }
 
 }

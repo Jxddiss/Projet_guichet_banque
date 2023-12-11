@@ -100,7 +100,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="factureBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer facture">
+            <Button fx:id="factureBtn" mnemonicParsing="false" onAction="#factureClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Payer facture">
                <font>
                   <Font name="Garamond Bold" size="15.0" />
                </font>
