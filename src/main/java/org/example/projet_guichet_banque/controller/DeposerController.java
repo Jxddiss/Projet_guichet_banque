@@ -73,7 +73,7 @@ public class DeposerController {
                 }
 
                 if (solde != -1){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("Dépot confirmé "+
                             "\nVotre nouveau solde est de : "+
                             String.format("%.2f $", solde));

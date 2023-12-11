@@ -50,6 +50,10 @@ public class AdminListeDemandeController {
             String numDemande = String.format("%04d",cellData.getValue().getNumeroDemande());
             return new SimpleStringProperty(numDemande);
         });
+        codeClientColonne.setCellValueFactory(cellData -> {
+            String codeClient = String.format("%04d",cellData.getValue().getCodeClient());
+            return new SimpleStringProperty(codeClient);
+        });
         typeCompteColonne.setCellValueFactory(new PropertyValueFactory<>("typeCompte"));
         statutColonne.setCellValueFactory(new PropertyValueFactory<>("statut"));
         demandeTab.setItems(demandes);

@@ -51,7 +51,7 @@ public class FactureController {
                 String numFacture = numFactureTxtField.getText();
                 if (!numFacture.isEmpty()){
                     LoginController.gestionnaireGuichet.paiementFacture(montant,numCompteCourrant);
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("Paiement de la facture : "+
                             "\n\t\t"+ numFacture + " confirmé "+
                             "\nNouveau solde :"+

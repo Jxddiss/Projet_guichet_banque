@@ -101,7 +101,7 @@ public class TransfertController {
                                     alert.setContentText("Erreur lors du transfert");
                                     alert.show();
                                 }else{
-                                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                     alert.setContentText("Transfert effectuée avec succès");
                                     alert.show();
                                     try {

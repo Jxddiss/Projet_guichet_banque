@@ -5,11 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.Compte;
 import org.example.projet_guichet_banque.model.Demande;
 
 import java.io.IOException;
@@ -39,21 +41,48 @@ public class CreationCompteController {
     }
 
     @FXML
-    public void creerClick(MouseEvent mouseEvent){
+    public void creerClick(MouseEvent mouseEvent)throws IOException{
         int codeClient = LoginController.gestionnaireGuichet.getClient().getCodeClient();
         String statut = "En cours";
         if (mouseEvent.getSource() == chequePaneBtn){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Votre demande à été envoyée");
+            alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"cheque",statut));
         }
         if (mouseEvent.getSource() == epargnePaneBtn){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Votre demande à été envoyée");
+            alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"epargne",statut));
         }
         if (mouseEvent.getSource() == hypothecairePaneBtn){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Votre demande à été envoyée");
+            alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"hypotheque",statut));
         }
         if (mouseEvent.getSource() == margePaneBtn){
-            LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"marge",statut));
+            boolean margePresente = false;
+            for (Compte compte:
+                 LoginController.gestionnaireGuichet.getClient().getComptes()) {
+                if (compte.getType().equals("marge")){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Demande impossible vous avez déjà une marge !");
+                    alert.show();
+                }
+            }
+            if (!margePresente){
+                LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"marge",statut));
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Votre demande à été envoyée");
+                alert.show();
+            }
         }
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+        scene = quitterBtn.getScene();
+        scene.setRoot(root);
+        ((Stage)scene.getWindow()).setTitle("Comptes");
     }
 
     @FXML

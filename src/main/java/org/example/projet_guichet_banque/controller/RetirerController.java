@@ -74,7 +74,7 @@ public class RetirerController {
                 }
 
                 if (solde != -1 && solde != -2){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("Dépot confirmé "+
                             "\nVotre nouveau solde est de : "+
                             String.format("%.2f $", solde));

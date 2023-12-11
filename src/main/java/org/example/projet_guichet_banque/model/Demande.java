@@ -1,6 +1,8 @@
 package org.example.projet_guichet_banque.model;
 
-public class Demande {
+import java.io.Serializable;
+
+public class Demande implements Serializable {
     public static int compteurNumeroDemande = 0;
     private int numeroDemande;
     private int codeClient;

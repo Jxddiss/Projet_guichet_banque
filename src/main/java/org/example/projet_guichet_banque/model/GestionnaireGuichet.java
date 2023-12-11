@@ -28,6 +28,7 @@ public class GestionnaireGuichet implements Serializable {
         this.banque = banque;
         this.clients = new ArrayList<>();
         this.transactions = new ArrayList<>();
+        this.demandesComptes = new ArrayList<>();
         this.admin = new Client(0, "admin", "admin", "111-111-111", "admin@tech.com",1111);
         this.clients.add(this.admin);
     }
