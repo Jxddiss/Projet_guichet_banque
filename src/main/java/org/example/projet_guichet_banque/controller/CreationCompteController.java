@@ -28,6 +28,11 @@ public class CreationCompteController {
     }
 
     @FXML
+    public void creerClick(){
+
+    }
+
+    @FXML
     public void quitterClick(ActionEvent actionEvent) throws IOException {
         if (actionEvent.getSource() == quitterBtn){
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));

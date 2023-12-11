@@ -39,7 +39,7 @@
             <Font name="Garamond Bold" size="20.0" />
          </font>
       </Label>
-      <Pane layoutX="10.0" layoutY="10.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0">
+      <Pane fx:id="chequePaneBtn" layoutX="10.0" layoutY="10.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#creerClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -74,7 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="150.0">
+      <Pane fx:id="epargnePaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#creerClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="150.0">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -109,7 +109,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="235.0">
+      <Pane fx:id="hypothecairePaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#creerClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="235.0">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
@@ -144,7 +144,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane layoutX="30.0" layoutY="30.0" maxHeight="70.0" maxWidth="208.0" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="235.0">
+      <Pane fx:id="margePaneBtn" layoutX="30.0" layoutY="30.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#creerClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="235.0">
          <children>
             <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
