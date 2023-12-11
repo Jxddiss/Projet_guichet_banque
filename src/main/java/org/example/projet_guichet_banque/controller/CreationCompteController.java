@@ -83,6 +83,7 @@ public class CreationCompteController {
                 alert.setContentText("Votre demande à été envoyée");
                 alert.show();
                 demandeEnvoyee = true;
+                margePresente = true;
             }
         }
         if (demandeEnvoyee){
