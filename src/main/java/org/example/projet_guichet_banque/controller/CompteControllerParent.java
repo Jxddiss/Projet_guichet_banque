@@ -41,8 +41,8 @@ public class CompteControllerParent {
     @FXML
     private TableColumn<Transaction, String> typeColonne;
     private ObservableList<Transaction> transactions;
-    private Scene scene;
-    private Parent root;
+    protected Scene scene;
+    protected Parent root;
 
     @FXML
     public void initialize(){

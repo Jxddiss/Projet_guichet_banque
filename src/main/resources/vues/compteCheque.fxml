@@ -111,7 +111,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="transfertBtn" mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Transfert de fond">
+            <Button fx:id="transfertBtn" mnemonicParsing="false" onAction="#transfertClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Transfert de fond">
                <font>
                   <Font name="Garamond Bold" size="15.0" />
                </font>
