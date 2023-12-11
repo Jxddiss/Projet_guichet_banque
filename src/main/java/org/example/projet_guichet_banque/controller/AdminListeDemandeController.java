@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Demande;
@@ -61,7 +58,23 @@ public class AdminListeDemandeController {
 
     @FXML
     public void approuverClick(){
-
+        Demande demande = demandeTab.getSelectionModel().getSelectedItem();
+        double tauxInteret = 0;
+        double montantTransfert = 0;
+        double montantFacture = 0;
+        if (demande.getStatut().equals("En cours")){
+            demande.setStatut("approuve");
+            if (demande.getTypeCompte().equals("epargne")){
+                tauxInteret = 0.03;
+            }else if (demande.getTypeCompte().equals("cheque")){
+                montantTransfert = 2000;
+                montantFacture = 3000;
+            }
+            LoginController.gestionnaireGuichet.creerCompte(demande.getTypeCompte(),demande.getCodeClient(),montantTransfert,montantFacture,tauxInteret);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Demande Approuvée");
+            alert.show();
+        }
     }
 
     @FXML
