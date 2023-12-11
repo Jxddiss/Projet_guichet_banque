@@ -44,7 +44,7 @@ public class FactureController {
     }
 
     @FXML
-    public void confirmerClick(ActionEvent actionEvent)throws IOException{
+    public void confirmerClick(ActionEvent actionEvent){
         if (actionEvent.getSource() == confirmerBtn){
             try{
                 double montant = Double.parseDouble(montantTxtField.getText());
