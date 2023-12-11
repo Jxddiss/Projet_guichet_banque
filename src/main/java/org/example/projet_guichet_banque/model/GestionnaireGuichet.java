@@ -162,6 +162,10 @@ public class GestionnaireGuichet implements Serializable {
                 this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
                 return compteCourrant.getSoldeCompte();
             }else {
+                double difference;
+                difference = montant - compteCourrant.getSoldeCompte();
+                compteCourrant.retirer(compteCourrant.getSoldeCompte());
+                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
                 compteCourrant = null;
                 for (Compte compte:
                      client.getComptes()) {
@@ -170,9 +174,9 @@ public class GestionnaireGuichet implements Serializable {
                     }
                 }
                 if(compteCourrant != null){
-                    compteCourrant.retirer(montant);
+                    compteCourrant.retirer(difference);
                     this.banque.retirer(montant);
-                    this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Dépassement retrait"));
                     return compteCourrant.getSoldeCompte();
                 }
             }
@@ -213,6 +217,10 @@ public class GestionnaireGuichet implements Serializable {
                 this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait épargne"));
                 return compteCourrant.getSoldeCompte();
             }else {
+                double difference;
+                difference = montant - compteCourrant.getSoldeCompte();
+                compteCourrant.retirer(compteCourrant.getSoldeCompte());
+                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
                 compteCourrant = null;
                 for (Compte compte:
                         client.getComptes()) {
@@ -221,9 +229,9 @@ public class GestionnaireGuichet implements Serializable {
                     }
                 }
                 if(compteCourrant != null){
-                    compteCourrant.retirer(montant);
+                    compteCourrant.retirer(difference);
                     this.banque.retirer(montant);
-                    this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Dépassement retrait"));
                     return compteCourrant.getSoldeCompte();
                 }
             }
