@@ -7,7 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.Demande;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -17,6 +20,14 @@ public class CreationCompteController {
     private Button quitterBtn;
     @FXML
     private Label prenomUtilisateurLbl;
+    @FXML
+    private Pane chequePaneBtn;
+    @FXML
+    private Pane epargnePaneBtn;
+    @FXML
+    private Pane hypothecairePaneBtn;
+    @FXML
+    private Pane margePaneBtn;
     private Scene scene;
     private Parent root;
 
@@ -28,8 +39,21 @@ public class CreationCompteController {
     }
 
     @FXML
-    public void creerClick(){
-
+    public void creerClick(MouseEvent mouseEvent){
+        int codeClient = LoginController.gestionnaireGuichet.getClient().getCodeClient();
+        String statut = "En cours";
+        if (mouseEvent.getSource() == chequePaneBtn){
+            LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"cheque",statut));
+        }
+        if (mouseEvent.getSource() == epargnePaneBtn){
+            LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"epargne",statut));
+        }
+        if (mouseEvent.getSource() == hypothecairePaneBtn){
+            LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"hypotheque",statut));
+        }
+        if (mouseEvent.getSource() == margePaneBtn){
+            LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"marge",statut));
+        }
     }
 
     @FXML

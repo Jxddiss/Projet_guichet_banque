@@ -425,7 +425,7 @@ public class GestionnaireGuichet implements Serializable {
                     }
                     break;
                 case "marge":
-                    Boolean margePresente = false;
+                    boolean margePresente = false;
                     for (Compte compte:
                             client.getComptes()) {
                         if (compte.getType().equals("cheque")){
