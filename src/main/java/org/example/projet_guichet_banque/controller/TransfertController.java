@@ -14,8 +14,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.example.projet_guichet_banque.model.Compte;
+import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class TransfertController {
@@ -33,6 +35,14 @@ public class TransfertController {
     private TableColumn<Compte, String> soldeColonne;
     @FXML
     private TableColumn<Compte, Void> ouvrirColonne;
+    @FXML
+    private Label numCompteLbl;
+    @FXML
+    private Label soldeLbl;
+    @FXML
+    private TextField montantTxtField;
+    private int numCompteCourrant;
+    private double montant;
     private ObservableList<Compte> comptes;
     private Scene scene;
     private Parent root;
@@ -42,9 +52,19 @@ public class TransfertController {
 
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
+        numCompteCourrant = AffichageCompteController.compteChoisi.getNumeroCompte();
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+        numCompteLbl.setText(String.format("%04d",numCompteCourrant));
+        soldeLbl.setText(String.format("%.2f $",AffichageCompteController.compteChoisi.getSoldeCompte()));
+        ArrayList<Compte> compteTransfert = new ArrayList<>();
+        for (Compte compte:
+                LoginController.gestionnaireGuichet.getClient().getComptes()) {
+            if(compte.getNumeroCompte() != numCompteCourrant){
+                compteTransfert.add(compte);
+            }
+        }
 
-        comptes = FXCollections.observableArrayList(LoginController.gestionnaireGuichet.getClient().getComptes());
+        comptes = FXCollections.observableArrayList(compteTransfert);
         soldeColonne.setCellValueFactory(cellData -> {
             String montantFormater = String.format("%.2f $",cellData.getValue().getSoldeCompte());
             return new SimpleStringProperty(montantFormater);
@@ -74,16 +94,32 @@ public class TransfertController {
                     {
                         btn.setOnAction((ActionEvent event)->{
                             Compte data = getTableView().getItems().get(getIndex());
-                            AffichageCompteController.compteChoisi = data;
-                            String type = data.getType().substring(0,1).toUpperCase() + data.getType().substring(1);
                             try {
-                                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/compte"+type+".fxml")));
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
+                                montant = Double.parseDouble(montantTxtField.getText());
+                                if (!LoginController.gestionnaireGuichet.transfertFond(numCompteCourrant,data.getNumeroCompte(),montant)){
+                                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                                    alert.setContentText("Erreur lors du transfert");
+                                    alert.show();
+                                }else{
+                                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                                    alert.setContentText("Transfert effectuée avec succès");
+                                    alert.show();
+                                    try {
+                                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+                                        scene = btn.getScene();
+                                        scene.setRoot(root);
+                                        ((Stage)scene.getWindow()).setTitle("Affichage des comptes");
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }
+                            }catch(Exception e){
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setContentText("Valeur entrée non prise en charge veuillez entrer des nombre entier");
+                                alert.show();
+                            }finally {
+                                GestionnaireGuichetDAO.save(LoginController.gestionnaireGuichet);
                             }
-                            scene = btn.getScene();
-                            scene.setRoot(root);
-                            ((Stage)scene.getWindow()).setTitle("Compte "+type);
                         });
                         btn.setCursor(Cursor.HAND);
                     }
