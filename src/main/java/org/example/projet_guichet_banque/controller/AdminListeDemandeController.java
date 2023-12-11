@@ -70,6 +70,7 @@ public class AdminListeDemandeController {
                 montantTransfert = 2000;
                 montantFacture = 3000;
             }
+            demandeTab.refresh();
             LoginController.gestionnaireGuichet.creerCompte(demande.getTypeCompte(),demande.getCodeClient(),montantTransfert,montantFacture,tauxInteret);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Demande Approuvée");
