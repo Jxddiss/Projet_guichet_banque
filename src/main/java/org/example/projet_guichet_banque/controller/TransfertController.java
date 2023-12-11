@@ -108,7 +108,7 @@ public class TransfertController {
                                         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                                         scene = btn.getScene();
                                         scene.setRoot(root);
-                                        ((Stage)scene.getWindow()).setTitle("Affichage des comptes");
+                                        ((Stage)scene.getWindow()).setTitle("Comptes");
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }

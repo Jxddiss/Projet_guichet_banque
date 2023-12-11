@@ -29,8 +29,13 @@ public class CompteChequeController extends CompteControllerParent{
     }
 
     @FXML
-    public void factureClick(){
-
+    public void factureClick(ActionEvent actionEvent)throws IOException{
+        if (actionEvent.getSource() == factureBtn){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/facture.fxml")));
+            scene = factureBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Paiement de facture");
+        }
     }
 
 }
