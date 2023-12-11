@@ -60,7 +60,7 @@ public class TransfertController {
     }
 
     /**
-     * Fonction pour ajouterdes boutons qui ouvre le compte associé
+     * Fonction pour ajouter des boutons qui ouvre le compte associé
      * à la colonne
      *
      * @param colonne : colonne avec un compte qui sera passé en parametre
@@ -103,8 +103,6 @@ public class TransfertController {
         };
         colonne.setCellFactory(cellFactory);
     }
-
-
 
     @FXML
     public void quitterClick(ActionEvent actionEvent) throws IOException {

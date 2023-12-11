@@ -61,7 +61,7 @@ public class ListeDesCompteController {
     }
 
     /**
-     * Fonction pour ajouterdes boutons qui ouvre le compte associé
+     * Fonction pour ajouter des boutons qui ouvre le compte associé
      * à la colonne
      *
      * @param colonne : colonne avec un compte qui sera passé en parametre
