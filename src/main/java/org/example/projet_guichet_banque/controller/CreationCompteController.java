@@ -44,23 +44,27 @@ public class CreationCompteController {
     public void creerClick(MouseEvent mouseEvent)throws IOException{
         int codeClient = LoginController.gestionnaireGuichet.getClient().getCodeClient();
         String statut = "En cours";
+        boolean demandeEnvoyee = false;
         if (mouseEvent.getSource() == chequePaneBtn){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Votre demande à été envoyée");
             alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"cheque",statut));
+            demandeEnvoyee = true;
         }
         if (mouseEvent.getSource() == epargnePaneBtn){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Votre demande à été envoyée");
             alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"epargne",statut));
+            demandeEnvoyee = true;
         }
         if (mouseEvent.getSource() == hypothecairePaneBtn){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Votre demande à été envoyée");
             alert.show();
             LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"hypotheque",statut));
+            demandeEnvoyee = true;
         }
         if (mouseEvent.getSource() == margePaneBtn){
             boolean margePresente = false;
@@ -70,6 +74,7 @@ public class CreationCompteController {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Demande impossible vous avez déjà une marge !");
                     alert.show();
+                    margePresente = true;
                 }
             }
             if (!margePresente){
@@ -77,12 +82,15 @@ public class CreationCompteController {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Votre demande à été envoyée");
                 alert.show();
+                demandeEnvoyee = true;
             }
         }
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
-        scene = quitterBtn.getScene();
-        scene.setRoot(root);
-        ((Stage)scene.getWindow()).setTitle("Comptes");
+        if (demandeEnvoyee){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
+            scene = quitterBtn.getScene();
+            scene.setRoot(root);
+            ((Stage)scene.getWindow()).setTitle("Comptes");
+        }
     }
 
     @FXML
