@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../helpers/light.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../helpers/light.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.AdminListeCompteHypothequeController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
             <image>
@@ -24,7 +24,7 @@
                 <Image url="@../images/B-transformed.png" />
             </image>
         </ImageView>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+        <Label fx:id="prenomUtilisateurLbl" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
             <font>
                 <Font name="Garamond Bold" size="18.0" />
             </font>
@@ -37,7 +37,7 @@
                 <Font name="Garamond Bold" size="24.0" />
             </font>
         </Label>
-        <Button layoutX="510.4" layoutY="351.4" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.4" AnchorPane.topAnchor="351.4">
+        <Button fx:id="quitterBtn" layoutX="510.4" layoutY="351.4" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.4" AnchorPane.topAnchor="351.4">
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>

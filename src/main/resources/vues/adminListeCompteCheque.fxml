@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../helpers/light.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../helpers/light.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.AdminListeCompteChequeController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
             <image>
@@ -24,7 +24,7 @@
                 <Image url="@../images/B-transformed.png" />
             </image>
         </ImageView>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+        <Label fx:id="prenomUtilisateurLbl" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" text="Bonjour, " AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
             <font>
                 <Font name="Garamond Bold" size="18.0" />
             </font>
@@ -32,16 +32,16 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
+        <Button fx:id="quitterBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter" AnchorPane.leftAnchor="510.0" AnchorPane.topAnchor="350.0">
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>
         </Button>
-      <TabPane layoutX="33.0" layoutY="79.0" prefHeight="277.0" prefWidth="553.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="33.0" layoutY="79.0" prefHeight="266.0" prefWidth="553.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Comptes">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="538.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="550.0">
                      <children>
                         <Label layoutX="191.0" layoutY="11.0" text="Liste des comptes ">
                            <font>
