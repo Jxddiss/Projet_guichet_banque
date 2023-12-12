@@ -20,9 +20,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class AdminListeCompteEpargneController extends AdminListeCompteParent{
-    private ArrayList<Transaction> transactionsSansfiltre;
-    private ObservableList<Transaction> transactionsObs;
-    private ArrayList<Transaction> transactions;
 
     @FXML
     @Override
@@ -36,7 +33,7 @@ public class AdminListeCompteEpargneController extends AdminListeCompteParent{
         transactions = new ArrayList<>();
 
         transactionsSansfiltre = LoginController.gestionnaireGuichet.getTransactionsAdmin();
-        updateTransactions();
+        updateTransactions("epargne");
 
     }
 
@@ -44,7 +41,7 @@ public class AdminListeCompteEpargneController extends AdminListeCompteParent{
     public void interetClick(){
         double interetVerser = LoginController.gestionnaireGuichet.payerInteret();
         tabCompte.refresh();
-        updateTransactions();
+        updateTransactions("epargne");
         transactionTable.refresh();
         if (interetVerser != -1){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -58,17 +55,4 @@ public class AdminListeCompteEpargneController extends AdminListeCompteParent{
         }
     }
 
-    private void updateTransactions(){
-        transactions = new ArrayList<>();
-
-        for (Transaction trans:
-                transactionsSansfiltre) {
-            if (trans.getType().startsWith("epargne")){
-                transactions.add(trans);
-            }
-        }
-
-        transactionsObs = FXCollections.observableArrayList(transactions);
-        transactionTable.setItems(transactionsObs);
-    }
 }

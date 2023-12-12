@@ -28,20 +28,9 @@ public class AdminListeCompteHypothequeController extends AdminListeCompteParent
         comptes = LoginController.gestionnaireGuichet.getComptesHypotheques();
         comptesObs = FXCollections.observableArrayList(comptes);
         tabCompte.setItems(comptesObs);
-
-        ArrayList<Transaction> transactionsSansfiltre;
-        ArrayList<Transaction> transactions = new ArrayList<>();
-        ObservableList<Transaction> transactionsObs;
+        transactions = new ArrayList<>();
 
         transactionsSansfiltre = LoginController.gestionnaireGuichet.getTransactionsAdmin();
-        for (Transaction trans:
-                transactionsSansfiltre) {
-            if (trans.getType().startsWith("hypotheque")){
-                transactions.add(trans);
-            }
-        }
-
-        transactionsObs = FXCollections.observableArrayList(transactions);
-        transactionTable.setItems(transactionsObs);
+        updateTransactions("hypotheque");
     }
 }

@@ -1,6 +1,8 @@
 package org.example.projet_guichet_banque.controller;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import org.example.projet_guichet_banque.model.Compte;
 import org.example.projet_guichet_banque.model.Transaction;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class AdminListeCompteParent {
@@ -41,6 +44,10 @@ public class AdminListeCompteParent {
     private TableColumn<Transaction, String> destinationColonne;
     @FXML
     private TableColumn<Transaction, String> typeTransactionColonne;
+    protected ArrayList<Transaction> transactionsSansfiltre;
+    protected ObservableList<Transaction> transactionsObs;
+    protected ArrayList<Transaction> transactions;
+
 
     private Scene scene;
     private Parent root;
@@ -83,5 +90,19 @@ public class AdminListeCompteParent {
             scene.setRoot(root);
             ((Stage)scene.getWindow()).setTitle("Liste de Comptes");
         }
+    }
+
+    protected void updateTransactions(String type){
+        transactions = new ArrayList<>();
+
+        for (Transaction trans:
+                transactionsSansfiltre) {
+            if (trans.getType().startsWith(type)){
+                transactions.add(trans);
+            }
+        }
+
+        transactionsObs = FXCollections.observableArrayList(transactions);
+        transactionTable.setItems(transactionsObs);
     }
 }
