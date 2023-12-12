@@ -20,10 +20,10 @@ class GestionnaireGuichetTest {
     void setUp() {
         banque = new Banque(1,10000);
         gestionnaireGuichet = new GestionnaireGuichet(banque);
-        gestionnaireGuichet.validerUtilisateur(0,1111);
-        gestionnaireGuichet.creerClient("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222);
-        gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222);
-        gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", 1222);
+        gestionnaireGuichet.validerUtilisateur(0,"1111");
+        gestionnaireGuichet.creerClient("Marc", "Jacques", "438-676-6483", "marc@test.com", "1222");
+        gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", "1222");
+        gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", "1222");
 
     }
 
@@ -35,15 +35,15 @@ class GestionnaireGuichetTest {
 
     @Test
     void validerUtilisateur() {
-        assertEquals(0,gestionnaireGuichet.validerUtilisateur(2,1222));
+        assertEquals(0,gestionnaireGuichet.validerUtilisateur(2,"1222"));
     }
 
     @Test
     void retraitCheque() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
 
         assertEquals(500, gestionnaireGuichet.retraitCheque(500, 1));
@@ -51,11 +51,11 @@ class GestionnaireGuichetTest {
 
     @Test
     void retraitEpargne() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
         gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotEpargne(1000, 2);
 
         assertEquals(500, gestionnaireGuichet.retraitEpargne(500, 2));
@@ -63,10 +63,10 @@ class GestionnaireGuichetTest {
 
     @Test
     void depotCheque() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
 
         assertEquals(1500,gestionnaireGuichet.depotCheque(500, 1));
@@ -74,11 +74,11 @@ class GestionnaireGuichetTest {
 
     @Test
     void depotEpargne() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
         gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotEpargne(1000, 2);
 
         assertEquals(1500,gestionnaireGuichet.depotEpargne(500, 2));
@@ -86,13 +86,13 @@ class GestionnaireGuichetTest {
 
     @Test
     void paiementFacture() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
         gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
         gestionnaireGuichet.creerCompte("marge",1,10000,2000,0);
         gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000,0.3);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(100, 1);
         assertTrue(gestionnaireGuichet.paiementFacture(55, 1));
 
@@ -100,11 +100,11 @@ class GestionnaireGuichetTest {
 
     @Test
     void transfertFond() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
         gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
 
-        gestionnaireGuichet.validerUtilisateur(1, 1222);
+        gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
         assertTrue(gestionnaireGuichet.transfertFond(1, 2, 300));
 
@@ -112,7 +112,7 @@ class GestionnaireGuichetTest {
 
     @Test
     void afficherSoldeCompte() {
-        gestionnaireGuichet.validerUtilisateur(0, 1111);
+        gestionnaireGuichet.validerUtilisateur(0, "1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
 
 
@@ -120,23 +120,23 @@ class GestionnaireGuichetTest {
 
     @ParameterizedTest
     @MethodSource("compteClients")
-    void creerClient(String n1, String n2, String n3, String n4, int n5) {
-        gestionnaireGuichet.validerUtilisateur(0,1111);
+    void creerClient(String n1, String n2, String n3, String n4, String n5) {
+        gestionnaireGuichet.validerUtilisateur(0,"1111");
         assertTrue(gestionnaireGuichet.creerClient(n1, n2, n3, n4, n5));
     }
 
     @Test
     void creerCompte() {
-        gestionnaireGuichet.validerUtilisateur(0,1111);
+        gestionnaireGuichet.validerUtilisateur(0,"1111");
         gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
-        assertEquals(1, gestionnaireGuichet.getClientAvecCode(1).getComptes().size());
+        assertEquals(2, gestionnaireGuichet.getClientAvecCode(1).getComptes().size());
     }
 
     static Stream<Arguments> compteClients(){
         return Stream.of(
-                Arguments.of("Marc", "Jacques", "438-676-6483", "marc@test.com", 1222),
-                Arguments.of("Michel", "Turcot", "514-997-9089", "michel@test.com", 1222),
-                Arguments.of("Bob", "Jean", "514-567-7789", "bob@test.com", 1222)
+                Arguments.of("Marc", "Jacques", "438-676-6483", "marc@test.com", "1222"),
+                Arguments.of("Michel", "Turcot", "514-997-9089", "michel@test.com", "1222"),
+                Arguments.of("Bob", "Jean", "514-567-7789", "bob@test.com", "1222")
         );
     }
 }

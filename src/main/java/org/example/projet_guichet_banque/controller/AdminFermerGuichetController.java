@@ -38,7 +38,7 @@ public class AdminFermerGuichetController {
     @FXML
     public void fermerClick(ActionEvent actionEvent)throws IOException{
         if (actionEvent.getSource() == fermerBtn){
-            int nip = Integer.parseInt(nipPasswordField.getText());
+            String nip = nipPasswordField.getText();
             if (LoginController.gestionnaireGuichet.validerUtilisateur(0,nip) == 0){
                 LoginController.gestionnaireGuichet.setStatut("fermer");
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/guichetFermer.fxml")));

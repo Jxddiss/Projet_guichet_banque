@@ -25,7 +25,7 @@ public class OuvrirGuichetController {
     @FXML
     public void ouvrirClick(ActionEvent actionEvent)throws IOException{
         if (actionEvent.getSource() == ouvrirBtn){
-            int nip = Integer.parseInt(nipPasswordField.getText());
+            String nip = nipPasswordField.getText();
             if (LoginController.gestionnaireGuichet.validerUtilisateur(0,nip) == 0){
                 LoginController.gestionnaireGuichet.setStatut("ouvert");
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageAdmin.fxml")));

@@ -53,7 +53,7 @@ public class LoginController {
         Parent root;
         try{
             int codeClient = Integer.parseInt(codeClientTxtField.getText());
-            int nip = Integer.parseInt(nipTxtField.getText());
+            String nip = nipTxtField.getText();
             int verification = gestionnaireGuichet.validerUtilisateur(codeClient,nip);
 
             if ( verification == 0){

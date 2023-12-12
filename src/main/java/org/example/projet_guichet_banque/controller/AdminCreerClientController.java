@@ -54,7 +54,7 @@ public class AdminCreerClientController {
             String nom = nomTxtField.getText();
             String telephone = telephoneTxtField.getText();
             String couriel = courielTxtField.getText();
-            int nip = Integer.parseInt(nipTxtField.getText());
+            String nip = nipTxtField.getText();
 
             boolean statutCreation = LoginController.gestionnaireGuichet.creerClient(prenom, nom, telephone, couriel, nip);
             prenomTxtField.setText("");

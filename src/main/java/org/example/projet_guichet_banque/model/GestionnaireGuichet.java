@@ -29,13 +29,23 @@ public class GestionnaireGuichet implements Serializable {
         this.clients = new ArrayList<>();
         this.transactions = new ArrayList<>();
         this.demandesComptes = new ArrayList<>();
-        this.admin = new Client(0, "admin", "admin", "111-111-111", "admin@tech.com",1111);
+        this.admin = new Client(0, "admin", "admin", "111-111-111", "admin@tech.com","1111");
         this.clients.add(this.admin);
     }
 
     public Client getClient() {
         return client;
     }
+
+    public ArrayList<Client> getClientsAdmin() {
+        if (this.client != this.admin){
+            return null;
+        }
+        ArrayList<Client> clientsBanque = (ArrayList<Client>) this.clients.clone();
+        clientsBanque.remove(this.admin);
+        return clientsBanque;
+    }
+
     public void setClient(Client client){
         this.client = client;
     }
@@ -122,7 +132,7 @@ public class GestionnaireGuichet implements Serializable {
      * @param codeClient (int) code du client
      * @param nip (int) nip du client
      * */
-    public int validerUtilisateur(int codeClient, int nip){
+    public int validerUtilisateur(int codeClient, String nip){
         this.client = null;
         for (Client client:
                 this.clients) {
@@ -130,11 +140,11 @@ public class GestionnaireGuichet implements Serializable {
                 return 1;
             }
 
-            if (client.getCodeClient() == codeClient && client.getNip() == nip){
+            if (client.getCodeClient() == codeClient && client.getNip().equals(nip)){
                 this.client = client;
                 this.nbEssaie = 0;
                 return 0;
-            } else if (client.getCodeClient() == codeClient && client.getNip() != nip) {
+            } else if (client.getCodeClient() == codeClient && !client.getNip().equals(nip)) {
                 if (this.nbEssaie == 3){
                     client.setStatut("Bloque");
                     this.nbEssaie = 0;
@@ -407,7 +417,7 @@ public class GestionnaireGuichet implements Serializable {
      *
      * @return boolean Confirme si le client à été crée
      * */
-    public boolean creerClient(String prenom, String nom, String telephone, String couriel, int nip){
+    public boolean creerClient(String prenom, String nom, String telephone, String couriel, String nip){
         if (this.client != this.admin){
             return false;
         }

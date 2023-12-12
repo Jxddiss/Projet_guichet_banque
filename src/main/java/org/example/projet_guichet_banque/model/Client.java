@@ -10,9 +10,10 @@ public class Client implements Serializable {
     private String nom;
     private String telephone;
     private String couriel;
-    private int nip;
+    private String nip;
     private ArrayList<Compte> comptes;
     private String statut;
+
 
     /**
      * Constructeur pour créer un client
@@ -23,7 +24,7 @@ public class Client implements Serializable {
      * @param couriel (String) courriel du client
      * @param nip (int) nip du client
      * */
-    public Client(int codeClient, String prenom, String nom, String telephone, String couriel, int nip) {
+    public Client(int codeClient, String prenom, String nom, String telephone, String couriel, String nip) {
         this.codeClient = codeClient;
         this.prenom = prenom;
         this.nom = nom;
@@ -43,8 +44,20 @@ public class Client implements Serializable {
         return prenom;
     }
 
-    public int getNip(){
+    public String getNip(){
         return nip;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getCouriel() {
+        return couriel;
     }
 
     public ArrayList<Compte> getComptes() {
