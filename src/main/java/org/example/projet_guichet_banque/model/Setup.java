@@ -14,10 +14,10 @@ public class Setup {
             gestionnaireGuichet.creerClient("Michel", "Turcot", "514-997-9089", "michel@test.com", "1222");
             gestionnaireGuichet.creerClient("Bob", "Jean", "514-567-7789", "bob@test.com", "1222");
 
-            gestionnaireGuichet.creerCompte("epargne",1,0,0,0.3);
-            gestionnaireGuichet.creerCompte("cheque",1,2000,3000,0);
-            gestionnaireGuichet.creerCompte("marge",3,0,0,0);
-            gestionnaireGuichet.creerCompte("epargne",2,0,0,0.3);
+            gestionnaireGuichet.creerCompte("epargne",1,0,0);
+            gestionnaireGuichet.creerCompte("cheque",1,2000,3000);
+            gestionnaireGuichet.creerCompte("marge",3,0,0);
+            gestionnaireGuichet.creerCompte("epargne",2,0,0);
             GestionnaireGuichetDAO.save(gestionnaireGuichet);
         }
     }

@@ -105,7 +105,7 @@
         <TableView fx:id="transactionTable" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
             <columns>
                 <TableColumn fx:id="montantColonne" prefWidth="168.79998779296875" resizable="false" text="Montant" />
-                <TableColumn fx:id="destinationColonne" prefWidth="175.20001220703125" resizable="false" text="Compte de déstination" />
+                <TableColumn fx:id="destinationColonne" prefWidth="175.20001220703125" resizable="false" text="Compte de provenance" />
                 <TableColumn fx:id="typeColonne" prefWidth="175.20001220703125" resizable="false" text="Type de transaction" />
             </columns>
             <columnResizePolicy>

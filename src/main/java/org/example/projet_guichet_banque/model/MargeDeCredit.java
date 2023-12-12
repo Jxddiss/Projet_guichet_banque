@@ -2,20 +2,22 @@ package org.example.projet_guichet_banque.model;
 
 class MargeDeCredit extends Compte {
     //===== Attribut =====
-    private final double tauxInteret;
+    private final double tauxInteret = 1.05;
 
     /**
      * Constructeur pour créer un compte de type marge de crédit
      *
      * @param numeroCompte (int) numéro du compte
      * @param codeClient (codeClient) code du client a qui appartient le compte
-     * @param tauxInteret (double) taux d'intérêt du compte
      * @param montantTransfertMaximum (double) montant transfert maximum
      * */
-    public MargeDeCredit(int numeroCompte,int codeClient, double tauxInteret,  double montantTransfertMaximum) {
+    public MargeDeCredit(int numeroCompte,int codeClient,  double montantTransfertMaximum) {
         super(numeroCompte,codeClient, montantTransfertMaximum);
-        this.tauxInteret = tauxInteret;
         super.type = "marge";
+    }
+
+    public double getTauxInteret() {
+        return tauxInteret;
     }
 
     /**

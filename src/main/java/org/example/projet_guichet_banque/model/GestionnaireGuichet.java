@@ -459,7 +459,7 @@ public class GestionnaireGuichet implements Serializable {
         }
         this.numClient += 1;
         this.clients.add(new Client(this.numClient, prenom, nom, telephone, couriel, nip));
-        creerCompte("cheque", this.numClient, 1000, 2000, 0);
+        creerCompte("cheque", this.numClient, 1000, 2000);
         return true;
 
     }
@@ -472,9 +472,8 @@ public class GestionnaireGuichet implements Serializable {
      * @param type (String) type du compte à créer
      * @param montantTransfertMaximum (double) montant maximum pour les transfert
      * @param montantFactureMaximum (double) montant maximum pour le paiement de facture
-     * @param tauxInteret (double) taux d'intéret pour les compte épargne ou marge
      * */
-    public void creerCompte(String type, int codeClient, double montantTransfertMaximum, double montantFactureMaximum, double tauxInteret){
+    public void creerCompte(String type, int codeClient, double montantTransfertMaximum, double montantFactureMaximum){
 
         boolean compteChequePresent = false;
         if (this.client == this.admin){
@@ -496,7 +495,7 @@ public class GestionnaireGuichet implements Serializable {
 
                     if (compteChequePresent){
                         this.numCompte += 1;
-                        CompteEpargne compteEpargne = new CompteEpargne(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum);
+                        CompteEpargne compteEpargne = new CompteEpargne(this.numCompte, codeClient, montantTransfertMaximum);
                         client.ajouterCompte(compteEpargne);
                         this.comptesEpargnes.add(compteEpargne);
                     }
@@ -514,7 +513,7 @@ public class GestionnaireGuichet implements Serializable {
 
                     if (compteChequePresent && !margePresente){
                         this.numCompte += 1;
-                        MargeDeCredit margeCredit = new MargeDeCredit(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum);
+                        MargeDeCredit margeCredit = new MargeDeCredit(this.numCompte, codeClient, montantTransfertMaximum);
                         client.ajouterCompte(margeCredit);
                         this.comptesMarges.add(margeCredit);
                     }
@@ -551,5 +550,67 @@ public class GestionnaireGuichet implements Serializable {
             }
         }
         return -1;
+    }
+
+    public double preleverMontant(int numCompte, double montant){
+        CompteHypothecaire compteCourrant = null;
+        double soldeAvant;
+
+        if (this.client != this.admin){
+            return -1;
+        }
+
+        for (Compte hypotheque:
+             this.comptesHypotheques) {
+            if (hypotheque.getNumeroCompte() == numCompte){
+                compteCourrant = (CompteHypothecaire) hypotheque;
+            }
+        }
+
+        if (compteCourrant!= null){
+            soldeAvant = compteCourrant.getSoldeCompte();
+            compteCourrant.retirer(montant);
+
+            if (soldeAvant != compteCourrant.getSoldeCompte()){
+                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "hypotheque-Prélèvement"));
+                return compteCourrant.getSoldeCompte();
+            }else {
+                double difference;
+                difference = montant - compteCourrant.getSoldeCompte();
+                compteCourrant.retirer(compteCourrant.getSoldeCompte());
+                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "hypotheque-Prélèvement"));
+                MargeDeCredit margeCourrante = null;
+                for (Compte compte:
+                        this.comptesMarges) {
+                    if (compte.getCodeClient() == compteCourrant.getCodeClient()){
+                        margeCourrante = (MargeDeCredit) compte;
+                    }
+                }
+                if(margeCourrante != null){
+                    margeCourrante.retirer(difference);
+                    this.transactions.add(new Transaction(difference,margeCourrante.getNumeroCompte(),this.banque.getNumeroCompte(), "marge-Dépassement prélèvement"));
+                    return margeCourrante.getSoldeCompte();
+                }
+            }
+        }
+        return -2;
+    }
+
+    public void payerInteret(){
+        if (this.client == this.admin){
+            for (Compte epargne:
+                    this.comptesEpargnes) {
+                epargne.setSoldeCompte(epargne.getSoldeCompte()*((CompteEpargne) epargne).getTauxInteret());
+            }
+        }
+    }
+
+    public void augmenterMarge(){
+        if (this.client == this.admin){
+            for (Compte marge:
+                    this.comptesMarges) {
+                marge.setSoldeCompte(marge.getSoldeCompte()*((MargeDeCredit) marge).getTauxInteret());
+            }
+        }
     }
 }

@@ -41,7 +41,7 @@ class GestionnaireGuichetTest {
     @Test
     void retraitCheque() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
@@ -52,8 +52,8 @@ class GestionnaireGuichetTest {
     @Test
     void retraitEpargne() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
-        gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
+        gestionnaireGuichet.creerCompte("epargne",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotEpargne(1000, 2);
@@ -64,7 +64,7 @@ class GestionnaireGuichetTest {
     @Test
     void depotCheque() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
@@ -75,8 +75,8 @@ class GestionnaireGuichetTest {
     @Test
     void depotEpargne() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
-        gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
+        gestionnaireGuichet.creerCompte("epargne",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotEpargne(1000, 2);
@@ -87,10 +87,10 @@ class GestionnaireGuichetTest {
     @Test
     void paiementFacture() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
-        gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
-        gestionnaireGuichet.creerCompte("marge",1,10000,2000,0);
-        gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000,0.3);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
+        gestionnaireGuichet.creerCompte("epargne",1,1000,1000);
+        gestionnaireGuichet.creerCompte("marge",1,10000,2000);
+        gestionnaireGuichet.creerCompte("hypotheque",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(100, 1);
@@ -101,8 +101,8 @@ class GestionnaireGuichetTest {
     @Test
     void transfertFond() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
-        gestionnaireGuichet.creerCompte("epargne",1,1000,1000,0.03);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
+        gestionnaireGuichet.creerCompte("epargne",1,1000,1000);
 
         gestionnaireGuichet.validerUtilisateur(1, "1222");
         gestionnaireGuichet.depotCheque(1000, 1);
@@ -113,7 +113,7 @@ class GestionnaireGuichetTest {
     @Test
     void afficherSoldeCompte() {
         gestionnaireGuichet.validerUtilisateur(0, "1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
 
 
     }
@@ -128,7 +128,7 @@ class GestionnaireGuichetTest {
     @Test
     void creerCompte() {
         gestionnaireGuichet.validerUtilisateur(0,"1111");
-        gestionnaireGuichet.creerCompte("cheque",1,1000,1000,0.003);
+        gestionnaireGuichet.creerCompte("cheque",1,1000,1000);
         assertEquals(2, gestionnaireGuichet.getClientAvecCode(1).getComptes().size());
     }
 

@@ -59,19 +59,16 @@ public class AdminListeDemandeController {
     @FXML
     public void approuverClick(){
         Demande demande = demandeTab.getSelectionModel().getSelectedItem();
-        double tauxInteret = 0;
         double montantTransfert = 0;
         double montantFacture = 0;
         if (demande.getStatut().equals("En cours")){
             demande.setStatut("approuve");
-            if (demande.getTypeCompte().equals("epargne")){
-                tauxInteret = 0.03;
-            }else if (demande.getTypeCompte().equals("cheque")){
+            if (demande.getTypeCompte().equals("cheque")){
                 montantTransfert = 2000;
                 montantFacture = 3000;
             }
             demandeTab.refresh();
-            LoginController.gestionnaireGuichet.creerCompte(demande.getTypeCompte(),demande.getCodeClient(),montantTransfert,montantFacture,tauxInteret);
+            LoginController.gestionnaireGuichet.creerCompte(demande.getTypeCompte(),demande.getCodeClient(),montantTransfert,montantFacture);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Demande Approuvée");
             alert.show();
