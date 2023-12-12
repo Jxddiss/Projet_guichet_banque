@@ -38,7 +38,7 @@
                 <Font name="Garamond Bold" size="24.0" />
             </font>
         </Label>
-        <Button layoutX="240.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Augmenter marge" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="336.0">
+        <Button fx:id="augmenterMargeBtn" layoutX="240.0" layoutY="336.0" mnemonicParsing="false" onAction="#augmenterClick" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #b1d1e3; -fx-border-color: black;" text="Augmenter marge" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="336.0">
             <font>
                 <Font name="Garamond Bold" size="13.0" />
             </font>

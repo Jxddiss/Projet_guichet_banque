@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class AdminListeCompteMargeController extends AdminListeCompteParent{
+
     @FXML
     @Override
     public void initialize(){
@@ -28,20 +30,27 @@ public class AdminListeCompteMargeController extends AdminListeCompteParent{
         comptes = LoginController.gestionnaireGuichet.getComptesMarges();
         comptesObs = FXCollections.observableArrayList(comptes);
         tabCompte.setItems(comptesObs);
-
-        ArrayList<Transaction> transactionsSansfiltre;
-        ArrayList<Transaction> transactions = new ArrayList<>();
-        ObservableList<Transaction> transactionsObs;
+        transactions = new ArrayList<>();
 
         transactionsSansfiltre = LoginController.gestionnaireGuichet.getTransactionsAdmin();
-        for (Transaction trans:
-                transactionsSansfiltre) {
-            if (trans.getType().startsWith("marge")){
-                transactions.add(trans);
-            }
-        }
+        updateTransactions("marge");
+    }
 
-        transactionsObs = FXCollections.observableArrayList(transactions);
-        transactionTable.setItems(transactionsObs);
+    @FXML
+    public void augmenterClick(){
+        double interetAppliquer = LoginController.gestionnaireGuichet.augmenterMarge();
+        tabCompte.refresh();
+        updateTransactions("marge");
+        transactionTable.refresh();
+        if (interetAppliquer != -1){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Intérêt ajoutés à tout les comptes ! " +
+                    "\nTOTAL : "+ String.format("%.2f $",interetAppliquer));
+            alert.show();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Une erreur c'est produite");
+            alert.show();
+        }
     }
 }

@@ -616,8 +616,9 @@ public class GestionnaireGuichet implements Serializable {
         return -1;
     }
 
-    public void augmenterMarge(){
+    public double augmenterMarge(){
         if (this.client == this.admin){
+            double interetTotal = 0;
             double difference;
             double montant;
             for (Compte marge:
@@ -625,10 +626,13 @@ public class GestionnaireGuichet implements Serializable {
                 if (marge.getSoldeCompte() > 0){
                     montant = marge.getSoldeCompte()*((MargeDeCredit) marge).getTauxInteret();
                     difference = montant - marge.getSoldeCompte();
+                    interetTotal += difference;
                     marge.setSoldeCompte(montant);
                     this.transactions.add(new Transaction(difference,marge.getNumeroCompte(),this.banque.getNumeroCompte(), "marge-Intérêts Appliqués"));
                 }
             }
+            return interetTotal;
         }
+        return -1;
     }
 }

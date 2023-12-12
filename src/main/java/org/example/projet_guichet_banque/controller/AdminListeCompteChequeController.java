@@ -26,24 +26,12 @@ public class AdminListeCompteChequeController extends AdminListeCompteParent{
         super.initialize();
         ArrayList<Compte> comptes;
         ObservableList<Compte> comptesObs;
-
         comptes = LoginController.gestionnaireGuichet.getComptesCheques();
         comptesObs = FXCollections.observableArrayList(comptes);
         tabCompte.setItems(comptesObs);
-
-        ArrayList<Transaction> transactionsSansfiltre;
-        ArrayList<Transaction> transactions = new ArrayList<>();
-        ObservableList<Transaction> transactionsObs;
+        transactions = new ArrayList<>();
 
         transactionsSansfiltre = LoginController.gestionnaireGuichet.getTransactionsAdmin();
-        for (Transaction trans:
-             transactionsSansfiltre) {
-            if (trans.getType().startsWith("cheque")){
-                transactions.add(trans);
-            }
-        }
-
-        transactionsObs = FXCollections.observableArrayList(transactions);
-        transactionTable.setItems(transactionsObs);
+        updateTransactions("cheque");
     }
 }
