@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Compte;
+import org.example.projet_guichet_banque.model.Transaction;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,5 +28,20 @@ public class AdminListeCompteHypothequeController extends AdminListeCompteParent
         comptes = LoginController.gestionnaireGuichet.getComptesHypotheques();
         comptesObs = FXCollections.observableArrayList(comptes);
         tabCompte.setItems(comptesObs);
+
+        ArrayList<Transaction> transactionsSansfiltre;
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        ObservableList<Transaction> transactionsObs;
+
+        transactionsSansfiltre = LoginController.gestionnaireGuichet.getTransactionsAdmin();
+        for (Transaction trans:
+                transactionsSansfiltre) {
+            if (trans.getType().startsWith("hypotheque")){
+                transactions.add(trans);
+            }
+        }
+
+        transactionsObs = FXCollections.observableArrayList(transactions);
+        transactionTable.setItems(transactionsObs);
     }
 }

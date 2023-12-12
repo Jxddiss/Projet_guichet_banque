@@ -223,13 +223,13 @@ public class GestionnaireGuichet implements Serializable {
 
             if (soldeAvant != compteCourrant.getSoldeCompte()){
                 this.banque.retirer(montant);
-                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "cheque-Retrait chèque"));
                 return compteCourrant.getSoldeCompte();
             }else {
                 double difference;
                 difference = montant - compteCourrant.getSoldeCompte();
                 compteCourrant.retirer(compteCourrant.getSoldeCompte());
-                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "cheque-Retrait chèque"));
                 compteCourrant = null;
                 for (Compte compte:
                      client.getComptes()) {
@@ -240,7 +240,7 @@ public class GestionnaireGuichet implements Serializable {
                 if(compteCourrant != null){
                     compteCourrant.retirer(difference);
                     this.banque.retirer(montant);
-                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Dépassement retrait"));
+                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "marge-Dépassement retrait"));
                     return compteCourrant.getSoldeCompte();
                 }
             }
@@ -278,13 +278,13 @@ public class GestionnaireGuichet implements Serializable {
 
             if (soldeAvant != compteCourrant.getSoldeCompte()){
                 this.banque.retirer(montant);
-                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait épargne"));
+                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "epargne-Retrait épargne"));
                 return compteCourrant.getSoldeCompte();
             }else {
                 double difference;
                 difference = montant - compteCourrant.getSoldeCompte();
                 compteCourrant.retirer(compteCourrant.getSoldeCompte());
-                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Retrait chèque"));
+                this.transactions.add(new Transaction(soldeAvant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "epargne-Retrait epargne"));
                 compteCourrant = null;
                 for (Compte compte:
                         client.getComptes()) {
@@ -295,7 +295,7 @@ public class GestionnaireGuichet implements Serializable {
                 if(compteCourrant != null){
                     compteCourrant.retirer(difference);
                     this.banque.retirer(montant);
-                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Dépassement retrait"));
+                    this.transactions.add(new Transaction(difference,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "marge-Dépassement retrait"));
                     return compteCourrant.getSoldeCompte();
                 }
             }
@@ -322,7 +322,7 @@ public class GestionnaireGuichet implements Serializable {
         }
         if (compteCourrant!= null){
             compteCourrant.deposer(montant);
-            this.transactions.add(new Transaction(montant,this.banque.getNumeroCompte(),compteCourrant.getNumeroCompte(), "Dépot chèque"));
+            this.transactions.add(new Transaction(montant,this.banque.getNumeroCompte(),compteCourrant.getNumeroCompte(), "cheque-Dépot chèque"));
             return compteCourrant.getSoldeCompte();
         }
         return -1;
@@ -347,7 +347,7 @@ public class GestionnaireGuichet implements Serializable {
         }
         if (compteCourrant!= null){
             compteCourrant.deposer(montant);
-            this.transactions.add(new Transaction(montant,this.banque.getNumeroCompte(),compteCourrant.getNumeroCompte(), "Dépot épargne"));
+            this.transactions.add(new Transaction(montant,this.banque.getNumeroCompte(),compteCourrant.getNumeroCompte(), "epargne-Dépot épargne"));
             return compteCourrant.getSoldeCompte();
         }
         return -1;
@@ -376,7 +376,7 @@ public class GestionnaireGuichet implements Serializable {
             compteCourrant.retirer(montant + compteCourrant.getFraisPaiementFacture());
 
             if (soldeAvant != compteCourrant.getSoldeCompte()){
-                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "Paiement de facture"));
+                this.transactions.add(new Transaction(montant,compteCourrant.getNumeroCompte(),this.banque.getNumeroCompte(), "cheque-Paiement de facture"));
                 return true;
             }
         }
@@ -415,7 +415,7 @@ public class GestionnaireGuichet implements Serializable {
             compteProv.retirer(montant);
             compteDest.deposer(montant);
             if (soldeAvant != compteProv.getSoldeCompte()){
-                this.transactions.add(new Transaction(montant,compteProv.getNumeroCompte(),compteDest.getNumeroCompte(), "Transfert de fond"));
+                this.transactions.add(new Transaction(montant,compteProv.getNumeroCompte(),compteDest.getNumeroCompte(), "cheque-Transfert de fond"));
                 return true;
             }
         }

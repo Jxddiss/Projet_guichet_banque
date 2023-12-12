@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Compte;
+import org.example.projet_guichet_banque.model.Transaction;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -30,6 +31,14 @@ public class AdminListeCompteParent {
     private TableColumn<Compte,String> typeColonne;
     @FXML
     private TableColumn<Compte,String> clientColonne;
+    @FXML
+    protected TableView<Transaction> transactionTable;
+    @FXML
+    private TableColumn<Transaction, String> montantColonne;
+    @FXML
+    private TableColumn<Transaction, String> destinationColonne;
+    @FXML
+    private TableColumn<Transaction, String> typeTransactionColonne;
 
     private Scene scene;
     private Parent root;
@@ -49,6 +58,16 @@ public class AdminListeCompteParent {
             String codeClient = String.format("%04d",cellData.getValue().getCodeClient());
             return new SimpleStringProperty(codeClient);
         });
+
+        montantColonne.setCellValueFactory(cellData -> {
+            String montantFormater = String.format("%.2f $",cellData.getValue().getMontant());
+            return new SimpleStringProperty(montantFormater);
+        });
+        destinationColonne.setCellValueFactory(cellData -> {
+            String compteFormater = "Compte : "+ String.format("%04d",cellData.getValue().getCompte());
+            return new SimpleStringProperty(compteFormater);
+        });
+        typeTransactionColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
     }
     @FXML
     public void quitterClick(ActionEvent actionEvent) throws IOException {
