@@ -42,6 +42,9 @@ public class AdminCreerClientController {
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
 
+        confirmerBtn.setOnMouseEntered(event -> confirmerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color: #448fbb; -fx-transition-duration: 0.9s;"));
+        confirmerBtn.setOnMouseExited(event -> confirmerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color:  #b1d1e3; -fx-transition-duration: 0.9s;"));
+
     }
 
     @FXML
