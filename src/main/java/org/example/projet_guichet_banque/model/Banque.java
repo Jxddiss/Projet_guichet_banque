@@ -26,7 +26,7 @@ public class Banque extends Compte {
      * */
     public void remplirGuichet(){
         if (this.montantMaximum > this.soldeCompte){
-            this.deposer(montantRemplissage);
+            this.deposer(Math.min(this.montantMaximum - this.soldeCompte, this.montantRemplissage));
         }
     }
 }

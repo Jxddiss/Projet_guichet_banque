@@ -488,4 +488,14 @@ public class GestionnaireGuichet implements Serializable {
             }
         }
     }
+
+    public double remplirGuichet(){
+        if (this.client == this.admin){
+            if (this.banque.getSoldeCompte() < 20000){
+                this.banque.remplirGuichet();
+                return this.banque.getSoldeCompte();
+            }
+        }
+        return -1;
+    }
 }

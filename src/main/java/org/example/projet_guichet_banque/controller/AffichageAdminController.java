@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -76,13 +77,19 @@ public class AffichageAdminController {
         }
     }
     @FXML
-    public void remplirGuichet(MouseEvent event) throws IOException{
-        if(event.getSource() == remplirGuichetPaneBtn){
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/adminRemplirGuichet.fxml")));
-            scene = remplirGuichetPaneBtn.getScene();
-            scene.setRoot(root);
-            ((Stage)scene.getWindow()).setTitle("Remplir Guichet");
+    public void remplirGuichet(){
+        double soldeBanque = LoginController.gestionnaireGuichet.remplirGuichet();
+        if (soldeBanque != -1){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Guichet rempli" +
+                    "\nNouveau solde : "+String.format("%.2f $",soldeBanque));
+            alert.show();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Guichet déjà rempli!");
+            alert.show();
         }
+
     }
     @FXML
     public void ouvrirComptes(MouseEvent event) throws IOException{
