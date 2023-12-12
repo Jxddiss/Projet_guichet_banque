@@ -72,8 +72,26 @@ public class GestionnaireGuichet implements Serializable {
         return demandesComptes;
     }
 
-    public void envoyerDemande(Demande demande){
-        this.demandesComptes.add(demande);
+    public boolean envoyerDemande(Demande demande){
+        boolean demandeMargePresente = false;
+        for (Demande demandeExistante:
+             this.demandesComptes) {
+            if (demandeExistante.getCodeClient() == demande.getCodeClient()
+                    && demandeExistante.getTypeCompte().equals("marge")) {
+                demandeMargePresente = true;
+                break;
+            }
+        }
+
+        if (demandeMargePresente && !demande.getTypeCompte().equals("marge")){
+            this.demandesComptes.add(demande);
+            return true;
+        }else if(!demandeMargePresente){
+            this.demandesComptes.add(demande);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

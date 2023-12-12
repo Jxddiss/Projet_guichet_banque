@@ -76,11 +76,17 @@ public class CreationCompteController {
                 }
             }
             if (!margePresente){
-                LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"marge",statut));
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Votre demande à été envoyée");
-                alert.show();
-                margePresente = true;
+                if (LoginController.gestionnaireGuichet.envoyerDemande(new Demande(codeClient,"marge",statut))){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Votre demande à été envoyée");
+                    alert.show();
+                    margePresente = true;
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Demande impossible vous avez déjà fait une demande pour une marge!");
+                    alert.show();
+                    margePresente = true;
+                }
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Demande impossible vous avez déjà fait une demande pour une marge!");
