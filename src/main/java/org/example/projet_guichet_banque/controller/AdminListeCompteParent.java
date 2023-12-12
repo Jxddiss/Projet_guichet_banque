@@ -1,5 +1,6 @@
 package org.example.projet_guichet_banque.controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.Compte;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -17,6 +22,15 @@ public class AdminListeCompteParent {
     private Label prenomUtilisateurLbl;
     @FXML
     private Button quitterBtn;
+    @FXML
+    protected TableView<Compte> tabCompte;
+    @FXML
+    private TableColumn<Compte,String> numColonne;
+    @FXML
+    private TableColumn<Compte,String> typeColonne;
+    @FXML
+    private TableColumn<Compte,String> clientColonne;
+
     private Scene scene;
     private Parent root;
 
@@ -26,6 +40,19 @@ public class AdminListeCompteParent {
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
 
+        numColonne.setCellValueFactory(cellData -> {
+            String numCompte = String.format("%04d",cellData.getValue().getNumeroCompte());
+            return new SimpleStringProperty(numCompte);
+        });
+        typeColonne.setCellValueFactory(cellData -> {
+            String type = cellData.getValue().getType();
+            System.out.println(type);
+            return new SimpleStringProperty(type);
+        });
+        clientColonne.setCellValueFactory(cellData -> {
+            String codeClient = String.format("%04d",cellData.getValue().getCodeClient());
+            return new SimpleStringProperty(codeClient);
+        });
     }
     @FXML
     public void quitterClick(ActionEvent actionEvent) throws IOException {

@@ -63,6 +63,10 @@ public class Compte implements Serializable{
         return soldeCompte;
     }
 
+    public int getCodeClient() {
+        return codeClient;
+    }
+
     public void setSoldeCompte(double soldeCompte) {
         this.soldeCompte = soldeCompte;
     }

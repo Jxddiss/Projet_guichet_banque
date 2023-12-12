@@ -11,6 +11,10 @@ public class GestionnaireGuichet implements Serializable {
     private Client admin;
     private ArrayList<Demande> demandesComptes;
     private ArrayList<Client> clients;
+    private ArrayList<Compte> comptesCheques;
+    private ArrayList<Compte> comptesEpargnes;
+    private ArrayList<Compte> comptesHypotheques;
+    private ArrayList<Compte> comptesMarges;
     private ArrayList<Transaction> transactions;
     private int nbEssaie = 0;
     private int numClient = 0;
@@ -29,6 +33,10 @@ public class GestionnaireGuichet implements Serializable {
         this.clients = new ArrayList<>();
         this.transactions = new ArrayList<>();
         this.demandesComptes = new ArrayList<>();
+        this.comptesCheques = new ArrayList<>();
+        this.comptesEpargnes = new ArrayList<>();
+        this.comptesHypotheques = new ArrayList<>();
+        this.comptesMarges = new ArrayList<>();
         this.admin = new Client(0, "admin", "admin", "111-111-111", "admin@tech.com","1111");
         this.clients.add(this.admin);
     }
@@ -76,6 +84,34 @@ public class GestionnaireGuichet implements Serializable {
         }
 
         return this.transactions;
+    }
+
+    public ArrayList<Compte> getComptesCheques() {
+        if (this.client != this.admin){
+            return null;
+        }
+        return comptesCheques;
+    }
+
+    public ArrayList<Compte> getComptesEpargnes() {
+        if (this.client != this.admin){
+            return null;
+        }
+        return comptesEpargnes;
+    }
+
+    public ArrayList<Compte> getComptesHypotheques() {
+        if (this.client != this.admin){
+            return null;
+        }
+        return comptesHypotheques;
+    }
+
+    public ArrayList<Compte> getComptesMarges() {
+        if (this.client != this.admin){
+            return null;
+        }
+        return comptesMarges;
     }
 
     public ArrayList<Demande> getDemandesComptes() {
@@ -446,7 +482,9 @@ public class GestionnaireGuichet implements Serializable {
             switch (type){
                 case "cheque":
                     this.numCompte += 1;
-                    client.ajouterCompte(new CompteCheque(this.numCompte, codeClient, montantFactureMaximum, montantTransfertMaximum));
+                    CompteCheque compteCheque = new CompteCheque(this.numCompte, codeClient, montantFactureMaximum, montantTransfertMaximum);
+                    client.ajouterCompte(compteCheque);
+                    this.comptesCheques.add(compteCheque);
                     break;
                 case "epargne":
                     for (Compte compte:
@@ -458,7 +496,9 @@ public class GestionnaireGuichet implements Serializable {
 
                     if (compteChequePresent){
                         this.numCompte += 1;
-                        client.ajouterCompte(new CompteEpargne(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum));
+                        CompteEpargne compteEpargne = new CompteEpargne(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum);
+                        client.ajouterCompte(compteEpargne);
+                        this.comptesEpargnes.add(compteEpargne);
                     }
                     break;
                 case "marge":
@@ -474,7 +514,9 @@ public class GestionnaireGuichet implements Serializable {
 
                     if (compteChequePresent && !margePresente){
                         this.numCompte += 1;
-                        client.ajouterCompte(new MargeDeCredit(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum));
+                        MargeDeCredit margeCredit = new MargeDeCredit(this.numCompte, codeClient, tauxInteret, montantTransfertMaximum);
+                        client.ajouterCompte(margeCredit);
+                        this.comptesMarges.add(margeCredit);
                     }
                     break;
                 case "hypotheque":
@@ -489,7 +531,9 @@ public class GestionnaireGuichet implements Serializable {
 
                     if (compteChequePresent){
                         this.numCompte += 1;
-                        client.ajouterCompte(new CompteHypothecaire(this.numCompte, codeClient, montantTransfertMaximum));
+                        CompteHypothecaire compteHypothecaire = new CompteHypothecaire(this.numCompte, codeClient, montantTransfertMaximum);
+                        client.ajouterCompte(compteHypothecaire);
+                        this.comptesHypotheques.add(compteHypothecaire);
                     }
                     break;
                 default:
