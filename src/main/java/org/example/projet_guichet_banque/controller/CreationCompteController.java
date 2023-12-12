@@ -68,7 +68,7 @@ public class CreationCompteController {
 
             for (Compte compte:
                  LoginController.gestionnaireGuichet.getClient().getComptes()) {
-                if (compte.getType().equals("marge") && !margePresente){
+                if (compte.getType().equals("marge")){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Demande impossible vous avez déjà une marge !");
                     alert.show();
