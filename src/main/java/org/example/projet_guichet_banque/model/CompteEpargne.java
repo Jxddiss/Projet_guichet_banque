@@ -2,7 +2,7 @@ package org.example.projet_guichet_banque.model;
 
 class CompteEpargne extends Compte {
     //=========== Attribut ===========
-    private final double tauxInteret = 1.1;
+    private final double tauxInteret = 1.01;
 
     /**
      * Constructeur pour créer un compte de épargne

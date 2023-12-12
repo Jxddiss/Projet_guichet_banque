@@ -30,6 +30,8 @@ public class AdminListeCompteParent {
     @FXML
     private TableColumn<Compte,String> typeColonne;
     @FXML
+    private TableColumn<Compte,String> soldeColonne;
+    @FXML
     private TableColumn<Compte,String> clientColonne;
     @FXML
     protected TableView<Transaction> transactionTable;
@@ -57,6 +59,10 @@ public class AdminListeCompteParent {
         clientColonne.setCellValueFactory(cellData -> {
             String codeClient = String.format("%04d",cellData.getValue().getCodeClient());
             return new SimpleStringProperty(codeClient);
+        });
+        soldeColonne.setCellValueFactory(cellData -> {
+            String soldeFormatter = String.format("%.2f $",cellData.getValue().getSoldeCompte());
+            return new SimpleStringProperty(soldeFormatter);
         });
 
         montantColonne.setCellValueFactory(cellData -> {

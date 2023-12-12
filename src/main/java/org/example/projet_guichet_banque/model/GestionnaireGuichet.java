@@ -596,20 +596,38 @@ public class GestionnaireGuichet implements Serializable {
         return -2;
     }
 
-    public void payerInteret(){
+    public double payerInteret(){
         if (this.client == this.admin){
+            double difference;
+            double montant;
+            double interetTotalVerser = 0;
             for (Compte epargne:
                     this.comptesEpargnes) {
-                epargne.setSoldeCompte(epargne.getSoldeCompte()*((CompteEpargne) epargne).getTauxInteret());
+                if (epargne.getSoldeCompte() > 0){
+                    montant = epargne.getSoldeCompte()*((CompteEpargne) epargne).getTauxInteret();
+                    difference = montant - epargne.getSoldeCompte();
+                    interetTotalVerser += difference;
+                    epargne.setSoldeCompte(montant);
+                    this.transactions.add(new Transaction(difference,epargne.getNumeroCompte(),this.banque.getNumeroCompte(), "epargne-Paiement des intérêts"));
+                }
             }
+            return interetTotalVerser;
         }
+        return -1;
     }
 
     public void augmenterMarge(){
         if (this.client == this.admin){
+            double difference;
+            double montant;
             for (Compte marge:
                     this.comptesMarges) {
-                marge.setSoldeCompte(marge.getSoldeCompte()*((MargeDeCredit) marge).getTauxInteret());
+                if (marge.getSoldeCompte() > 0){
+                    montant = marge.getSoldeCompte()*((MargeDeCredit) marge).getTauxInteret();
+                    difference = montant - marge.getSoldeCompte();
+                    marge.setSoldeCompte(montant);
+                    this.transactions.add(new Transaction(difference,marge.getNumeroCompte(),this.banque.getNumeroCompte(), "marge-Intérêts Appliqués"));
+                }
             }
         }
     }
