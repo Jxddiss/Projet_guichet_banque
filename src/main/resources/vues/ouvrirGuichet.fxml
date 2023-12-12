@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.OuvrirGuichetController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" style="-fx-opacity: 0.5;">
             <image>
@@ -53,17 +54,23 @@
             <Font name="Garamond Bold" size="28.0" />
          </font>
       </Label>
-      <Label contentDisplay="BOTTOM" text="Mot de passe" textFill="WHITE" AnchorPane.leftAnchor="222.0" AnchorPane.topAnchor="160.0">
+      <Label contentDisplay="BOTTOM" layoutX="249.0" layoutY="164.0" text="Mot de passe" textFill="WHITE" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="164.0">
          <font>
             <Font name="Garamond Bold" size="18.0" />
          </font>
-         <graphic>
-            <TextField style="-fx-background-radius: 15;" />
-         </graphic>
       </Label>
-      <Button mnemonicParsing="false" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-insets: 1; -fx-border-color: black; -fx-background-color: white; -fx-text-fill: #5faab9;" text="Ouvrir" textFill="WHITE" AnchorPane.leftAnchor="272.8" AnchorPane.topAnchor="220.0">
+      <Button fx:id="ouvrirBtn" mnemonicParsing="false" onAction="#ouvrirClick" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-insets: 1; -fx-border-color: black; -fx-background-color: white; -fx-text-fill: #5faab9;" text="Ouvrir" textFill="WHITE" AnchorPane.leftAnchor="272.8" AnchorPane.topAnchor="220.0">
          <font>
             <Font name="Garamond Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <PasswordField fx:id="nipPasswordField" layoutX="226.0" layoutY="187.0" />
+      <Button fx:id="quitterBtn" layoutX="515.0" layoutY="356.0" mnemonicParsing="false" onAction="#quitterClick" style="-fx-background-radius: 15;" text="Quitter">
+         <font>
+            <Font name="Garamond Bold" size="16.0" />
          </font>
       </Button>
     </children>

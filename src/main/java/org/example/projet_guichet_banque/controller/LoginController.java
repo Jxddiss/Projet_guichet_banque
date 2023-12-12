@@ -57,16 +57,22 @@ public class LoginController {
             int verification = gestionnaireGuichet.validerUtilisateur(codeClient,nip);
 
             if ( verification == 0){
-                if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0){
+                if (actionEvent.getSource() == connecterBtn && gestionnaireGuichet.getClient().getCodeClient() != 0
+                        && gestionnaireGuichet.getStatut().equals("ouvert")) {
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                     scene = connecterBtn.getScene();
                     scene.setRoot(root);
                     ((Stage)scene.getWindow()).setTitle("Comptes");
-                }else{
+                }else if (gestionnaireGuichet.getStatut().equals("ouvert")){
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageAdmin.fxml")));
                     scene = connecterBtn.getScene();
                     scene.setRoot(root);
                     ((Stage)scene.getWindow()).setTitle("Admin");
+                }else{
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/guichetFermer.fxml")));
+                    scene = connecterBtn.getScene();
+                    scene.setRoot(root);
+                    ((Stage)scene.getWindow()).setTitle("Guichet Fermé");
                 }
             }else if (verification == 2){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
