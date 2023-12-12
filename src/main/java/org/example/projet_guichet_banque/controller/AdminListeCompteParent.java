@@ -44,11 +44,7 @@ public class AdminListeCompteParent {
             String numCompte = String.format("%04d",cellData.getValue().getNumeroCompte());
             return new SimpleStringProperty(numCompte);
         });
-        typeColonne.setCellValueFactory(cellData -> {
-            String type = cellData.getValue().getType();
-            System.out.println(type);
-            return new SimpleStringProperty(type);
-        });
+        typeColonne.setCellValueFactory(new PropertyValueFactory<>("type"));
         clientColonne.setCellValueFactory(cellData -> {
             String codeClient = String.format("%04d",cellData.getValue().getCodeClient());
             return new SimpleStringProperty(codeClient);

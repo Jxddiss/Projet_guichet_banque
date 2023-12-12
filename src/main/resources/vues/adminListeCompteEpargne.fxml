@@ -84,7 +84,7 @@
                            <columns>
                               <TableColumn fx:id="montantColonne" editable="false" prefWidth="161.5999755859375" resizable="false" sortable="false" text="Montant" />
                               <TableColumn fx:id="destinationColonne" editable="false" prefWidth="188.79998779296875" resizable="false" sortable="false" text="Compte de déstination" />
-                              <TableColumn fx:id="typeColonne" editable="false" prefWidth="170.39996337890625" resizable="false" sortable="false" text="Type de transaction" />
+                              <TableColumn fx:id="typeTransactionColonne" editable="false" prefWidth="170.39996337890625" resizable="false" sortable="false" text="Type de transaction" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
