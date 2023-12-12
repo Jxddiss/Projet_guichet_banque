@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,10 +24,58 @@ public class AdminCreerClientController {
     private Parent root;
 
     @FXML
+    private TextField prenomTxtField;
+    @FXML
+    private TextField nomTxtField;
+    @FXML
+    private TextField telephoneTxtField;
+    @FXML
+    private TextField courielTxtField;
+    @FXML
+    private TextField nipTxtField;
+    @FXML
+    private Button confirmerBtn;
+
+    @FXML
     public void initialize(){
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+
+    }
+
+    @FXML
+    public void confirmerClick(ActionEvent actionEvent){
+        if(!prenomTxtField.getText().isEmpty() && !nomTxtField.getText().isEmpty() && !telephoneTxtField.getText().isEmpty() && !courielTxtField.getText().isEmpty() && !nipTxtField.getText().isEmpty()){
+            String prenom = prenomTxtField.getText();
+            String nom = nomTxtField.getText();
+            String telephone = telephoneTxtField.getText();
+            String couriel = courielTxtField.getText();
+            int nip = Integer.parseInt(nipTxtField.getText());
+
+            boolean statutCreation = LoginController.gestionnaireGuichet.creerClient(prenom, nom, telephone, couriel, nip);
+            prenomTxtField.setText("");
+            nomTxtField.setText("");
+            telephoneTxtField.setText("");
+            courielTxtField.setText("");
+            nipTxtField.setText("");
+            if(statutCreation){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("La création du compte a été réussi!");
+                alert.show();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Il y a eu un problème avec la création du compte!");
+                alert.show();
+            }
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Aucun champ ne doit être laissé vide!");
+            alert.show();
+        }
+
+
 
     }
 
