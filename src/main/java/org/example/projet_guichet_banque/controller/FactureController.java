@@ -50,13 +50,17 @@ public class FactureController {
                 double montant = Double.parseDouble(montantTxtField.getText());
                 String numFacture = numFactureTxtField.getText();
                 if (!numFacture.isEmpty()){
-                    LoginController.gestionnaireGuichet.paiementFacture(montant,numCompteCourrant);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Paiement de la facture : "+
-                            "\n\t\t"+ numFacture + " confirmé "+
-                            "\nNouveau solde :"+
-                            "\n\t\t" + String.format("%.2f $",LoginController.gestionnaireGuichet.afficherSoldeCompte(numCompteCourrant)));
-                    alert.show();
+                    if (LoginController.gestionnaireGuichet.paiementFacture(montant,numCompteCourrant)){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setContentText("Paiement de la facture : "+ numFacture + " confirmé "+
+                                "\nNouveau solde :"+
+                                "\n\t\t" + String.format("%.2f $",LoginController.gestionnaireGuichet.afficherSoldeCompte(numCompteCourrant)));
+                        alert.show();
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Erreur lors du paiement de la facture!");
+                        alert.show();
+                    }
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vues/affichageCompte.fxml")));
                     scene = quitterBtn.getScene();
                     scene.setRoot(root);

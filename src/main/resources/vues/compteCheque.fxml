@@ -9,10 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../helpers/light.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projet_guichet_banque.controller.CompteChequeController">
@@ -35,48 +32,7 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-      <GridPane prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label contentDisplay="RIGHT" text="Solde : " GridPane.halignment="CENTER" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Garamond Bold" size="18.0" />
-               </font>
-               <graphic>
-                  <Label fx:id="soldeLbl" contentDisplay="RIGHT" text="00.00$">
-                     <font>
-                        <Font name="Book Antiqua Bold" size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets top="3.0" />
-                     </padding>
-                  </Label>
-               </graphic>
-            </Label>
-            <Label contentDisplay="RIGHT" graphicTextGap="6.0" text="Compte Chèque" GridPane.halignment="CENTER">
-               <font>
-                  <Font name="Garamond Bold" size="24.0" />
-               </font>
-               <graphic>
-                  <Label fx:id="numCompteLbl" text="1234" textFill="#6e6c6c">
-                     <font>
-                        <Font name="Book Antiqua Bold Italic" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </Label>
-               </graphic>
-            </Label>
-         </children>
-      </GridPane>
-      <HBox prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="138.0">
+      <HBox layoutY="155.0" prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="155.0">
          <children>
             <Button fx:id="retraitBtn" mnemonicParsing="false" onAction="#retirerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Retrait" HBox.hgrow="ALWAYS">
                <font>
@@ -124,7 +80,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="transactionTable" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
+      <TableView fx:id="transactionTable" layoutX="40.0" layoutY="189.8" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="189.8">
         <columns>
           <TableColumn fx:id="montantColonne" editable="false" prefWidth="161.5999755859375" resizable="false" sortable="false" text="Montant" />
           <TableColumn fx:id="destinationColonne" editable="false" prefWidth="188.79998779296875" resizable="false" sortable="false" text="Compte de déstination" />
@@ -142,5 +98,65 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label contentDisplay="RIGHT" graphicTextGap="6.0" layoutX="200.0" layoutY="62.0" text="Compte Chèque">
+         <font>
+            <Font name="Garamond Bold" size="24.0" />
+         </font>
+         <graphic>
+            <Label fx:id="numCompteLbl" text="1234" textFill="#6e6c6c">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="14.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+         </graphic>
+      </Label>
+      <Label contentDisplay="RIGHT" layoutX="75.0" layoutY="120.0" text="Transfert Maximum : ">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <graphic>
+            <Label fx:id="transfertMaxLbl" contentDisplay="RIGHT" text="00.00$">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </Label>
+         </graphic>
+      </Label>
+      <Label contentDisplay="RIGHT" layoutX="314.0" layoutY="122.0" text="Facture Maximum : ">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <graphic>
+            <Label fx:id="factureMaxLbl" contentDisplay="RIGHT" text="00.00$">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </Label>
+         </graphic>
+      </Label>
+      <Label contentDisplay="RIGHT" layoutX="252.0" layoutY="92.0" text="Solde : ">
+         <font>
+            <Font name="Garamond Bold" size="18.0" />
+         </font>
+         <graphic>
+            <Label fx:id="soldeLbl" contentDisplay="RIGHT" text="00.00$">
+               <font>
+                  <Font name="Book Antiqua Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </Label>
+         </graphic>
+      </Label>
     </children>
 </AnchorPane>

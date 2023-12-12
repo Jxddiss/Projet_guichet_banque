@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.example.projet_guichet_banque.model.CompteCheque;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -16,7 +18,18 @@ public class CompteChequeController extends CompteControllerParent{
     private Button transfertBtn;
     @FXML
     private Button factureBtn;
+    @FXML
+    private Label transfertMaxLbl;
+    @FXML
+    private Label factureMaxLbl;
 
+    @FXML
+    @Override
+    public void initialize(){
+        super.initialize();
+        transfertMaxLbl.setText(String.format("%.2f $",AffichageCompteController.compteChoisi.getMontantTransfertMaximum()));
+        factureMaxLbl.setText(String.format("%.2f $",((CompteCheque) AffichageCompteController.compteChoisi).getMontantFactureMaximum()));
+    }
 
     @FXML
     public void transfertClick(ActionEvent actionEvent)throws IOException {

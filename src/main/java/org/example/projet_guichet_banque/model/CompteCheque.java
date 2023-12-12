@@ -1,6 +1,6 @@
 package org.example.projet_guichet_banque.model;
 
-class CompteCheque extends Compte {
+public class CompteCheque extends Compte {
     //========== Attributs ===========
     private final double fraisPaiementFacture = 1.25;
     private final double montantFactureMaximum;
