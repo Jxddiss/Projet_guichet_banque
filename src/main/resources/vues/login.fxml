@@ -59,6 +59,14 @@
             <InnerShadow height="5.0" radius="2.0" width="5.0" />
          </effect>
       </TextField>
+      <PasswordField fx:id="nipTxtField" onAction="#connecterClick" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="45.0" top="95.0" />
+         </GridPane.margin>
+         <effect>
+            <InnerShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </PasswordField>
       <Label text="Nip" GridPane.rowIndex="1">
          <font>
             <Font name="Garamond Bold" size="18.0" />
@@ -147,13 +155,5 @@
             <Insets left="15.0" top="45.0" />
          </GridPane.margin>
       </ImageView>
-      <PasswordField fx:id="nipTxtField" prefHeight="35.0" prefWidth="190.0" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets left="45.0" top="95.0" />
-         </GridPane.margin>
-         <effect>
-            <InnerShadow height="5.0" radius="2.0" width="5.0" />
-         </effect>
-      </PasswordField>
    </children>
 </GridPane>
