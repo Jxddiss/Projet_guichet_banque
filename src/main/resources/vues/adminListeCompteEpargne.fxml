@@ -50,6 +50,9 @@
             <font>
                 <Font name="Garamond Bold" size="16.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
       <TabPane layoutX="33.0" layoutY="77.0" prefHeight="255.0" prefWidth="537.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
