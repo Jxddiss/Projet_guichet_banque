@@ -32,7 +32,7 @@
                 <Insets left="20.0" />
             </padding>
         </Label>
-      <HBox layoutY="155.0" prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="155.0">
+      <HBox layoutY="155.0" prefHeight="28.0" prefWidth="600.0" AnchorPane.topAnchor="125.0">
          <children>
             <Button fx:id="retraitBtn" mnemonicParsing="false" onAction="#retirerClick" style="-fx-background-radius: 25; -fx-border-style: solid; -fx-border-insets: -1; -fx-border-radius: 25;" text="Retrait" HBox.hgrow="ALWAYS">
                <font>
@@ -80,7 +80,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="transactionTable" layoutX="40.0" layoutY="189.8" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="189.8">
+      <TableView fx:id="transactionTable" layoutX="40.0" layoutY="189.8" prefHeight="150.0" prefWidth="520.0" stylesheets="@../helpers/light.css" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="159.8">
         <columns>
           <TableColumn fx:id="montantColonne" editable="false" prefWidth="161.5999755859375" resizable="false" sortable="false" text="Montant" />
           <TableColumn fx:id="destinationColonne" editable="false" prefWidth="188.79998779296875" resizable="false" sortable="false" text="Compte de provenance" />
@@ -113,7 +113,7 @@
             </Label>
          </graphic>
       </Label>
-      <Label contentDisplay="RIGHT" layoutX="75.0" layoutY="120.0" text="Transfert Maximum : ">
+      <Label contentDisplay="RIGHT" graphicTextGap="2.0" layoutX="40.0" layoutY="318.0" text="Transfert Maximum : ">
          <font>
             <Font name="Garamond Bold" size="18.0" />
          </font>
@@ -123,12 +123,12 @@
                   <Font name="Book Antiqua Bold" size="13.0" />
                </font>
                <padding>
-                  <Insets top="3.0" />
+                  <Insets top="4.0" />
                </padding>
             </Label>
          </graphic>
       </Label>
-      <Label contentDisplay="RIGHT" layoutX="314.0" layoutY="122.0" text="Facture Maximum : ">
+      <Label contentDisplay="RIGHT" graphicTextGap="2.0" layoutX="40.0" layoutY="343.0" text="Facture Maximum : ">
          <font>
             <Font name="Garamond Bold" size="18.0" />
          </font>
@@ -138,7 +138,7 @@
                   <Font name="Book Antiqua Bold" size="13.0" />
                </font>
                <padding>
-                  <Insets top="3.0" />
+                  <Insets top="4.0" />
                </padding>
             </Label>
          </graphic>

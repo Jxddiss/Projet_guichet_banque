@@ -109,7 +109,7 @@
                                 <Font name="Bell MT Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="numCompteLbl" layoutX="67.0" layoutY="6.0" textFill="#5e5e5e">
+                        <Label fx:id="numCompteLbl" layoutX="107.0" layoutY="10.0" textFill="#5e5e5e">
                             <font>
                                 <Font name="Book Antiqua" size="13.0" />
                             </font>
@@ -167,7 +167,7 @@
                                 <Font name="Bell MT Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="numCompteLbl1" layoutX="90.0" layoutY="6.0" textFill="#5e5e5e">
+                        <Label fx:id="numCompteLbl1" layoutX="107.0" layoutY="10.0" textFill="#5e5e5e">
                             <font>
                                 <Font name="Book Antiqua" size="13.0" />
                             </font>
@@ -228,7 +228,7 @@
                                 <Font name="Bell MT Bold" size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="numCompteLbl2" layoutX="102.0" layoutY="6.0" textFill="#5e5e5e">
+                        <Label fx:id="numCompteLbl2" layoutX="107.0" layoutY="10.0" textFill="#5e5e5e">
                             <font>
                                 <Font name="Book Antiqua" size="13.0" />
                             </font>
