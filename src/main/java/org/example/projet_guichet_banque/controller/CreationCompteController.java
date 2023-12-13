@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Compte;
 import org.example.projet_guichet_banque.model.Demande;
@@ -30,6 +32,14 @@ public class CreationCompteController {
     private Pane hypothecairePaneBtn;
     @FXML
     private Pane margePaneBtn;
+    @FXML
+    private Rectangle caseCheque;
+    @FXML
+    private Rectangle caseEpargne;
+    @FXML
+    private Rectangle caseHypotheque;
+    @FXML
+    private Rectangle caseMargeCredit;
     private Scene scene;
     private Parent root;
     private boolean margePresente = false;
@@ -39,6 +49,19 @@ public class CreationCompteController {
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+
+        // Code pour avoir un effet de Hover sur les 4 cases afficher.
+        chequePaneBtn.setOnMouseEntered(event -> {caseCheque.setStroke(Color.BLACK); caseCheque.setStrokeWidth(2);});
+        chequePaneBtn.setOnMouseExited(event -> {caseCheque.setStroke(Color.BLACK); caseCheque.setStrokeWidth(0);});
+
+        epargnePaneBtn.setOnMouseEntered(event -> {caseEpargne.setStroke(Color.BLACK); caseEpargne.setStrokeWidth(2);});
+        epargnePaneBtn.setOnMouseExited(event -> {caseEpargne.setStroke(Color.BLACK); caseEpargne.setStrokeWidth(0);});
+
+        hypothecairePaneBtn.setOnMouseEntered(event -> {caseHypotheque.setStroke(Color.BLACK); caseHypotheque.setStrokeWidth(2);});
+        hypothecairePaneBtn.setOnMouseExited(event -> {caseHypotheque.setStroke(Color.BLACK); caseHypotheque.setStrokeWidth(0);});
+
+        margePaneBtn.setOnMouseEntered(event -> {caseMargeCredit.setStroke(Color.BLACK); caseMargeCredit.setStrokeWidth(2);});
+        margePaneBtn.setOnMouseExited(event -> {caseMargeCredit.setStroke(Color.BLACK); caseMargeCredit.setStrokeWidth(0);});
     }
 
     @FXML
