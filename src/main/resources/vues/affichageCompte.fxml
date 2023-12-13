@@ -81,7 +81,7 @@
                         <Insets top="20.0" />
                     </HBox.margin>
                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                        <Rectangle fx:id="compte1" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-7.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                             <fill>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -139,7 +139,7 @@
                 </Pane>
                 <Pane fx:id="compte2PaneBtn" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirCompteClick" prefHeight="70.0" prefWidth="140.0">
                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                        <Rectangle fx:id="compte2" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                             <fill>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -200,7 +200,7 @@
                 </Pane>
                 <Pane fx:id="compte3PaneBtn" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirCompteClick" prefHeight="70.0" prefWidth="140.0">
                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-3.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                        <Rectangle fx:id="compte3" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-3.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                             <fill>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -261,7 +261,7 @@
                 </Pane>
                 <Pane fx:id="voirToutComptePaneBtn" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#toutCompteClick" prefHeight="70.0" prefWidth="78.0">
                     <children>
-                        <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="1.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="77.0">
+                        <Rectangle fx:id="compte4" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="1.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="77.0">
                             <fill>
                                 <LinearGradient endX="1.0" endY="1.0">
                                     <stops>
@@ -310,7 +310,7 @@
                 <Font name="Garamond Bold" size="18.0" />
             </font>
             <GridPane.margin>
-                <Insets bottom="40.0" left="60.0" />
+                <Insets bottom="26.0" left="60.0" />
             </GridPane.margin>
         </Label>
         <Pane fx:id="creerComptePaneButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#creerButtonClick" prefHeight="51.0" prefWidth="219.0" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
@@ -318,7 +318,7 @@
                 <Insets left="60.0" top="20.0" />
             </GridPane.margin>
             <children>
-                <Rectangle arcHeight="30.0" arcWidth="30.0" height="45.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="220.0">
+                <Rectangle fx:id="caseNvxCompte" arcHeight="30.0" arcWidth="30.0" height="45.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="220.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>

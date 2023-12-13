@@ -70,7 +70,7 @@
       </Label>
       <Pane fx:id="creerClientPaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#creerClient" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseCreerClient" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -108,7 +108,7 @@
       </Pane>
       <Pane fx:id="demandeComptePaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#ouvrirDemandes" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseDemandeCompte" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -146,7 +146,7 @@
       </Pane>
       <Pane fx:id="remplirGuichetPaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#remplirGuichet" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseRemplirGuichet" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -184,7 +184,7 @@
       </Pane>
       <Pane fx:id="listeComptePaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#ouvrirComptes" prefHeight="70.0" prefWidth="140.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseListeCompte" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -222,7 +222,7 @@
       </Pane>
       <Pane fx:id="listeClientPaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#ouvrirClients" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseListeClient" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -260,7 +260,7 @@
       </Pane>
       <Pane fx:id="fermerGuichetPaneBtn" maxHeight="70.0" maxWidth="140.0" onMouseClicked="#fermerGuichet" prefHeight="70.0" prefWidth="140.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+            <Rectangle fx:id="caseFermerGuichet" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>

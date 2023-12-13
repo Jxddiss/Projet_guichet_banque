@@ -46,7 +46,7 @@
       </Label>
         <Pane fx:id="chequePaneBtn" layoutX="10.0" layoutY="10.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="170.0">
             <children>
-                <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                <Rectangle fx:id="caseCheque" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
@@ -81,7 +81,7 @@
         </Pane>
         <Pane fx:id="epargnePaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="170.0">
             <children>
-                <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                <Rectangle fx:id="caseEpargne" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
@@ -116,7 +116,7 @@
         </Pane>
         <Pane fx:id="hypothecairePaneBtn" layoutX="20.0" layoutY="20.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="255.0">
             <children>
-                <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                <Rectangle fx:id="caseHypotheque" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
@@ -151,7 +151,7 @@
         </Pane>
         <Pane fx:id="margePaneBtn" layoutX="30.0" layoutY="30.0" maxHeight="70.0" maxWidth="208.0" onMouseClicked="#ouvrirClick" prefHeight="70.0" prefWidth="140.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="255.0">
             <children>
-                <Rectangle arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
+                <Rectangle fx:id="caseMargeCredit" arcHeight="30.0" arcWidth="30.0" height="75.0" layoutX="-5.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0">
                     <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>

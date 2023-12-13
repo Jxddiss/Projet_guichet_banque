@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.Compte;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
@@ -50,6 +52,16 @@ public class AffichageCompteController {
     private Pane compte2PaneBtn;
     @FXML
     private Pane compte3PaneBtn;
+    @FXML
+    private Rectangle compte1;
+    @FXML
+    private Rectangle compte2;
+    @FXML
+    private Rectangle compte3;
+    @FXML
+    private Rectangle compte4;
+    @FXML
+    private Rectangle caseNvxCompte;
     private Scene scene;
     private Parent root;
     private String type = "";
@@ -102,6 +114,23 @@ public class AffichageCompteController {
         typeCompteLbl2.setText(type2);
         numCompteLbl2.setText(num2);
         soldeCompteLbl2.setText(solde2);
+
+        // Code pour avoir un effet de Hover sur les 5 options afficher.
+        compte1PaneBtn.setOnMouseEntered(event -> {compte1.setStroke(Color.BLACK); compte1.setStrokeWidth(2);});
+        compte1PaneBtn.setOnMouseExited(event -> {compte1.setStroke(Color.BLACK); compte1.setStrokeWidth(0);});
+
+        compte2PaneBtn.setOnMouseEntered(event -> {compte2.setStroke(Color.BLACK); compte2.setStrokeWidth(2);});
+        compte2PaneBtn.setOnMouseExited(event -> {compte2.setStroke(Color.BLACK); compte2.setStrokeWidth(0);});
+
+        compte3PaneBtn.setOnMouseEntered(event -> {compte3.setStroke(Color.BLACK); compte3.setStrokeWidth(2);});
+        compte3PaneBtn.setOnMouseExited(event -> {compte3.setStroke(Color.BLACK); compte3.setStrokeWidth(0);});
+
+        voirToutComptePaneBtn.setOnMouseEntered(event -> {compte4.setStroke(Color.BLACK); compte4.setStrokeWidth(2);});
+        voirToutComptePaneBtn.setOnMouseExited(event -> {compte4.setStroke(Color.BLACK); compte4.setStrokeWidth(0);});
+
+        creerComptePaneButton.setOnMouseEntered(event -> {caseNvxCompte.setStroke(Color.rgb(58,118,129)); caseNvxCompte.setStrokeWidth(2);});
+        creerComptePaneButton.setOnMouseExited(event -> {caseNvxCompte.setStroke(Color.rgb(58,118,129)); caseNvxCompte.setStrokeWidth(0);});
+
     }
 
     @FXML

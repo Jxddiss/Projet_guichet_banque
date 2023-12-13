@@ -33,6 +33,9 @@ public class AdminFermerGuichetController {
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
 
+        // Code pour avoir un effet de Hover sur le bouton de fermer
+        fermerBtn.setOnMouseEntered(event -> fermerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: black; -fx-border-color:  #BA110C; -fx-border-insets: -2; -fx-text-fill: white;"));
+        fermerBtn.setOnMouseExited(event -> fermerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: white; -fx-border-color:  #BA110C; -fx-border-insets: -2; -fx-text-fill: black;"));
     }
 
     @FXML

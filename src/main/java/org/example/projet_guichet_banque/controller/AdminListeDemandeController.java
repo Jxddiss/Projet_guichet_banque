@@ -32,6 +32,8 @@ public class AdminListeDemandeController {
     private TableColumn<Demande,String> typeCompteColonne;
     @FXML
     private TableColumn<Demande,String> statutColonne;
+    @FXML
+    private Button approuverBtn;
     private ObservableList<Demande> demandes;
     private Scene scene;
     private Parent root;
@@ -41,6 +43,10 @@ public class AdminListeDemandeController {
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+
+        // Code pour avoir un effet de Hover sur le bouton d'approuver.
+        approuverBtn.setOnMouseEntered(event -> approuverBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color: #448fbb; -fx-transition-duration: 0.9s;"));
+        approuverBtn.setOnMouseExited(event -> approuverBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color:  #b1d1e3; -fx-transition-duration: 0.9s;"));
 
         demandes = FXCollections.observableArrayList(LoginController.gestionnaireGuichet.getDemandesComptes());
         numDemandeColonne.setCellValueFactory(cellData -> {

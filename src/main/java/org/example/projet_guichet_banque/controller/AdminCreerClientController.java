@@ -42,11 +42,19 @@ public class AdminCreerClientController {
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
 
+        // Code pour avoir un effet de Hover sur le bouton confirmer.
         confirmerBtn.setOnMouseEntered(event -> confirmerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color: #448fbb; -fx-transition-duration: 0.9s;"));
         confirmerBtn.setOnMouseExited(event -> confirmerBtn.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-background-color:  #b1d1e3; -fx-transition-duration: 0.9s;"));
 
     }
 
+    /**
+     * Méthode qui vérifie que les
+     * les champs de création de client
+     * ne sont pas vides
+     * et ensuite créer un client.
+     *
+     */
     @FXML
     public void confirmerClick(ActionEvent actionEvent){
         if(!prenomTxtField.getText().isEmpty() && !nomTxtField.getText().isEmpty() && !telephoneTxtField.getText().isEmpty() && !courielTxtField.getText().isEmpty() && !nipTxtField.getText().isEmpty()){
@@ -77,9 +85,6 @@ public class AdminCreerClientController {
             alert.setContentText("Aucun champ ne doit être laissé vide!");
             alert.show();
         }
-
-
-
     }
 
     @FXML

@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.example.projet_guichet_banque.model.GestionnaireGuichetDAO;
 
@@ -34,6 +36,18 @@ public class AffichageAdminController {
     private Pane listeClientPaneBtn;
     @FXML
     private Pane fermerGuichetPaneBtn;
+    @FXML
+    private Rectangle caseCreerClient;
+    @FXML
+    private Rectangle caseDemandeCompte;
+    @FXML
+    private Rectangle caseRemplirGuichet;
+    @FXML
+    private Rectangle caseListeCompte;
+    @FXML
+    private Rectangle caseListeClient;
+    @FXML
+    private Rectangle caseFermerGuichet;
     private Scene scene;
     private Parent root;
 
@@ -42,6 +56,25 @@ public class AffichageAdminController {
         String prenom = LoginController.gestionnaireGuichet.getClient().getPrenom();
         prenom = prenom.substring(0, 1).toUpperCase() + prenom.substring(1);
         prenomUtilisateurLbl.setText("Bonjour, " + prenom);
+
+        // Code pour avoir un effet de Hover sur les 6 options afficher.
+        creerClientPaneBtn.setOnMouseEntered(event -> {caseCreerClient.setStroke(Color.BLACK); caseCreerClient.setStrokeWidth(2);});
+        creerClientPaneBtn.setOnMouseExited(event -> {caseCreerClient.setStroke(Color.BLACK); caseCreerClient.setStrokeWidth(0);});
+
+        demandeComptePaneBtn.setOnMouseEntered(event -> {caseDemandeCompte.setStroke(Color.BLACK); caseDemandeCompte.setStrokeWidth(2);});
+        demandeComptePaneBtn.setOnMouseExited(event -> {caseDemandeCompte.setStroke(Color.BLACK); caseDemandeCompte.setStrokeWidth(0);});
+
+        remplirGuichetPaneBtn.setOnMouseEntered(event -> {caseRemplirGuichet.setStroke(Color.BLACK); caseRemplirGuichet.setStrokeWidth(2);});
+        remplirGuichetPaneBtn.setOnMouseExited(event -> {caseRemplirGuichet.setStroke(Color.BLACK); caseRemplirGuichet.setStrokeWidth(0);});
+
+        listeComptePaneBtn.setOnMouseEntered(event -> {caseListeCompte.setStroke(Color.BLACK); caseListeCompte.setStrokeWidth(2);});
+        listeComptePaneBtn.setOnMouseExited(event -> {caseListeCompte.setStroke(Color.BLACK); caseListeCompte.setStrokeWidth(0);});
+
+        listeClientPaneBtn.setOnMouseEntered(event -> {caseListeClient.setStroke(Color.BLACK); caseListeClient.setStrokeWidth(2);});
+        listeClientPaneBtn.setOnMouseExited(event -> {caseListeClient.setStroke(Color.BLACK); caseListeClient.setStrokeWidth(0);});
+
+        fermerGuichetPaneBtn.setOnMouseEntered(event -> {caseFermerGuichet.setStroke(Color.BLACK); caseFermerGuichet.setStrokeWidth(2);});
+        fermerGuichetPaneBtn.setOnMouseExited(event -> {caseFermerGuichet.setStroke(Color.BLACK); caseFermerGuichet.setStrokeWidth(0);});
     }
 
     @FXML
