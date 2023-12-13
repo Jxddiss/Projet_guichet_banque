@@ -43,6 +43,9 @@ public class AdminListeCompteHypothequeController extends AdminListeCompteParent
         try{
             double montant = Double.parseDouble(montantTxtField.getText());
             double solde = LoginController.gestionnaireGuichet.preleverMontant(tabCompte.getSelectionModel().getSelectedItem().getNumeroCompte(),montant);
+            tabCompte.refresh();
+            updateTransactions("hypotheque");
+            transactionTable.refresh();
             if (solde == -2){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Prélèvement Impossible");
